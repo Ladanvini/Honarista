@@ -41,6 +41,20 @@ public class Shop {
 		return _id;
 	}
 	//SETTERS
-	
+	public void setName(String shopname){
+		_shopName = shopname;
+	}
+	public void setAddress(String address){
+		_address = address;
+	}
+	public void setPhoneNum(String phoneNum){
+		_phoneNum = phoneNum;
+	}
+	public void setDesc(String description){
+		_description = description;
+	}
+	public void setID(int id){
+		_id = id;
+	}
 
 }
