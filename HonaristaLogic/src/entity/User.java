@@ -29,12 +29,14 @@ public class User {
 		_role = role;
 		
 	}
+	
 	//GETTERS
 	public int getId() { return _id; }
 	public String getUserName() { return _username; }
 	public String getUserAddress() { return _address; }
 	public String getUserPhone() { return _phoneNum; }
 	public Role getUserRole() { return _role; }
+	
 	//SETTERS
 	public void setId(int id) { _id = id; }
 	public void setUserName(String username) { _username = username; }

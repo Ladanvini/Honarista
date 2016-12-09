@@ -15,12 +15,14 @@ public class Liked {
 		_user = user;
 	}
 	//GETTERS
+	
 	public Item getItem() {
 		return _item;
 	}
 	public User getUser(){
 		return _user;
 	}
+	
 	//SETTERS
 	public void setItem(Item i){
 		_item = i;
