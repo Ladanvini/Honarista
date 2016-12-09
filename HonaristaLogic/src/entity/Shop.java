@@ -24,6 +24,7 @@ public class Shop {
 		_description = d;
 
 	}
+	
 	//GETTERS
 	public String getName(){
 		return _shopName;
@@ -40,6 +41,7 @@ public class Shop {
 	public int getID(){
 		return _id;
 	}
+	
 	//SETTERS
 	public void setName(String shopname){
 		_shopName = shopname;
