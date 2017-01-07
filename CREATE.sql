@@ -1,16 +1,7 @@
-﻿DROP TABLE Owns;
-DROP TABLE Liked;
-DROP TABLE Bought;
-DROP TABLE ShoppedAt;
-DROP TABLE IsSelling;
-DROP TABLE Tags;
-DROP TABLE Items;
-DROP TABLE Shops;
-DROP TABLE Users;
-
+﻿
 CREATE TABLE Users(
 	username VARCHAR(255),
-	id INT,
+	id SERIAL,
 	adr VARCHAR(255),
 	phoneNum VARCHAR(255),
 	userRole INT,
@@ -19,6 +10,7 @@ CREATE TABLE Users(
 --  2 = Vendor,
 --  3 = Registered Customer
 --  4 = Customer
+	UNIQUE(username),
 	PRIMARY KEY (id)
 );
 
@@ -26,7 +18,7 @@ CREATE TABLE Users(
 
 CREATE TABLE Shops(
 	shopname VARCHAR(255),
-	id INT,
+	id SERIAL,
 	adr VARCHAR(255),
 	phoneNum VARCHAR(255),
 	description VARCHAR(1023),
@@ -37,7 +29,7 @@ CREATE TABLE Shops(
 
 CREATE TABLE Items(
 	title VARCHAR(255),
-	id INT,
+	id SERIAL,
 	description VARCHAR(1023),
 	PRIMARY KEY (id)
 );
@@ -86,4 +78,36 @@ CREATE TABLE Owns(
 	FOREIGN KEY (shopId) REFERENCES Shops (id),
 	FOREIGN KEY (vendorId) REFERENCES Users (id)
  
+);
+
+CREATE TABLE UsersTrash(
+	tusername VARCHAR(255),
+	tid INT,
+	tadr VARCHAR(255),
+	tphoneNum VARCHAR(255),
+	tuserRole INT
+--  0 = Admin,
+--  1 = ContentManager,
+--  2 = Vendor,
+--  3 = Registered Customer
+--  4 = Customer
+);
+
+
+
+CREATE TABLE ShopsTrash(
+	tshopname VARCHAR(255),
+	tid INT,
+	tadr VARCHAR(255),
+	tphoneNum VARCHAR(255),
+	tdescription VARCHAR(1023)
+
+);
+
+
+
+CREATE TABLE ItemsTrash(
+	ttitle VARCHAR(255),
+	tid INT,
+	tdescription VARCHAR(1023)
 );

@@ -1,5 +1,8 @@
 package entity;
-
+/*
+ * ADD A SHOP TAG
+ * registered tags (?)
+ */
 public class Tags {
 	//ATTRIBUTES
 	private String _category;
@@ -8,19 +11,25 @@ public class Tags {
 	//CONSTRUCTORS
 	public Tags(){
 		_category = "";
-		_item = null;
+		_item = new Item();
 	}
-	public Tags(String category, Item item){
+	public Tags(Item item, String category){
+		_item = item;
 		_category = category;
-		_item =  item;
 	}
-	
 	//GETTERS
-	public String category(){ return _category; }
-	public Item getItem(){ return _item; }
+	public String getCategory(){
+		return _category;
+	}
+	public Item getItem(){
+		return _item;
+	}
 	
 	//SETTERS
-	public setCategory(String category){ _category = category; }
-	public setItem(Item item){ _item = item; }
-
+	public void setCategory(String c){
+		_category = c;
+	}
+	public void setItem(Item i){
+		_item = i;
+	}
 }

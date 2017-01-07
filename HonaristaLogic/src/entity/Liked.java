@@ -14,15 +14,17 @@ public class Liked {
 		_item = item;
 		_user = user;
 	}
+	public Liked(int uId, int iId){
+		_item.setID(iId);
+		_user.setId(uId);
+	}
 	//GETTERS
-	
 	public Item getItem() {
 		return _item;
 	}
 	public User getUser(){
 		return _user;
 	}
-	
 	//SETTERS
 	public void setItem(Item i){
 		_item = i;

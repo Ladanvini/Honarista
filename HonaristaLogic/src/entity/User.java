@@ -1,9 +1,5 @@
 package entity;
 
-import java.sql.*;
-
-import Connection.PostgreSQLJDBC;
-
 public class User {
 	//ATTRIBUTES
 	private int _id;
@@ -11,6 +7,10 @@ public class User {
 	private String _address;
 	private String _phoneNum;
 	private Role _role;
+	/*
+	 * TODO
+	 * Reg date
+	 */
 
 	//CONSTRUCTORS
 	public User(){
@@ -21,22 +21,20 @@ public class User {
 		_role = Role.UN_REG_CUSTOMER;
 		
 	}
-	public User(int id, String username, Role role){
+	public User(int id, String username, String phoneNum, String address, Role role){
 		_id = id;
 		_username = username;
-		_phoneNum = "";
-		_address = "Iran, ";
+		_phoneNum = phoneNum;
+		_address = "Iran, " + address;
 		_role = role;
 		
 	}
-	
 	//GETTERS
 	public int getId() { return _id; }
 	public String getUserName() { return _username; }
 	public String getUserAddress() { return _address; }
 	public String getUserPhone() { return _phoneNum; }
 	public Role getUserRole() { return _role; }
-	
 	//SETTERS
 	public void setId(int id) { _id = id; }
 	public void setUserName(String username) { _username = username; }

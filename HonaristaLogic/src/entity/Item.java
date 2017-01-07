@@ -5,7 +5,6 @@ public class Item {
 	private String _title;
 	private int _itemId;
 	private String _description;
-	
 	//CONSTRUCTORS
 	public Item(){
 		_title = "";
@@ -23,7 +22,6 @@ public class Item {
 	public String getDescription(){
 		return _description;
 	}
-	
 	//SETTERS
 	public void setTitle(String title){
 		_title = title;

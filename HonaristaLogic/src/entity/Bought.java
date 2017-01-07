@@ -5,7 +5,6 @@ public class Bought {
 	private String _review;
 	private Item _item;
 	private User _user;
-	
 	//CONSTRUCTORS
 	public Bought() {
 		_review = "";
@@ -17,7 +16,11 @@ public class Bought {
 		_user = user;
 		_review = review;
 	}
-	
+	public Bought(int itemId, int userId, String review){
+		_item.setID(itemId);
+		_user.setId(userId);
+		_review = review;
+	}
 	//GETTERS
 	public String getReview() { return _review; }
 	public Item getItem() { return _item; }
