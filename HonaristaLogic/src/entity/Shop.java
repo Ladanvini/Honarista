@@ -1,6 +1,6 @@
 package entity;
 
-//import java.util.Date;
+import java.util.Date;
 /*TODO
  * how to set date as current date?
  */
@@ -11,7 +11,7 @@ public class Shop {
 	private String _address;
 	private String _phoneNum;
 	private String _description;
-	//private Date _regDate;
+	private Date _regDate;
 	//CONSTRUCTORS
 	public Shop(){
 		_shopName = "";
@@ -19,15 +19,16 @@ public class Shop {
 		_address = "";
 		_phoneNum = "";
 		_description = "";
+		_regDate = new Date();
 
 	}
-	public Shop(String sn, int id, String adr, String ph, String d){
+	public Shop(String sn, int id, String adr, String ph, String d, Date regdate){
 		_shopName = sn;
 		_id = id;
 		_address = adr;
 		_phoneNum = ph;
 		_description = d;
-
+		_regDate = regdate;
 	}
 	//GETTERS
 	public String getName(){

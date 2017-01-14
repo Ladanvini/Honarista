@@ -11,7 +11,11 @@ public class Item {
 		_itemId = 0;
 		_description = "";
 	}
-	
+	public Item(int id, String title, String desc){
+		_itemId = id;
+		_title = title;
+		_description = desc;
+	}
 	//GETTERS
 	public String getTitle(){
 		return _title;

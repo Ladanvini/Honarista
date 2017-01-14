@@ -2,9 +2,11 @@
 CREATE TABLE Users(
 	username VARCHAR(255),
 	id SERIAL,
+	fullname VARCHAR(255),
 	adr VARCHAR(255),
 	phoneNum VARCHAR(255),
 	userRole INT,
+	regDate DATE,
 --  0 = Admin,
 --  1 = ContentManager,
 --  2 = Vendor,
@@ -22,6 +24,8 @@ CREATE TABLE Shops(
 	adr VARCHAR(255),
 	phoneNum VARCHAR(255),
 	description VARCHAR(1023),
+	regDate DATE,
+	UNIQUE(shopname),
 	PRIMARY KEY (id)	
 );
 
@@ -42,10 +46,19 @@ CREATE TABLE Tags(
 	FOREIGN KEY (itemId) REFERENCES Items (id) 
 );
 
+CREATE TABLE ShopTags(
+	categories VARCHAR(255),
+	shopId INT,
+	FOREIGN KEY (shopId) REFERENCES Shops (id)
+);
+
 CREATE TABLE isSelling(
 	count INT,
 	shopId INT,
 	itemId INT,
+	isOnSale BOOLEAN,
+	startSale DATE,
+	endSale DATE,
 	FOREIGN KEY (shopId) REFERENCES Shops (id),
 	FOREIGN KEY (itemId) REFERENCES Items (id)
 );
@@ -59,6 +72,7 @@ CREATE TABLE ShoppedAt(
 
 CREATE TABLE Bought(
 	review VARCHAR(1023),
+	rate INT,
 	itemId INT,
 	userId INT,
 	FOREIGN KEY (itemId) REFERENCES Items (id),

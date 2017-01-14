@@ -2,9 +2,12 @@ package Connection;
 
 import java.sql.*;
 import java.util.*;
+import java.util.Date;
 
-import entity.Role;
-import entity.User;
+import Service.UserService;
+
+import entity.*;
+
 
 public class PostgreSQLJDBC {
 	Connection con;
@@ -22,145 +25,6 @@ public class PostgreSQLJDBC {
       }
       System.out.println("Opened database successfully");
       return con;
-   }
-  /*
-   * USER ACTIONS
-   */
-   public User getUserWithId(int id){
-	   Statement stmnt = null;
-	   User res = new User();
-	   String query = "SELECT * FROM Users " +
-	   		"WHERE id = " + id + " ;";
-	   
-	   try{
-		   stmnt = con.createStatement();
-		   ResultSet rs = stmnt.executeQuery(query);
-		   while(rs.next()){
-			   String username = rs.getString("username");
-
-			   String adr = rs.getString("adr");
-			   String phoneNum = rs.getString("phonenum");
-			   int roleInt = rs.getInt("userrole");
-			   // User(int id, String username, String phoneNum, String address, Role role){
-			   Role role = Role.UN_REG_CUSTOMER;
-			   switch(roleInt){
-			   case 0: role = Role.ADMIN;
-			   case 1: role = Role.CONTENT_MANAGER;
-			   case 2: role = Role.REG_CUSTOMER;
-			   case 3: role = Role.UN_REG_CUSTOMER;
-			   case 4: role = Role.VENDOR;
-			   }
-			   res = (new User(id, username, phoneNum, adr, role));
-		   }
-	   }catch(SQLException e){
-		   System.err.println(e.getMessage());
-		   System.err.println(e.getStackTrace());
-	   } finally {
-		   if(stmnt != null)
-			try {
-				stmnt.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	   }
-
-	   return res;
-   }
-   public Vector<User> getAllUsers(){
-	   Vector<User> res = new Vector<User>();
-	   Statement stmnt = null;
-	   String query = "SELECT * FROM Users;";
-	   
-	   try{
-		   stmnt = con.createStatement();
-		   ResultSet rs = stmnt.executeQuery(query);
-		   while(rs.next()){
-			   String username = rs.getString("username");
-			   int id = rs.getInt("id");
-			   String adr = rs.getString("adr");
-			   String phoneNum = rs.getString("phonenum");
-			   int roleInt = rs.getInt("userrole");
-			   // User(int id, String username, String phoneNum, String address, Role role){
-			   Role role = Role.UN_REG_CUSTOMER;
-			   switch(roleInt){
-			   case 0: role = Role.ADMIN;
-			   case 1: role = Role.CONTENT_MANAGER;
-			   case 2: role = Role.REG_CUSTOMER;
-			   case 3: role = Role.UN_REG_CUSTOMER;
-			   case 4: role = Role.VENDOR;
-			   }
-			   res.add(new User(id, username, phoneNum, adr, role));
-		   }
-	   }catch(SQLException e){
-		   System.err.println(e.getMessage());
-		   System.err.println(e.getStackTrace());
-	   } finally {
-		   if(stmnt != null)
-			try {
-				stmnt.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	   }
-	   return res;
-   }
-   public String createNewUser(String userName, String adr, String phonenum, int role){
-	   Statement stmnt = null;
-	   String query = "INSERT INTO Users" +
-	   		"(username, adr, phoneNum, userrole)" +
-	   		" VALUES ('" + userName + "', '" + adr + "', '" + phonenum + "', " + role + ");";
-	   String msg = "0";
-
-		   try {
-			   stmnt = con.createStatement();
-			   stmnt.executeQuery(query);
-		   } catch (SQLException e) {
-			// TODO Auto-generated catch block
-			msg = e.getStackTrace().toString();
-		}
-	return msg;	   
-   }
-   public String deleteUser(int userId){
-	   Statement stmnt = null;
-	   String query;
-	   String msg = "";
-	   this.addUserToTrash(userId);
-	   query = "DELETE FROM Users" +
-	   		" WHERE id = " + userId + " ;";
-	   
-		   try {
-			   stmnt = con.createStatement();
-			   stmnt.executeQuery(query);
-		   } catch (SQLException e) {
-			// TODO Auto-generated catch block
-			msg = e.getStackTrace().toString();
-		}
-	return msg;	   
-
-   }
-   public String editUser(int id, String userName, String adr, String phonenum, int role){
-	   Statement stmnt = null;
-	   String query = " UPDATE Users " +
-			   " SET username = '" + userName + "'," + 
-			   " adr = '"+ adr + "'," +
-			   " phonenum = '" + phonenum + "'," +
-			   " userrole = " + role +
-			   " WHERE id = " + id + " ; ";
-
-	   String msg = "0";
-
-		   try {
-			   stmnt = con.createStatement();
-			   stmnt.executeQuery(query);
-		   } catch (SQLException e) {
-			// TODO Auto-generated catch block
-			msg = e.getStackTrace().toString();
-			e.printStackTrace();
-		}
-	return msg;	   
-
    }
 /*
  * USER TRASH ACTIONS
@@ -188,7 +52,7 @@ public class PostgreSQLJDBC {
 			   case 3: role = Role.UN_REG_CUSTOMER;
 			   case 4: role = Role.VENDOR;
 			   }
-			   res.add(new User(id, username, phoneNum, adr, role));
+			   res.add(new User(id, username, "", phoneNum, adr, new Date(), role));
 		   }
 	   }catch(SQLException e){
 		   System.err.println(e.getMessage());
@@ -208,7 +72,8 @@ public class PostgreSQLJDBC {
 	   Statement stmnt = null;
 	   String query;
 	   String msg = "";
-	   User u = this.getUserWithId(userId);
+	   //FIX ..
+	   User u = new User();
 	   if(u != null)
 	   {
 		   query = "INSERT INTO UsersTrash" +
@@ -251,7 +116,7 @@ public class PostgreSQLJDBC {
 			   case 3: role = Role.UN_REG_CUSTOMER;
 			   case 4: role = Role.VENDOR;
 			   }
-			   res = (new User(id, username, phoneNum, adr, role));
+			   res = (new User(id, username, "", phoneNum, adr, new Date(), role));
 		   }
 	   }catch(SQLException e){
 		   System.err.println(e.getMessage());
@@ -287,11 +152,271 @@ public class PostgreSQLJDBC {
 	return msg;	   
    
    }
-   //TODO
-   public void emptyTrash(){}
+   public void emptyTrash(){
+	   //DELETE FROM UsersTrash;
+	   Statement stmnt = null;
+	   String query;
+	   String msg = "";
+	    query = "DELETE FROM UsersTrash;";
+	   
+		   try {
+			   stmnt = con.createStatement();
+			   stmnt.executeQuery(query);
+		   } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			msg = e.getStackTrace().toString();
+		}   
+   }
    
    /*
     * SHOP ACTIONS 
     */
+   public Shop getShopWithId(int id){
+	   Statement stmnt = null;
+	   Shop res = new Shop();
+	   String query = "SELECT * FROM Shops " +
+	   		"WHERE id = " + id + " ;";
+	   
+	   try{
+		   stmnt = con.createStatement();
+		   ResultSet rs = stmnt.executeQuery(query);
+		   while(rs.next()){
+			   String shopname = rs.getString("shopname");
+
+			   String adr = rs.getString("adr");
+			   String phoneNum = rs.getString("phonenum");
+			   String description = rs.getString("description");
+			   Date regDate = rs.getDate("regdate");
+		   // Shop(String sn, int id, String adr, String ph, String d, Date regdate
+			   res = (new Shop(shopname, id, adr, phoneNum, description, regDate));
+		   }
+	   }catch(SQLException e){
+		   System.err.println(e.getMessage());
+		   System.err.println(e.getStackTrace());
+	   } finally {
+		   if(stmnt != null)
+			try {
+				stmnt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	   }
+
+	   return res;
+
+   }
+   public Vector<Shop> getAllShops(){
+	   Vector<Shop> res = new Vector<Shop>();
+	   Statement stmnt = null;
+	   String query = "SELECT * FROM Shops;";
+	   
+	   try{
+		   stmnt = con.createStatement();
+		   ResultSet rs = stmnt.executeQuery(query);
+		   while(rs.next()){
+			   String shopname = rs.getString("shopname");
+			   int id = rs.getInt("id");
+			   String adr = rs.getString("adr");
+			   String phoneNum = rs.getString("phonenum");
+			   Date regdate = rs.getDate("regdate");
+			   String description = rs.getString("description");
+			   // Shop(String sn, int id, String adr, String ph, String d, Date regdate
+			   res.add(new Shop(shopname, id, adr, phoneNum, description, regdate));
+		   }
+	   }catch(SQLException e){
+		   System.err.println(e.getMessage());
+		   System.err.println(e.getStackTrace());
+	   } finally {
+		   if(stmnt != null)
+			try {
+				stmnt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	   }
+	   return res;
+   }
+   public String createNewShop(String shopName, String adr, String phonenum, String desc, Date regdate){
+	   // Shop(String sn, int id, String adr, String ph, String d, Date regdate
+	   Statement stmnt = null;
+	   String query = "INSERT INTO Shops" +
+	   		"(shopname, adr, phoneNum, description)" +
+	   		" VALUES ('" + shopName + "', '" +  adr + "', " +
+	   		"'" + phonenum + "', '" + desc + "');";
+	   String msg = "0";
+
+		   try {
+			   stmnt = con.createStatement();
+			   stmnt.executeQuery(query);
+		   } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			msg = e.getStackTrace().toString();
+		}
+
+	return msg;	   
+   }
+   public String deleteShop(int userId){
+	   Statement stmnt = null;
+	   String query;
+	   String msg = "";
+	   this.addUserToTrash(userId);
+	   query = "DELETE FROM Shops" +
+	   		" WHERE id = " + userId + " ;";
+	   
+		   try {
+			   stmnt = con.createStatement();
+			   stmnt.executeQuery(query);
+		   } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			msg = e.getStackTrace().toString();
+		}
+	return msg;	   
+
+   }
+   public String editShop(int id, String shopName, String adr, String phonenum, String description){
+	   // Shop(String sn, int id, String adr, String ph, String d, Date regdate
+	   Statement stmnt = null;
+	   String query = " UPDATE Shops " +
+			   " SET shopname = '" + shopName + "'," + 
+			   " adr = '"+ adr + "'," +
+			   " phonenum = '" + phonenum + "'," +
+			   " description = '" + description + "'  " +
+			   " WHERE id = " + id + " ; ";
+
+	   String msg = "0";
+
+		   try {
+			   stmnt = con.createStatement();
+			   stmnt.executeQuery(query);
+		   } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			msg = e.getStackTrace().toString();
+			e.printStackTrace();
+		}
+	return msg;	   
+
+   }
+/*
+ * ITEM ACTIONS
+ */
+   public Item getItemWithId(int id){
+	   Statement stmnt = null;
+	   Item res = new Item();
+	   String query = "SELECT * FROM Items " +
+	   		"WHERE id = " + id + " ;";
+	   
+	   try{
+		   stmnt = con.createStatement();
+		   ResultSet rs = stmnt.executeQuery(query);
+		   while(rs.next()){
+			   String title = rs.getString("title");
+			   String description = rs.getString("description");
+			   //Item(int id, String title, String desc)
+			   res = (new Item(id, title, description));
+		   }
+	   }catch(SQLException e){
+		   System.err.println(e.getMessage());
+		   System.err.println(e.getStackTrace());
+	   } finally {
+		   if(stmnt != null)
+			try {
+				stmnt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	   }
+
+	   return res;
+
+   }
+   public Vector<Item> getAllItems(){
+	   Vector<Item> res = new Vector<Item>();
+	   Statement stmnt = null;
+	   String query = "SELECT * FROM Items;";
+	   
+	   try{
+		   stmnt = con.createStatement();
+		   ResultSet rs = stmnt.executeQuery(query);
+		   while(rs.next()){
+			   int id = rs.getInt("id");
+			   String title = rs.getString("title");
+			   String description = rs.getString("description");
+			   //Item(int id, String title, String desc)
+			   res.add(new Item(id, title, description));
+		   }
+	   }catch(SQLException e){
+		   System.err.println(e.getMessage());
+		   System.err.println(e.getStackTrace());
+	   } finally {
+		   if(stmnt != null)
+			try {
+				stmnt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	   }
+	   return res;
+   }
+   public String createNewItem(String title, String description){
+	   // Item(int id, String title, String desc)
+	   Statement stmnt = null;
+	   String query = "INSERT INTO Items" +
+	   		"(title, description)" +
+	   		" VALUES ('" + title + "', '" +  description + "');";
+	   String msg = "0";
+
+		   try {
+			   stmnt = con.createStatement();
+			   stmnt.executeQuery(query);
+		   } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			msg = e.getStackTrace().toString();
+		}
+
+	return msg;	   
+   }
+   public String deleteItem(int itemId){
+	   Statement stmnt = null;
+	   String query;
+	   String msg = "";
+	   this.addUserToTrash(itemId);
+	   query = "DELETE FROM Items" +
+	   		" WHERE id = " + itemId + " ;";
+	   
+		   try {
+			   stmnt = con.createStatement();
+			   stmnt.executeQuery(query);
+		   } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			msg = e.getStackTrace().toString();
+		}
+	return msg;	   
+
+   }
+   public String editItem(int id, String title, String description){
+	   // Item(int id, String title, String desc)
+	   Statement stmnt = null;
+	   String query = " UPDATE Items " +
+			   " SET title = '" + title + "'," + 
+			   " description = '" + description + "'  " +
+			   " WHERE id = " + id + " ; ";
+
+	   String msg = "0";
+
+		   try {
+			   stmnt = con.createStatement();
+			   stmnt.executeQuery(query);
+		   } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			msg = e.getStackTrace().toString();
+			e.printStackTrace();
+		}
+	return msg;	   
+
+   }
    
 }
