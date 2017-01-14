@@ -85,5 +85,12 @@ public class User {
 	public void setFavourites(Vector<Shop> favourites) { _favourites = favourites; }
 	public void setLikes(Vector<Item> likes) { _liked = likes; }
 	
+	public String toString(){
+		String res = "";
+		res = res + "Name: " + _username + '\n';
+		res = res + "Full Name: " + _fullname + '\n';
+
+		return res;
+	}
 	
 }
