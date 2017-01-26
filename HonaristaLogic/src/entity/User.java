@@ -12,10 +12,11 @@ public class User {
 	private Date _regdate;
 	private Role _role;
 	
-	private Vector<Shop> _owns;
-	private Vector<Shop> _shoppedAt;
-	private Vector<Shop> _favourites;
 	private Vector<Item> _liked;
+	private Vector<Shop> _owns;
+	Vector<ShoppedAt> _shops;
+	private Vector<Shop> _favourites;
+
 	
 	//CONSTRUCTORS
 	public User(){
@@ -28,7 +29,7 @@ public class User {
 		_role = Role.UN_REG_CUSTOMER;
 		
 		_owns = new Vector<Shop>();
-		_shoppedAt = new Vector<Shop>();
+		_shops = new Vector<ShoppedAt>();
 		_favourites = new Vector<Shop>();
 		_liked = new Vector<Item>();
 		
@@ -43,7 +44,7 @@ public class User {
 		_role = role;
 		
 		_owns = new Vector<Shop>();
-		_shoppedAt = new Vector<Shop>();
+		_shops = new Vector<ShoppedAt>();
 		_favourites = new Vector<Shop>();
 		_liked = new Vector<Item>();
 		
@@ -84,7 +85,7 @@ public class User {
 	public void setOwns(Vector<Shop> owns) { _owns = owns; }
 	public void setFavourites(Vector<Shop> favourites) { _favourites = favourites; }
 	public void setLikes(Vector<Item> likes) { _liked = likes; }
-	
+	public void setShops(Vector<ShoppedAt> shops) { _shops = shops; }
 	public String toString(){
 		String res = "";
 		res = res + "Name: " + _username + '\n';

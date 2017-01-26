@@ -66,6 +66,7 @@ CREATE TABLE ShoppedAt(
 	review VARCHAR(1023),
 	shopId INT,
 	userId INT,
+	rating INT,
 	FOREIGN KEY (shopId) REFERENCES Shops (id),
 	FOREIGN KEY (userId) REFERENCES Users (id)
 );
@@ -93,7 +94,13 @@ CREATE TABLE Owns(
 	FOREIGN KEY (vendorId) REFERENCES Users (id)
  
 );
-
+CREATE TABLE Favourites(
+	userId INT,
+	shopId INT,
+	FOREIGN KEY (shopId) REFERENCES Shops (id),
+	FOREIGN KEY (userId) REFERENCES Users (id)
+	
+);
 CREATE TABLE UsersTrash(
 	tusername VARCHAR(255),
 	tid INT,

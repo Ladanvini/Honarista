@@ -11,6 +11,7 @@ import entity.*;
 public class UserService {
 	private PostgreSQLJDBC _db;
 	private Connection con;
+	ShopService _ss;
 
 	public UserService(){
 		_db = new PostgreSQLJDBC();
@@ -207,5 +208,171 @@ public class UserService {
 		return msg;	   
 
 	}
+
+	public String setLikes(User u){
+		/*
+		SELECT * FROM Items I JOIN Liked L ON I.id = L.itemId WHERE L.userId = 2;
+		*/
+		String msg = "";
+		   Statement stmnt = null;
+		   Vector<Item> res = new Vector<Item>();
+		   String query = "SELECT * FROM Items I JOIN Liked L " +
+		   		"ON I.id = L.itemId WHERE L.userId = " + u.getId() +
+		   		";";
+		   
+		   try{
+			   stmnt = con.createStatement();
+			   ResultSet rs = stmnt.executeQuery(query);
+			   while(rs.next()){
+				   int id = rs.getInt("id");
+				   String title = rs.getString("title");
+				   String description = rs.getString("description");
+				   //Item(int id, String title, String desc)
+				   res.add(new Item(id, title, description));
+			   }
+		   }catch(SQLException e){
+			   msg = msg + (e.getMessage());
+			   msg = msg + (e.getStackTrace());
+		   } finally {
+			   if(stmnt != null)
+				try {
+					stmnt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					msg = msg + e.getStackTrace();
+				}
+		   }
+		   if(!res.isEmpty()){
+			   u.setLikes(res);
+		   }
+
+		   return msg;
+
+	   }
+	public String setOwns(User u){
+		String msg = "";
+		   Statement stmnt = null;
+		   Vector<Shop> res = new Vector<Shop>();
+		   String query = "SELECT * FROM Shops S JOIN Owns O " +
+		   		"ON S.id = O.shopId " +
+		   		"WHERE O.vendorid = " + u.getId() +
+		   		" ;";
+		   
+		   try{
+			   stmnt = con.createStatement();
+			   ResultSet rs = stmnt.executeQuery(query);
+			   while(rs.next()){
+				   int id = rs.getInt("id");
+				   String shopname = rs.getString("shopname");
+
+				   String adr = rs.getString("adr");
+				   String phoneNum = rs.getString("phonenum");
+				   String description = rs.getString("description");
+				   Date regDate = rs.getDate("regdate");
+			   // Shop(String sn, int id, String adr, String ph, String d, Date regdate
+				   res.add(new Shop(shopname, id, adr, phoneNum, description, regDate));
+			   }
+		   }catch(SQLException e){
+			   msg = msg + (e.getMessage());
+			   msg = msg + (e.getStackTrace());
+		   } finally {
+			   if(stmnt != null)
+				try {
+					stmnt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					msg = msg + e.getStackTrace();
+				}
+		   }
+		   u.setOwns(res);
+
+		
+		return msg;
+	}
+	public String setShops(User u){
+		String msg = "";
+		   Statement stmnt = null;
+		   Vector<ShoppedAt> res = new Vector<ShoppedAt>();
+		   String query = "SELECT * FROM ShoppedAt S " +
+		   		"WHERE S.userid = " + u.getId() +
+		   		";";
+		   
+		   try{
+			   stmnt = con.createStatement();
+			   ResultSet rs = stmnt.executeQuery(query);
+			   while(rs.next()){
+				   String review = rs.getString("review");
+				   int shopId = rs.getInt("shopid");
+				   int rate = rs.getInt("rating");
+				   // ShoppedAt(Shop shop, User user, String review, int rate){
+				   res.add(new ShoppedAt(_ss.getShopWithId(shopId), u, review, rate));
+			   }
+		   }catch(SQLException e){
+			   msg = msg + (e.getMessage());
+			   msg = msg + (e.getStackTrace());
+		   } finally {
+			   if(stmnt != null)
+				try {
+					stmnt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					msg = msg + e.getStackTrace();
+				}
+		   }
+
+		   u.setShops(res);
+		  
+		return msg;
+	}
+	public String setFavourites(User u){
+		String msg = "";
+		
+		   Statement stmnt = null;
+		   Vector<Shop> res = new Vector<Shop>();
+		   String query = "SELECT * FROM Shops S " +
+		   		"JOIN Favourites F " +
+		   		"ON S.id = F.shopId " +
+		   		"WHERE F.userid = " + u.getId() +
+		   		";";
+		   
+		   try{
+			   stmnt = con.createStatement();
+			   ResultSet rs = stmnt.executeQuery(query);
+			   while(rs.next()){
+				   String shopname = rs.getString("shopname");
+				   int id = rs.getInt("id");
+				   String adr = rs.getString("adr");
+				   String phoneNum = rs.getString("phonenum");
+				   String description = rs.getString("description");
+				   Date regDate = rs.getDate("regdate");
+			   // Shop(String sn, int id, String adr, String ph, String d, Date regdate
+				   res.add(new Shop(shopname, id, adr, phoneNum, description, regDate));
+			   }
+		   }catch(SQLException e){
+			   msg = msg + (e.getMessage());
+			   msg = msg + (e.getStackTrace());
+		   } finally {
+			   if(stmnt != null)
+				try {
+					stmnt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					msg = msg + e.getStackTrace();
+				}
+		   }
+		   u.setFavourites(res);
+		
+		return msg;
+	}
+
+/*
+ * Like an Item
+ * Favour a Shop
+ * Start a Shop
+ * Add another owner to a shop
+ * Shop at a shop
+ * 
+ *
+*/
 
 }

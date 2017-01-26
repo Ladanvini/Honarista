@@ -1,6 +1,6 @@
 package entity;
 
-import java.util.Date;
+import java.util.*;
 /*TODO
  * how to set date as current date?
  */
@@ -12,6 +12,13 @@ public class Shop {
 	private String _phoneNum;
 	private String _description;
 	private Date _regDate;
+	
+	private Vector<User> _favourites;
+	private Vector<User> _owners;
+	private Vector<ShoppedAt> _visited;
+	private Vector<ShopTag> _tags;
+	private Vector<Item> _items;
+	
 	//CONSTRUCTORS
 	public Shop(){
 		_shopName = "";
@@ -63,4 +70,17 @@ public class Shop {
 		_id = id;
 	}
 
+	public Vector<User> getFavourites() { return _favourites; }
+	public void setFavourites(Vector<User> favourites) { _favourites = favourites; }
+	public Vector<User> getOwners() { return _owners; }
+	public void setOwners(Vector<User> owners) { _owners = owners; }
+	public Vector<ShoppedAt> getVisited() { return _visited; }
+	public void setVisited(Vector<ShoppedAt> visited) { _visited = visited; }
+	public Vector<ShopTag> getTags() { return _tags; }
+	public void setTags(Vector<ShopTag> tags) { _tags  = tags; }
+	public Vector<Item> getItems() { return _items; }
+	public void setItems(Vector<Item> items) { _items = items; }
+	
 }
+	
+	
