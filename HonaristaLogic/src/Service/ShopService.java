@@ -145,9 +145,8 @@ public class ShopService {
 
 	   }
 /*
-	private Vector<ShoppedAt> _visited;
 	private Vector<ShopTag> _tags;
-	private Vector<Item> _items;
+
  */
 	   public String setFavourites(Shop s){
 			String msg = "";
@@ -285,4 +284,51 @@ public class ShopService {
 			return msg;
 
 	   }
+	   public String setItems(Shop s){
+			String msg = "";
+			   Statement stmnt = null;
+			   Vector<Item> res = new Vector<Item>();
+			   String query = "SELECT * FROM Items I JOIN ShopTags T " +
+			   		"ON I.id = T.itemId WHERE L.shopId = " + s.getID() +
+			   		";";
+			   
+			   try{
+				   stmnt = con.createStatement();
+				   ResultSet rs = stmnt.executeQuery(query);
+				   while(rs.next()){
+					   int id = rs.getInt("id");
+					   String title = rs.getString("title");
+					   String description = rs.getString("description");
+					   //Item(int id, String title, String desc)
+					   res.add(new Item(id, title, description));
+				   }
+			   }catch(SQLException e){
+				   msg = msg + (e.getMessage());
+				   msg = msg + (e.getStackTrace());
+			   } finally {
+				   if(stmnt != null)
+					try {
+						stmnt.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						msg = msg + e.getStackTrace();
+					}
+			   }
+			   if(!res.isEmpty()){
+				   s.setItems(res);
+			   }
+
+			   return msg;
+
+
+	   }
+	   
+	   /*
+	    * be favourited
+	    * add owners to shop
+	    * bee visited
+	    * be reviewed
+	    * be rated
+	    * add items to shop
+	    */
 }
