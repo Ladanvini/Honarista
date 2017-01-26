@@ -10,6 +10,7 @@ public class ShopService {
 	private PostgreSQLJDBC _db;
 	private Connection con;
 	private UserService _us;
+	private ItemService _is;
 	public ShopService(){
 		_db = new PostgreSQLJDBC();
 		con = _db.getConnection(null);
@@ -287,20 +288,20 @@ public class ShopService {
 	   public String setItems(Shop s){
 			String msg = "";
 			   Statement stmnt = null;
-			   Vector<Item> res = new Vector<Item>();
-			   String query = "SELECT * FROM Items I JOIN ShopTags T " +
-			   		"ON I.id = T.itemId WHERE L.shopId = " + s.getID() +
+			   Vector<IsSelling> res = new Vector<IsSelling>();
+			   String query = "SELECT * FROM IsSelling I " +
+			   		"WHERE I.shopId = " + s.getID() +
 			   		";";
 			   
 			   try{
 				   stmnt = con.createStatement();
 				   ResultSet rs = stmnt.executeQuery(query);
 				   while(rs.next()){
-					   int id = rs.getInt("id");
-					   String title = rs.getString("title");
-					   String description = rs.getString("description");
-					   //Item(int id, String title, String desc)
-					   res.add(new Item(id, title, description));
+					   int shopid = rs.getInt("shopid");
+					   int itemid = rs.getInt("itemid");
+					   int count = rs.getInt("count");
+					   //IsSelling(Shop shop, Item item, int count)
+					   res.add(new IsSelling(this.getShopWithId(shopid), _is.getItemWithId(itemid), count));
 				   }
 			   }catch(SQLException e){
 				   msg = msg + (e.getMessage());
@@ -322,9 +323,19 @@ public class ShopService {
 
 
 	   }
+
+	   public Vector<Item> getItemsIn(Shop s){
+		   setItems(s);
+		   Vector<IsSelling> temp = s.getItems();
+		   Vector<Item> res = new Vector<Item>();
+		   for(int i=0; i<temp.size(); i++){
+			   res.add(temp.elementAt(i).getItem());
+		   }
+		   return res;
+	   }
 	   
 	   /*
-	    * be favourited
+	    * be favoured
 	    * add owners to shop
 	    * bee visited
 	    * be reviewed

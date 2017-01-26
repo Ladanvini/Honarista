@@ -17,7 +17,7 @@ public class Shop {
 	private Vector<User> _owners;
 	private Vector<ShoppedAt> _visited;
 	private Vector<ShopTag> _tags;
-	private Vector<Item> _items;
+	private Vector<IsSelling> _items;
 	
 	//CONSTRUCTORS
 	public Shop(){
@@ -78,8 +78,8 @@ public class Shop {
 	public void setVisited(Vector<ShoppedAt> visited) { _visited = visited; }
 	public Vector<ShopTag> getTags() { return _tags; }
 	public void setTags(Vector<ShopTag> tags) { _tags  = tags; }
-	public Vector<Item> getItems() { return _items; }
-	public void setItems(Vector<Item> items) { _items = items; }
+	public Vector<IsSelling> getItems() { return _items; }
+	public void setItems(Vector<IsSelling> items) { _items = items; }
 	
 }
 	
