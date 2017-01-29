@@ -334,12 +334,123 @@ public class ShopService {
 		   return res;
 	   }
 	   
-	   /*
-	    * be favoured
-	    * add owners to shop
-	    * bee visited
-	    * be reviewed
-	    * be rated
-	    * add items to shop
-	    */
+	   public String beFavouredBy(Shop s, User u){
+		   String msg = "";
+		   s.addToFavourites(u);
+					
+		   Statement stmnt = null;
+		
+		   String query = "INSERT INTO Favourites(shopid, userid)" +
+		   		" VALUES (" + s.getID() +
+		   		", " + u.getId() +
+		   		");";
+			   
+		   try {
+			stmnt = con.createStatement();
+			stmnt.executeQuery(query);
+		   } catch (SQLException e) {
+			msg = msg + e.getLocalizedMessage();
+			msg = msg + "\n" + e.getStackTrace();
+		}
+		 			
+
+		   return msg;
+	   }
+	   
+	   public String addOwnerTo(Shop s, User u){
+		   s.addNewOwner(u);
+		   String msg = "";
+					
+		   Statement stmnt = null;
+		
+		   String query = "INSERT INTO Owns(shopid, vendorid)" +
+		   		" VALUES (" + s.getID() +
+		   		", " + u.getId() +
+		   		");";
+			   
+		   try {
+			stmnt = con.createStatement();
+			stmnt.executeQuery(query);
+		   } catch (SQLException e) {
+			msg = msg + e.getLocalizedMessage();
+			msg = msg + "\n" + e.getStackTrace();
+		}
+		   
+		   return msg;
+	   }
+
+	   public String isVisited(Shop s, User u, int rating, String review){
+		   ShoppedAt sa = new ShoppedAt(s, u, review, rating);
+		   Vector<ShoppedAt> sv = s.getVisited();
+		   sv.add(sa);
+		   s.setVisited(sv);
+
+		   String msg = "";
+					
+		   Statement stmnt = null;
+
+		   String query = "INSERT INTO ShoppedAt(shopid, userid, rating, review)" +
+		   		" VALUES (" + s.getID() +
+		   		", " + u.getId() +
+		   		", " + rating +
+		   		", '" + review +
+		   		"');";
+			   
+		   try {
+			stmnt = con.createStatement();
+			stmnt.executeQuery(query);
+		   } catch (SQLException e) {
+			msg = msg + e.getLocalizedMessage();
+			msg = msg + "\n" + e.getStackTrace();
+		}
+		   
+		   return msg;
+   
+		   
+	   }
+	   
+	   public String addItemTo(Shop s, Item item){
+		   String msg = "";
+		   Vector<IsSelling> selling = s.getItems();
+		   int count = 1;
+		   for(int i=0; i<selling.size(); i++){
+			   if(selling.elementAt(i).getItem().equals(item)){
+				   count = selling.elementAt(i).getCount() + 1;
+				   selling.elementAt(i).setCount(count);
+				   Statement stmnt = null;					
+				   String query = "UPDATE isSelling " +
+				   		"SET count = " + count + " " +
+				   				"WHERE itemid = " + item.getID() + ";";
+				   try {
+						stmnt = con.createStatement();
+						stmnt.executeQuery(query);
+					   } catch (SQLException e) {
+						msg = msg + e.getLocalizedMessage();
+						msg = msg + "\n" + e.getStackTrace();
+					}
+					   
+					   return msg;
+			   }
+		   }
+
+			
+		   Statement stmnt = null;
+		
+		   String query = "INSERT INTO isSelling(count, shopid, itemid)" +
+		   		" VALUES (" + count + ", " + s.getID() +
+		   		", " + item.getID() +
+		   		");";
+			   
+		   try {
+			stmnt = con.createStatement();
+			stmnt.executeQuery(query);
+		   } catch (SQLException e) {
+			msg = msg + e.getLocalizedMessage();
+			msg = msg + "\n" + e.getStackTrace();
+		}
+		   
+		   return msg;
+
+	   }
+	  
 }

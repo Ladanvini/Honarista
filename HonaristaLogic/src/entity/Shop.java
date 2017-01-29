@@ -80,7 +80,15 @@ public class Shop {
 	public void setTags(Vector<ShopTag> tags) { _tags  = tags; }
 	public Vector<IsSelling> getItems() { return _items; }
 	public void setItems(Vector<IsSelling> items) { _items = items; }
-	
+	public void addToFavourites(User u)
+	{
+		if(!_favourites.contains(u))
+			_favourites.add(u);
+	}
+	public void addNewOwner(User u){
+		if(!_owners.contains(u))
+			_owners.add(u);
+	}
 }
 	
 	
