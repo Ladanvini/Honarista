@@ -27,7 +27,12 @@ public class Shop {
 		_phoneNum = "";
 		_description = "";
 		_regDate = new Date();
-
+		
+		_favourites = new Vector<User>();
+		_owners = new Vector<User>();
+		_visited = new Vector<ShoppedAt>();
+		_tags = new Vector<ShopTag>();
+		_items = new Vector<IsSelling>();
 	}
 	public Shop(String sn, int id, String adr, String ph, String d, Date regdate){
 		_shopName = sn;
@@ -36,6 +41,12 @@ public class Shop {
 		_phoneNum = ph;
 		_description = d;
 		_regDate = regdate;
+		
+		_favourites = new Vector<User>();
+		_owners = new Vector<User>();
+		_visited = new Vector<ShoppedAt>();
+		_tags = new Vector<ShopTag>();
+		_items = new Vector<IsSelling>();
 	}
 	//GETTERS
 	public String getName(){
@@ -82,7 +93,7 @@ public class Shop {
 	public void setItems(Vector<IsSelling> items) { _items = items; }
 	public void addToFavourites(User u)
 	{
-		if(!_favourites.contains(u))
+		if(!this._favourites.contains(u))
 			_favourites.add(u);
 	}
 	public void addNewOwner(User u){

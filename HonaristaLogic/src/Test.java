@@ -55,7 +55,7 @@ public class Test {
 		return true;
 	}
 	public boolean testbeFavouredBy(){
-		System.out.println(_ss.beFavouredBy(_ss.getShopWithId(1), us.getUserFromId(0)));
+		System.out.println(_ss.beFavouredBy(_ss.getShopWithId(4), us.getUserFromId(0)));
 		return true;
 	}
 	public boolean testsetFavourites(){
