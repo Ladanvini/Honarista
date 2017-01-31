@@ -12,5 +12,7 @@ public class Main {
 		Connection con = db.getConnection(args);
 		Test test = new Test();
 		test.testgetAllShops();
+		test.testdeleteShop();
+		test.testgetAllShops();
 	}
 }

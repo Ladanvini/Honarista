@@ -47,6 +47,7 @@ public class Test {
 	}
 	
 	public boolean testdeleteShop(){
+		System.out.println(_ss.deleteShop(2));
 		return true;
 	}
 	public boolean testeditShop(){
