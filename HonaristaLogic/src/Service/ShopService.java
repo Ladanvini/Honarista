@@ -195,7 +195,6 @@ public class ShopService {
 					}
 			   }
 			   s.setFavourites(res);
-			
 			return msg;
 
 	   }

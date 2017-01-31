@@ -11,8 +11,6 @@ public class Main {
 		PostgreSQLJDBC db = new PostgreSQLJDBC();
 		Connection con = db.getConnection(args);
 		Test test = new Test();
-		test.testgetAllShops();
-		test.testdeleteShop();
-		test.testgetAllShops();
+		test.testsetFavourites();
 	}
 }

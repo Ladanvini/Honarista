@@ -51,11 +51,32 @@ public class Test {
 		return true;
 	}
 	public boolean testeditShop(){
+		System.out.println(_ss.editShop(4, "banana", "Iceland,  rvk 101", "", ""));
+		return true;
+	}
+	public boolean testbeFavouredBy(){
+		System.out.println(_ss.beFavouredBy(_ss.getShopWithId(1), us.getUserFromId(0)));
 		return true;
 	}
 	public boolean testsetFavourites(){
+		Shop s = _ss.getShopWithId(1);
+		_ss.setFavourites(s);
+		Vector<User> users = s.getFavourites();		
+		for(int i=0; i<users.size(); i++)
+			System.out.println(users.elementAt(i).toString());
 		return true;
 	}
+
+	public boolean testaddOwnerTo(){
+		return true;
+	}
+	public boolean testisVisited(){
+		return true;
+	}
+	public boolean testaddItemTo(){
+		return true;
+	} 
+
 	public boolean testsetOwners(){
 		return true;
 	}
@@ -68,18 +89,6 @@ public class Test {
 	public boolean testgetItemsIn(){
 		return true;
 	}
-	public boolean testbeFavouredBy(){
-		return true;
-	}
-	public boolean testaddOwnerTo(){
-		return true;
-	}
-	public boolean testisVisited(){
-		return true;
-	}
-	public boolean testaddItemTo(){
-		return true;
-	} 
 
 	
 	/*
