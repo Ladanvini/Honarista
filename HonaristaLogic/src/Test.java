@@ -13,7 +13,7 @@ public class Test {
 		us = new UserService();
 		_ss = new ShopService();
 	}
-	
+
 	public boolean testGetUserFromId(){
 		User u = us.getUserFromId(7);
 		System.out.println(u.toString());
@@ -25,16 +25,28 @@ public class Test {
 		}
 		return true;
 	}
-	public boolean testgetShopWithId(){
+	public boolean testgetShopWithId(int x){
 	//getShopWithId(int) : Shop
-		System.out.println(_ss.getShopWithId(1).toString());
-		
+		System.out.println(_ss.getShopWithId(x).toString());
+
 		return true;
 	}
 	public boolean testcreateNewShop (){
-		System.out.println(_ss.createNewShop("Banana", "101 Rvk", "1234567", "This shop is delicious and yellow. They are banana!"
- + "It was made specifically for the purpose of testing this system", null));
+		System.out.println(_ss.createNewShop("Banana", "101 Rvk", "1234567", "This shop is "
+				+ "delicious and yellow. They are banana!"
+				+ "I was made specifically for the purpose of testing this system", null));
+		System.out.println(_ss.createNewShop(null, null, null, null, null));//Creating Null shop
+		System.out.println(_ss.createNewShop("Apple", "101 Rvk", "1234567", "This shop tastes funny"
+				, null));
+		System.out.println(_ss.createNewShop("Paintings", "303 Island", "Nine", "Selling paintings"
+				+" I need to test more things out!", null));
+		System.out.println(_ss.createNewShop("Fishy", "The sea", "Blub", "All things related to "+
+				"FISH", null));
 		return true;
+
+		//Keeps incrementing the ID(think it tried to create them all, didnt create those that
+		//already existed but kept incimenting the ID
+		//cant dublicate shop named Null
 	}
 
 	public boolean testgetAllShops(){
@@ -42,16 +54,22 @@ public class Test {
 		Vector<Shop> shops = _ss.getAllShops();
 		for(int i=0; i<shops.size(); i++)
 			System.out.println(shops.elementAt(i).toString());
-				
 		return true;
 	}
-	
-	public boolean testdeleteShop(){
-		System.out.println(_ss.deleteShop(2));
+
+	public boolean testdeleteShop(int x){
+		System.out.println(_ss.deleteShop(x));
+		//Should it update the ID list? Deleted correct otherwise
+		//The ID list is still incrementing
 		return true;
 	}
 	public boolean testeditShop(){
-		System.out.println(_ss.editShop(4, "banana", "Iceland,  rvk 101", "", ""));
+		//_ss.editShop(9, "Paintings R Us", "Somewhere", "Nine", "Indi painters selling their works!");
+		_ss.editShop(75, "Test2000", "new place", "Trials", "New editline");
+		_ss.editShop(77, "Test2000", "new place", "Trials", "New editline");
+		//Didnt manage to create a random shop here :D !!
+		//Didnt dublicate based on names
+		//Disorginizes the list, puts the edited in the front if calling getAllShops
 		return true;
 	}
 	public boolean testbeFavouredBy(){
@@ -61,7 +79,7 @@ public class Test {
 	public boolean testsetFavourites(){
 		Shop s = _ss.getShopWithId(1);
 		_ss.setFavourites(s);
-		Vector<User> users = s.getFavourites();		
+		Vector<User> users = s.getFavourites();
 		for(int i=0; i<users.size(); i++)
 			System.out.println(users.elementAt(i).toString());
 		return true;
@@ -75,7 +93,7 @@ public class Test {
 	}
 	public boolean testaddItemTo(){
 		return true;
-	} 
+	}
 
 	public boolean testsetOwners(){
 		return true;
@@ -90,7 +108,7 @@ public class Test {
 		return true;
 	}
 
-	
+
 	/*
 	 *ShopService()
 
@@ -106,6 +124,6 @@ getItemsIn(Shop)
 beFavouredBy(Shop, User)
 addOwnerTo(Shop, User)
 isVisited(Shop, User, int, String)
-addItemTo(Shop, Item) 
+addItemTo(Shop, Item)
 	 */
 }
