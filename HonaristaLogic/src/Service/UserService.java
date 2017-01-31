@@ -1,6 +1,6 @@
 package Service;
 import java.sql.*;
-import java.sql.Date;
+import java.util.Date;
 import java.util.*;
 import Connection.*;
 import entity.*;
@@ -365,13 +365,76 @@ public class UserService {
 		return msg;
 	}
 
-/*
- * Like an Item
- * Favour a Shop
- * Start a Shop
- * Add another owner to a shop
+	public String likeAnItem(User user, Item item){
+		String msg = "";
+		Statement stmnt = null;
+		Vector<Item> likes = user.getLikes();
+		if(likes.contains(item))
+			return "Item has already been liked\n";
+		
+		likes.add(item);
+		user.setLikes(likes);
+		
+		String query = "INSERT INTO Liked(itemid, userid)" +
+				" VALUES (" + item.getID() +
+				", " + user.getId() +
+				");";
+		   
+		try {
+			stmnt = con.createStatement();
+			stmnt.executeQuery(query);
+		} catch (SQLException e) {
+			msg = msg + e.getLocalizedMessage();
+			msg = msg + "\n" + e.getStackTrace();
+		}
+		 			
+
+		return msg;
+	}
+
+	public String addShopToFavourites(User u, Shop s){
+		String msg = "";
+		Vector<Shop> favourites = u.getFavourites();
+		if(favourites.contains(s))
+			return "Shop has already been added to your favourites!\n";
+		favourites.add(s);
+		u.setFavourites(favourites);
+		msg = _ss.beFavouredBy(s, u);
+		return msg;
+	}
+
+	public String startNewShop(User u, Shop s){
+		Date regDate = new Date();
+		
+		String msg = "";
+		msg = _ss.createNewShop(s.getName(), s.getAdress(), s.getPhoneNum(), s.getDesc(), regDate);
+		msg = msg + _ss.addOwnerTo(s, u);
+		
+		Vector<Shop> shops = u.getOwns();
+		if(shops.contains(s))
+			return "Shop is already owned\n";
+
+		shops.add(s);
+		u.setOwns(shops);
+		
+		return msg;
+	}
+
+	public String addNewOwner(User u, Shop s){
+		String msg = "";
+		msg = _ss.addOwnerTo(s, u);
+		Vector<Shop> shops = u.getOwns();
+		if(shops.contains(s))
+			return "Shop is already owned";
+		shops.add(s);
+		u.setOwns(shops);
+		
+		return msg;
+			
+	}
+
+	/*
  * Shop at a shop
- * 
  *
 */
 
