@@ -89,6 +89,16 @@ public class Shop {
 		if(!_owners.contains(u))
 			_owners.add(u);
 	}
+	public String toString(){
+		String str = "";
+		str = str + " SHOPNAME    : " + _shopName;
+		str = str + "\n ID          : " + _id;
+		str = str + "\n ADDRESS     : " + _address;
+		str = str + "\n PHONE       : " + _phoneNum;
+		str = str + "\n DESCRIPTION : " + _description;
+		str = str + "\n ------------------------------------------------------\n";
+		return str;
+	}
 }
 	
 	
