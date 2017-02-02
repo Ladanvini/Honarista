@@ -32,11 +32,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="createItem.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="createItem.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HonaristaLogic/src/UI/createItem.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+            <state relative-caret-position="289">
+              <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="createShop.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/HonaristaLogic/src/UI/createShop.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="25" column="7" lean-forward="false" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newShop.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/HonaristaLogic/src/UI/css/newShop.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="235">
+              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -45,8 +65,8 @@
       <file leaf-file-name="setting.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HonaristaLogic/src/UI/css/setting.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="26" column="1" lean-forward="false" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+            <state relative-caret-position="17">
+              <caret line="1" column="21" lean-forward="true" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -75,6 +95,8 @@
         <option value="$PROJECT_DIR$/HonaristaLogic/src/UI/main.html" />
         <option value="$PROJECT_DIR$/HonaristaLogic/src/UI/css/setting.css" />
         <option value="$PROJECT_DIR$/HonaristaLogic/src/UI/createItem.html" />
+        <option value="$PROJECT_DIR$/HonaristaLogic/src/UI/css/newShop.css" />
+        <option value="$PROJECT_DIR$/HonaristaLogic/src/UI/createShop.html" />
       </list>
     </option>
   </component>
@@ -211,8 +233,11 @@
     <property name="js.eslint.eslintPackage" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
-  <component name="RunManager" selected="JavaScript Debug.createItem.html">
+  <component name="RunManager" selected="JavaScript Debug.createShop.html">
     <configuration default="false" name="createItem.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Honarista/HonaristaLogic/src/UI/createItem.html">
+      <method />
+    </configuration>
+    <configuration default="false" name="createShop.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Honarista/HonaristaLogic/src/UI/createShop.html">
       <method />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -604,12 +629,14 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.createItem.html" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.createShop.html" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.createItem.html" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.createShop.html" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.createItem.html" />
       </list>
     </recent_temporary>
   </component>
@@ -623,12 +650,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1485944332036</updated>
-      <workItem from="1485944349088" duration="8775000" />
+      <workItem from="1485944349088" duration="11097000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8775000" />
+    <option name="totallyTimeSpent" value="11097000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1378" height="744" extended-state="0" />
@@ -679,14 +706,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/HonaristaLogic/src/UI/css/setting.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="26" column="1" lean-forward="false" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HonaristaLogic/src/UI/main.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
@@ -702,10 +721,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/HonaristaLogic/src/entity/ShoppedAt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HonaristaLogic/src/entity/ShopTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HonaristaLogic/src/entity/Shop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="33" column="24" lean-forward="false" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/HonaristaLogic/src/UI/createItem.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state relative-caret-position="289">
+          <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HonaristaLogic/src/UI/css/setting.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="21" lean-forward="true" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HonaristaLogic/src/UI/css/newShop.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HonaristaLogic/src/UI/createShop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="25" column="7" lean-forward="false" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
           <folding />
         </state>
       </provider>
