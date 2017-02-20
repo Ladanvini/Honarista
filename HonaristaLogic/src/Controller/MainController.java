@@ -1,3 +1,4 @@
+package Controller;
 
 public class MainController {
 
@@ -7,11 +8,11 @@ public class MainController {
     CreateItemController createItemController;
     CreateShopController createShopController;
     CreateUserController createUserController;
-
+/*
     DeleteItemController deleteItemController;
     DeleteShopController deleteShopController;
     DeleteUserContorller deleteUserContorller;
-
+*/
     EditItemController editItemController;
     EditShopController editShopController;
     EditUserController editUserController;
@@ -19,7 +20,7 @@ public class MainController {
 
     public MainController(){
 
-        createItemController = new CreateItemController(this);
+ /*      createItemController = new CreateItemController(this);
         createShopController = new CreateShopController(this);
         createUserController = new CreateUserController(this);
 
@@ -32,10 +33,12 @@ public class MainController {
         editUserController = new EditUserController(this);
     }
 
-    /*public void addView(View v){
+    public void addView(View v){
         this.view = v;
     }
     public addModel(Model m){
         this.model = m;
-    }*/
+    }
+*/
+  }
 }

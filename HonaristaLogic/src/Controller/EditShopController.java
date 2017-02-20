@@ -1,27 +1,27 @@
+package Controller;
+
+import Service.ShopService;
 
 public class EditShopController {
-    private editShopModel model;
-    private editShopView view;
+    private ShopService _model;
+//    private editShopView view;
 
-    public EditShopController(editShopModel model, editShopView view){
-        this.model = model;
-        this.view = view;
+    public EditShopController(ShopService model/*, editShopView view*/){
+        this._model = model;
+//        this.view = view;
     }
 
-    public void setShopTitle(String name){
-        model.setTitle(name);
+    public void setShopDetails(String name, String des){
+//TODO        _model.
     }
-
-    public void setShopDescription(String des){
-        model.setDescription(des);
-    }
-
-    public void setShopPhoto(){
-        model.setPhoto();
+//Photo type?!
+//TODO
+/*    public void setShopPhoto(){
+        _model.setPhoto();
     }
 
     public void updateView(){
         view.Update(model.getPhoto(), model.getOwner() , model.getTitle());
     }
-
+*/
 }

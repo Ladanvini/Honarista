@@ -17,6 +17,32 @@ public class UserService {
 		_db = new PostgreSQLJDBC();
 		con = _db.getConnection(null);
 	}
+	public int getUserId(String username)
+	{
+		  Statement stmnt = null;
+		  int res = 0;
+		  String query = "SELECT id FROM Users " +
+	   		"WHERE username = " + username + " ;";
+		  try{
+			   stmnt = con.createStatement();
+			   ResultSet rs = stmnt.executeQuery(query);
+			   while(rs.next()){
+				   res = rs.getInt("id");
+			   }
+		   }catch(SQLException e){
+			   System.err.println(e.getMessage());
+			   System.err.println(e.getStackTrace());
+		   } finally {
+			   if(stmnt != null)
+				try {
+					stmnt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		   }
+	   return res;
+	}
 	public User getUserFromId(int id){
 		  Statement stmnt = null;
 		  User res = new User();
@@ -178,17 +204,12 @@ public class UserService {
 		}
 		return true;
 	}
-	public String createNewUser(User u){
-		if(userExists(u))
+	public String createNewUser(String userName, String fullName, String adr, String phonenum,
+			int role){
+		if(userExists(getUserFromId(getUserId(userName))))
 			return "User already exists";
-		if(!isPhoneNumber(u.getUserPhone()))
+		if(!isPhoneNumber(phonenum))
 			return "Please enter numbers";
-		
-		String userName = u.getUserName();
-		String fullName = u.getFullName();
-		String adr = u.getUserAddress();
-		String phonenum = u.getUserPhone();
-		int role = u.getRoleInt();
 		
 		Statement stmnt = null;
 		String query = "INSERT INTO Users" +

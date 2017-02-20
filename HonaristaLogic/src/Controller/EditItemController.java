@@ -1,28 +1,27 @@
+package Controller;
 
+import Service.ItemService;
 public class EditItemController {
 
-    private editItemModel model;
-    private editItemView view;
+    private ItemService _model;
+    //private editItemView view;
 
-    public EditItemController(editItemModel model, editItemView view){
-        this.model = model;
-        this.view = view;
+    public EditItemController(ItemService model /*, editItemView view*/){
+        this._model = model;
+        //this.view = view;
     }
 
-    public void setItemTitle(String name){
-        model.setTitle(name);
+    public void setItemDetails(int id, String name, String des){
+    	_model.editItem(id, name, des);
     }
 
-    public void setItemDescription(String des){
-        model.setDescription(des);
-    }
-
-    public void setItemPhoto(){
+/*TODO
+ *     public void setItemPhoto(){
         model.setPhoto();
     }
 
     public void updateView(){
         view.Update(model.getPhoto(), model.getOwner() , model.getTitle());
     }
-
+*/
 }

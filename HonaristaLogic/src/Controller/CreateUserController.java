@@ -1,47 +1,29 @@
+package Controller;
 
+import Service.UserService;
 public class CreateUserController {
 
-    private createUserModel model;
-    private createUserView view;
+    private UserService _model;
+    //private createUserView view;
 
-    public CreateUserController(createUserModel model, createUserView view){
-        this.model = model;
-        this.view = view;
+    public CreateUserController(UserService model /*, createUserView view*/){
+        this._model = model;
+        //this.view = view;
     }
 
-    public void setFullName(String fName){
-        model.setFullName();
+    public void setUserDetails(String fName, String uname, String pass, 
+    		String email, String adr, String role, String phoneNum){
+    	int r = role.charAt(0) + 48;
+    	
+    	_model.createNewUser(uname, fName, adr, phoneNum, r);
     }
 
-    public void setUserName(String uname){
-        model.setuserName(uname);
-    }
-
-    public void setPassword(String pass){
-        model.setPassword(pass);
-    }
-
-    public void setEmail(String email){
-        model.setEmail(email);
-    }
-
+/*TODO
     public void setUserPhoto(){
         model.setPhoto();
     }
-
-    public void setUserAddress(String address){
-        model.setAddress(address);
-    }
-
-    public void setRole(String role){
-        model.setRole();
-    }
-
-    public void setPhoneNum(String phoneNum){
-        model.setPhone();
-    }
-
     public void updateView(){
         view.Update(model.getPhoto(), model.getUsername() , model.getPass());
     }
+*/
 }

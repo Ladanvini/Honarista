@@ -1,36 +1,35 @@
+package Controller;
 
+import Service.ShopService;
+import Service.UserService;
 public class CreateShopController {
 
-    private createShopModel model;
-    private createShopView view;
+    private ShopService _model;
+    private UserService _us;
+    //    private createShopView view;
 
-    public CreateShopController(createShopModel model, createShopView view){
-        this.model = model;
-        this.view = view;
+    public CreateShopController(ShopService model /*, createShopView view*/){
+        this._model = model;
+        //this.view = view;
     }
 
-    public void setShopTitle(String name){
-        model.setTitle(name);
-    }
+    public void setShopDetails(String name, String adr, String phonenum, String des, String owner, String type){
+    	_model.createNewShop(name, adr, phonenum, des, new java.util.Date() );
 
-    public void setShopDescription(String des){
-        model.setDescription(des);
+    	_model.addOwnerTo(
+    			_model.getShopWithId(_model.getShopId(name)),
+    			_us.getUserFromId(_us.getUserId(owner))
+    			);
+//TODO shop type    	
     }
-
-    public void setShopOwner(String owner){
-        model.setOwner(owner);
-    }
-
+/* TODO
     public void setShopPhoto(){
-        model.setPhoto();
+        _model.setPhoto();
     }
 
-    public void setShopType(String type){
-        model.setType(type);
-    }
 
     public void updateView(){
         view.Update(model.getPhoto(), model.getOwner() , model.getType());
     }
-
+*/
 }

@@ -18,6 +18,35 @@ public class ShopService {
 	   /*
 	    * SHOP ACTIONS 
 	    */
+	   public int getShopId(String title) {
+		   
+		   Statement stmnt = null;
+		   int res = 0;
+		   String query = "SELECT id FROM Shops " +
+		   		"WHERE shopname = '" + title + "' ;";
+		   
+		   try{
+			   stmnt = con.createStatement();
+			   ResultSet rs = stmnt.executeQuery(query);
+			   while(rs.next()){
+				   res = rs.getInt("id");
+			   }
+		   }catch(SQLException e){
+			   System.err.println(e.getMessage());
+			   System.err.println(e.getStackTrace());
+		   } finally {
+			   if(stmnt != null)
+				try {
+					stmnt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		   }
+
+		   return res;
+
+	   }
 	   public Shop getShopWithId(int id){
 		   Statement stmnt = null;
 		   Shop res = new Shop();
