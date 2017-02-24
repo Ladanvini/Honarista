@@ -52,6 +52,11 @@
     margin-right: 10px;
 }
 
+.btn-group-wrap {
+    text-align: center;
+}
+
+
 .home-category{
     background-color: #e0e0d1;
     width: 100%;
@@ -118,3 +123,18 @@ hr.style1{
 button #card {
     background: url('../Photos/Card.png') no-repeat;
 }
+
+.block
+{
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: top;
+    zoom: 1;
+    *display: inline;
+
+    width: 250px;
+    height: 100px;
+    background: #aaeeff;
+
+    margin: 1%;
+}​
