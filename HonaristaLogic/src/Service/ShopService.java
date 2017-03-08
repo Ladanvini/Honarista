@@ -11,9 +11,10 @@ public class ShopService {
 	private Connection con;
 	private UserService _us;
 	private ItemService _is;
-	public ShopService(){
+	public ShopService(UserService us){
 		_db = new PostgreSQLJDBC();
 		con = _db.getConnection(null);
+		_us = us;
 	}
 	   /*
 	    * SHOP ACTIONS 
@@ -209,7 +210,7 @@ public class ShopService {
 					   case 4: role = Role.UN_REG_CUSTOMER;
 					   case 2: role = Role.VENDOR;
 					   }
-					   res.add(new User(id, username, fullname, phoneNum, adr, regdate, role));
+					   res.add(new User(id, username, "", fullname, phoneNum, adr, regdate, role));
 				   }
 			   }catch(SQLException e){
 				   msg = msg + (e.getMessage());
@@ -226,6 +227,15 @@ public class ShopService {
 			   s.setFavourites(res);
 			return msg;
 
+	   }
+	   public Shop getShop(String shopName){
+		   Vector<Shop> shops = this.getAllShops();
+		   
+		   for(int i=0; i<shops.size(); i++)
+			   if(shops.elementAt(i).getName().equals(shopName))
+				   return shops.elementAt(i);
+
+		   return null;
 	   }
 	   public String setOwners(Shop s){
 			String msg = "";
@@ -256,7 +266,7 @@ public class ShopService {
 					   case 4: role = Role.UN_REG_CUSTOMER;
 					   case 2: role = Role.VENDOR;
 					   }
-					   res.add(new User(id, username, fullname, phoneNum, adr, regdate, role));
+					   res.add(new User(id, username, "", fullname, phoneNum, adr, regdate, role));
 				   }
 			   }catch(SQLException e){
 				   msg = msg + (e.getMessage());

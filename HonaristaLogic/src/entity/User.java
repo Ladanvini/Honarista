@@ -11,6 +11,7 @@ public class User {
 	private String _phoneNum;
 	private Date _regdate;
 	private Role _role;
+	private String _password;
 	
 	private Vector<Item> _liked;
 	private Vector<Shop> _owns;
@@ -27,6 +28,7 @@ public class User {
 		_address = "Iran, ";
 		_regdate = new Date();
 		_role = Role.UN_REG_CUSTOMER;
+		_password = "";
 		
 		_owns = new Vector<Shop>();
 		_shops = new Vector<ShoppedAt>();
@@ -34,9 +36,10 @@ public class User {
 		_liked = new Vector<Item>();
 		
 	}
-	public User(int id, String username, String fullname, String phoneNum, String address, Date regdate, Role role){
+	public User(int id, String username, String password, String fullname, String phoneNum, String address, Date regdate, Role role){
 		_id = id;
 		_username = username;
+		_password = password;
 		_fullname = fullname;
 		_phoneNum = phoneNum;
 		_address = "Iran, " + address;
@@ -51,6 +54,7 @@ public class User {
 	}
 	//GETTERS
 	public int getId() { return _id; }
+	public String getPassword() { return _password; }
 	public String getUserName() { return _username; }
 	public String getFullName() { return _fullname; }
 	public String getUserAddress() { return _address; }

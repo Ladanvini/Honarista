@@ -7,6 +7,7 @@ CREATE TABLE Users(
 	phoneNum VARCHAR(255),
 	userRole INT,
 	regDate DATE,
+	pass VARCHAR(255),
 --  0 = Admin,
 --  1 = ContentManager,
 --  2 = Vendor,

@@ -11,7 +11,7 @@ public class Test {
 
 	public Test(){
 		us = new UserService();
-		_ss = new ShopService();
+		_ss = new ShopService(us);
 	}
 
 	public boolean testGetUserFromId(){

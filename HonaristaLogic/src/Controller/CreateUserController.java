@@ -11,11 +11,11 @@ public class CreateUserController {
         //this.view = view;
     }
 
-    public void setUserDetails(String fName, String uname, String pass, 
+    public void setUserDetails(String fName, String pass, String uname, 
     		String email, String adr, String role, String phoneNum){
     	int r = role.charAt(0) + 48;
     	
-    	_model.createNewUser(uname, fName, adr, phoneNum, r);
+    	_model.createNewUser(uname, pass, fName, adr, phoneNum, r);
     }
 
 /*TODO

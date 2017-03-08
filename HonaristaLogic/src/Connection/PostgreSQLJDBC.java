@@ -43,6 +43,8 @@ public class PostgreSQLJDBC {
 			   String adr = rs.getString("tadr");
 			   String phoneNum = rs.getString("tphonenum");
 			   int roleInt = rs.getInt("tuserrole");
+			   String pass = rs.getString("pass");
+			   String fullname = rs.getString("fullname");
 			   // User(int id, String username, String phoneNum, String address, Role role){
 			   Role role = Role.UN_REG_CUSTOMER;
 			   switch(roleInt){
@@ -52,7 +54,7 @@ public class PostgreSQLJDBC {
 			   case 3: role = Role.UN_REG_CUSTOMER;
 			   case 4: role = Role.VENDOR;
 			   }
-			   res.add(new User(id, username, "", phoneNum, adr, new Date(), role));
+			   res.add(new User(id, username, pass, fullname, phoneNum, adr, new Date(), role));
 		   }
 	   }catch(SQLException e){
 		   System.err.println(e.getMessage());
@@ -108,6 +110,8 @@ public class PostgreSQLJDBC {
 			   String phoneNum = rs.getString("phonenum");
 			   int roleInt = rs.getInt("userrole");
 			   // User(int id, String username, String phoneNum, String address, Role role){
+			   String fullname = rs.getString("fullname");
+			   String pass = rs.getString("pass");
 			   Role role = Role.UN_REG_CUSTOMER;
 			   switch(roleInt){
 			   case 0: role = Role.ADMIN;
@@ -116,7 +120,7 @@ public class PostgreSQLJDBC {
 			   case 3: role = Role.UN_REG_CUSTOMER;
 			   case 4: role = Role.VENDOR;
 			   }
-			   res = (new User(id, username, "", phoneNum, adr, new Date(), role));
+			   res = (new User(id, username, pass, fullname, phoneNum, adr, new Date(), role));
 		   }
 	   }catch(SQLException e){
 		   System.err.println(e.getMessage());

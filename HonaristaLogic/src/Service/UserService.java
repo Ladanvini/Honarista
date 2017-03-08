@@ -12,10 +12,38 @@ public class UserService {
 	private PostgreSQLJDBC _db;
 	private Connection con;
 	ShopService _ss;
+	private User u;
 
+	public void setUser(User user) {
+		u = user;
+	}
 	public UserService(){
 		_db = new PostgreSQLJDBC();
 		con = _db.getConnection(null);
+	}
+	public User getUser(String username) {
+		Vector<User> users = this.getAllUsers();
+		for(int i=0; i<users.size(); i++)
+		{
+			if(users.elementAt(i).getUserName().contains(username))
+				return users.elementAt(i);
+		}
+		return null;
+	}
+	public String login(String username, String password) {
+		String msg = "";
+		if(!userExists(username))
+			return "username is wrong";
+		if(this.getUser(username) == null)
+			return "Something went wrong :/";
+		u = this.getUser(username);
+		if(u != null && 
+				!u.getPassword().equals(password)) {
+			msg = "Wrong password :/";
+			u = null;
+		}
+		this.setUser(this.getUser(username));
+		return msg;
 	}
 	public int getUserId(String username)
 	{
@@ -57,6 +85,7 @@ public class UserService {
 				   String adr = rs.getString("adr");
 				   String phoneNum = rs.getString("phonenum");
 				   Date regdate = rs.getDate("regdate");
+				   String pass = rs.getString("pass");
 				   int roleInt = rs.getInt("userrole");
 				   
 				   Role role = Role.UN_REG_CUSTOMER;
@@ -68,7 +97,7 @@ public class UserService {
 				   case 2: role = Role.VENDOR;
 				   }
 				   //User(int id, String username, String fullname, String phoneNum, String address, Date regdate, Role role){
-				   res = (new User(id, username, fullname, phoneNum, adr, regdate, role));
+				   res = (new User(id, username, pass, fullname, phoneNum, adr, regdate, role));
 			   }
 		   }catch(SQLException e){
 			   System.err.println(e.getMessage());
@@ -103,6 +132,7 @@ public class UserService {
 				   String phoneNum = rs.getString("phonenum");
 				   Date regdate = rs.getDate("regdate");
 				   int roleInt = rs.getInt("userrole");
+				   String pass = rs.getString("pass");
 				   // User(int id, String username, String fullname, String phoneNum, String address, Date regdate, Role role){
 				   Role role = Role.UN_REG_CUSTOMER;
 				   switch(roleInt){
@@ -112,7 +142,7 @@ public class UserService {
 				   case 4: role = Role.UN_REG_CUSTOMER;
 				   case 2: role = Role.VENDOR;
 				   }
-				   res.add(new User(id, username, fullname, phoneNum, adr, regdate, role));
+				   res.add(new User(id, username, pass, fullname, phoneNum, adr, regdate, role));
 			   }
 		   }catch(SQLException e){
 			   System.err.println(e.getMessage());
@@ -129,15 +159,15 @@ public class UserService {
 		   return res;
 	   }
 
-	private boolean userExists(User u){
+	private boolean userExists(String username){
 		for(int i=0; i<getAllUsers().size(); i++){
-			if(getAllUsers().elementAt(i).getId() == u.getId()
-					|| getAllUsers().elementAt(i).getUserName() == u.getUserName())
+			if(getAllUsers().elementAt(i).getUserName().contains(username))
 				return true;
 		}
 		return false;
 	}
-	public String modifyUserInfo(User u){ 
+	
+	public String modifyUserInfo(){ 
 		int id = u.getId();
 		String userName = u.getUserName();
 		String fullName = u.getFullName();
@@ -167,8 +197,8 @@ public class UserService {
 		return msg;	   
 	
 	}
-	public  String deleteUser(User u){
-		if(!userExists(u))
+	public  String deleteUser(){
+		if(!userExists(u.getUserName()))
 			return "User not found\n";
 
 		int userId = u.getId();
@@ -188,13 +218,13 @@ public class UserService {
 		}
 		return msg;	   
 	}
-	public String editUser(User u){
-		if(!userExists(u)){
+	public String editUser(){
+		if(!userExists(u.getUserName())){
 			return "User not found!";
 		}
 		if(!isPhoneNumber(u.getUserPhone()))
 			return "Please only enter numbers";
-		modifyUserInfo(u);
+		modifyUserInfo();
 		return "User Changed successfully";
 	}
 	public boolean isPhoneNumber(String pn){
@@ -204,17 +234,17 @@ public class UserService {
 		}
 		return true;
 	}
-	public String createNewUser(String userName, String fullName, String adr, String phonenum,
+	public String createNewUser(String userName, String pass, String fullName, String adr, String phonenum,
 			int role){
-		if(userExists(getUserFromId(getUserId(userName))))
+		if(userExists(userName))
 			return "User already exists";
 		if(!isPhoneNumber(phonenum))
 			return "Please enter numbers";
 		
 		Statement stmnt = null;
 		String query = "INSERT INTO Users" +
-				"(username, fullname, adr, phoneNum, userrole)" +
-		   		" VALUES ('" + userName + "', '" +  fullName + "', " +
+				"(username, pass, fullname, adr, phoneNum, userrole)" +
+		   		" VALUES ('" + userName + "', '" + pass + "', '"+  fullName + "', " +
 		   		"'" + adr + "', '" + phonenum + "', " + role + ");";
 		String msg = "User created successfully\n";
 		
@@ -225,12 +255,11 @@ public class UserService {
 				// TODO Auto-generated catch block
 		   msg = e.getStackTrace().toString();
 	   }
-		
 		return msg;	   
 
 	}
 
-	public String setLikes(User u){
+	public String setLikes(){
 		/*
 		SELECT * FROM Items I JOIN Liked L ON I.id = L.itemId WHERE L.userId = 2;
 		*/
@@ -270,7 +299,7 @@ public class UserService {
 		   return msg;
 
 	   }
-	public String setOwns(User u){
+	public String setOwns(){
 		String msg = "";
 		   Statement stmnt = null;
 		   Vector<Shop> res = new Vector<Shop>();
@@ -310,7 +339,7 @@ public class UserService {
 		
 		return msg;
 	}
-	public String setShops(User u){
+	public String setShops(){
 		String msg = "";
 		   Statement stmnt = null;
 		   Vector<ShoppedAt> res = new Vector<ShoppedAt>();
@@ -345,7 +374,7 @@ public class UserService {
 		  
 		return msg;
 	}
-	public String setFavourites(User u){
+	public String setFavourites(){
 		String msg = "";
 		
 		   Statement stmnt = null;
@@ -386,19 +415,19 @@ public class UserService {
 		return msg;
 	}
 
-	public String likeAnItem(User user, Item item){
+	public String likeAnItem(Item item){
 		String msg = "";
 		Statement stmnt = null;
-		Vector<Item> likes = user.getLikes();
+		Vector<Item> likes = u.getLikes();
 		if(likes.contains(item))
 			return "Item has already been liked\n";
 		
 		likes.add(item);
-		user.setLikes(likes);
+		u.setLikes(likes);
 		
 		String query = "INSERT INTO Liked(itemid, userid)" +
 				" VALUES (" + item.getID() +
-				", " + user.getId() +
+				", " + u.getId() +
 				");";
 		   
 		try {
@@ -413,7 +442,7 @@ public class UserService {
 		return msg;
 	}
 
-	public String addShopToFavourites(User u, Shop s){
+	public String addShopToFavourites(Shop s){
 		String msg = "";
 		Vector<Shop> favourites = u.getFavourites();
 		if(favourites.contains(s))
@@ -424,7 +453,7 @@ public class UserService {
 		return msg;
 	}
 
-	public String startNewShop(User u, Shop s){
+	public String startNewShop(Shop s){
 		Date regDate = new Date();
 		
 		String msg = "";
@@ -441,7 +470,7 @@ public class UserService {
 		return msg;
 	}
 
-	public String addNewOwner(User u, Shop s){
+	public String addNewOwner(Shop s){
 		String msg = "";
 		msg = _ss.addOwnerTo(s, u);
 		Vector<Shop> shops = u.getOwns();
