@@ -232,8 +232,12 @@ public class ShopService {
 		   Vector<Shop> shops = this.getAllShops();
 		   
 		   for(int i=0; i<shops.size(); i++)
-			   if(shops.elementAt(i).getName().equals(shopName))
+		   {
+			   if(shops.elementAt(i).getName().equals(shopName)) 
+			   {
 				   return shops.elementAt(i);
+			   }
+	   		}
 
 		   return null;
 	   }
@@ -397,6 +401,7 @@ public class ShopService {
 	   
 	   public String addOwnerTo(Shop s, User u){
 		   s.addNewOwner(u);
+		   System.out.println("HEEEEEEEEEEEEEREEE");
 		   String msg = "";
 					
 		   Statement stmnt = null;

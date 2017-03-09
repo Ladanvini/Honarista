@@ -472,11 +472,30 @@ public class UserService {
 
 	public String addNewOwner(Shop s){
 		String msg = "";
-		msg = _ss.addOwnerTo(s, u);
+		   s.addNewOwner(u);
+		   System.out.println("HEEEEEEEEEEEEEREEE");
+					
+		   Statement stmnt = null;
+		
+		   String query = "INSERT INTO Owns(shopid, vendorid)" +
+		   		" VALUES (" + s.getID() +
+		   		", " + u.getId() +
+		   		");";
+			   
+		   try {
+			stmnt = con.createStatement();
+			stmnt.executeQuery(query);
+		   } catch (SQLException e) {
+			msg = msg + e.getLocalizedMessage();
+			msg = msg + "\n" + e.getStackTrace();
+		}
+		   
+
 		Vector<Shop> shops = u.getOwns();
 		if(shops.contains(s))
 			return "Shop is already owned";
 		shops.add(s);
+
 		u.setOwns(shops);
 		
 		return msg;
