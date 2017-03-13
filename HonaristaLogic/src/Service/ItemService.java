@@ -79,8 +79,9 @@ public class ItemService {
 		   }
 		   return res;
 	   }
-	   public String createNewItem(String title, String description){
+	   public int createNewItem(String title, String description){
 		   // Item(int id, String title, String desc)
+		   int itemid = 0;
 		   Statement stmnt = null;
 		   String query = "INSERT INTO Items" +
 		   		"(title, description)" +
@@ -94,8 +95,23 @@ public class ItemService {
 				// TODO Auto-generated catch block
 				msg = e.getStackTrace().toString();
 			}
-
-		return msg;	   
+ 		    Statement stmnt2 = null;
+			
+ 		    String q2 = "SELECT id FROM Items WHERE (title = '" + title + "' AND description = '" + description + "');";
+			try
+			{
+				stmnt2 = con.createStatement();
+				ResultSet rs = stmnt2.executeQuery(q2);
+				while(rs.next())
+					itemid = rs.getInt("id");
+					
+			}catch(SQLException e)
+			{
+				msg = e.getSQLState();
+				msg = msg + "\n" + e.getMessage();
+			}
+			   System.out.println(msg);
+		return itemid;	   
 	   }
 	   public String deleteItem(int itemId){
 		   Statement stmnt = null;

@@ -98,8 +98,12 @@ public class ShopService {
 				   String phoneNum = rs.getString("phonenum");
 				   Date regdate = rs.getDate("regdate");
 				   String description = rs.getString("description");
-				   // Shop(String sn, int id, String adr, String ph, String d, Date regdate
-				   res.add(new Shop(shopname, id, adr, phoneNum, description, regdate));
+				   Shop newS =new Shop(shopname, id, adr, phoneNum, description, regdate); 
+				   this.setFavourites(newS);
+				   this.setItems(newS);
+				   this.setOwners(newS);
+				   this.setVisited(newS);
+				   res.add(newS);
 			   }
 		   }catch(SQLException e){
 			   System.err.println(e.getMessage());
@@ -241,6 +245,7 @@ public class ShopService {
 
 		   return null;
 	   }
+	   
 	   public String setOwners(Shop s){
 			String msg = "";
 			   Statement stmnt = null;

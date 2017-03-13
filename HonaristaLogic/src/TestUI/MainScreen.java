@@ -12,11 +12,15 @@ public class MainScreen {
 	private Scanner sc;
 	private UserService _us;
 	private ShopService _ss;
+	private ItemService _is;
+	private Boolean _loggedin;
 	
 	public MainScreen() {
 		sc = new Scanner(System.in);
 		_us = new UserService();
 		_ss = new ShopService(_us);
+		_is = new ItemService();
+		_loggedin = false;
 		System.out.println("main page");
 		runUI();
 	}
@@ -46,18 +50,22 @@ public class MainScreen {
 				+ "browse items \n"
 				+ "exit \n");
 	}
+	//DONE
 	private void runLogin() {
 		System.out.println("Enter Username:");
 		String username = sc.next();
 		System.out.println("\n Enter Password");
 		String password = sc.next();
 		
-		if(_us.login(username, password))
-				runUserPage(username);
+		if(_us.login(username, password)) {
+			_loggedin = true;
+			runUserPage(username);
+		}
 		else
 			System.out.println("smething went wrong");
 					
 	}
+	//Done
 	private void runRegister()
 	{
 		System.out.println("enter username");
@@ -89,6 +97,7 @@ public class MainScreen {
 		String msg = _us.createNewUser(username, password, fullname, address, phone, role);
 		System.out.println(msg);
 	}
+	//TODO
 	private void runBrowse() {
 		
 		Vector<Shop> shops = _ss.getAllShops();
@@ -117,8 +126,7 @@ public class MainScreen {
 			if(command.contains("select"))
 			{
 				String shopname = sc.next();
-				Shop s = _ss.getShopWithId(_ss.getShopId(shopname));
-				System.out.println(s.toString());
+				this.runShopPage(shopname);
 			}
 			if(command.contains("more"))
 			{
@@ -137,6 +145,7 @@ public class MainScreen {
 		}
 	
 	}
+	//TODO
 	private void runUserPage(String uname)
 	{
 		System.out.println("Welcome " + uname);
@@ -149,6 +158,7 @@ public class MainScreen {
 		String command = sc.next();
 		while(!command.equals("logout")) 
 		{
+			System.out.println(_us.getMyShops().size());
 			if(command.contains("add")) {
 				System.out.println("create new shop \n enter shop details: ");
 				System.out.println("Shop name");
@@ -172,13 +182,64 @@ public class MainScreen {
 			{
 				for(int i=0; i<_us.getMyShops().size(); i++)
 				{
-					System.out.println(_us.getMyShops().elementAt(i).toString());
+					System.out.println(_us.getMyShops().elementAt(i));
 				}
 			}
+			System.out.println("Pick a command: \n"
+					+ "logout \n"
+					+ "change password \n"
+					+ "add \n"
+					+ "browse \n"
+					+ "my shops \n");
+			command = sc.next();
 	
 		}
 		_us.logout();
 	}
+	//TODO
+	private void runShopPage(String shopname)
+	{
+		System.out.println(_ss.getShopId(shopname));
+		System.out.println("view - View all items in shop");
+		if(_loggedin)
+		{
+			System.out.println("add - Add item to shop");
+			System.out.println("edit shop details");
+		}
+		System.out.println("select [itemname]");
+
+		
+		String command = sc.next();
+		if(command.equals("add"))
+			runAddItem(shopname);
+		if(command.equals("edit"))
+			runEditShop(shopname);
+		if(command.equals("select"))
+		{
+			String itemname = sc.next();
+			runItemPage(itemname);
+		}
+	}
+	//test
+	private void runAddItem(String shopname)
+	{
+		System.out.println("Enter item title: ");
+		String title = sc.next();
+		System.out.println("description:");
+		String description = sc.next();
+		
+		int itemid = _is.createNewItem(title, description);
+		_ss.addItemTo(_ss.getShop(shopname), _is.getItemWithId(itemid));
+	}
+	private void runEditShop(String shopname)
+	{
+		
+	}
+	private void runItemPage(String itemname)
+	{
+		
+	}
+	
 }
 
 /*

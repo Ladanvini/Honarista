@@ -1,9 +1,4 @@
-/Connection/
-/Controller/
-/Main.class
-/Service/
-/Test.class
-/UI/
-/entity/
-/viewModels/
 /TestUI/
+/Service/
+/entity/
+/Controller/

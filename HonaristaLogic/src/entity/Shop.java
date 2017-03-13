@@ -101,12 +101,21 @@ public class Shop {
 			_owners.add(u);
 	}
 	public String toString(){
+		String ownerstr = "\n ====================================";
+		
+		
+		for(int i=0; i<_owners.size(); i++)
+		{
+			ownerstr = ownerstr + _owners.elementAt(i).toString() + "\n";
+		}
+		ownerstr = ownerstr + " ====================================";
 		String str = "";
 		str = str + " SHOPNAME    : " + _shopName;
 		str = str + "\n ID          : " + _id;
 		str = str + "\n ADDRESS     : " + _address;
 		str = str + "\n PHONE       : " + _phoneNum;
 		str = str + "\n DESCRIPTION : " + _description;
+		str = str + "\n Owners		: " + ownerstr;
 		str = str + "\n ------------------------------------------------------\n";
 		return str;
 	}
