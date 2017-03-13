@@ -30,20 +30,32 @@ public class UserService {
 		}
 		return null;
 	}
-	public String login(String username, String password) {
-		String msg = "";
-		if(!userExists(username))
-			return "username is wrong";
-		if(this.getUser(username) == null)
-			return "Something went wrong :/";
+	public Boolean login(String username, String password) {
+		if(!userExists(username)) {
+			System.out.println( "username is wrong");
+			return false;
+		}
+		if(this.getUser(username) == null) 
+		{
+			System.out.println("Something went wrong :/");
+			return false;
+		}
 		u = this.getUser(username);
 		if(u != null && 
 				!u.getPassword().equals(password)) {
-			msg = "Wrong password :/";
+			System.out.println("Wrong password :/");
 			u = null;
+			return false;
 		}
 		this.setUser(this.getUser(username));
-		return msg;
+		this.setShops();
+		this.setFavourites();
+		this.setLikes();
+		this.setOwns();
+		return true;
+	}
+	public void logout() {
+		u = null;
 	}
 	public int getUserId(String username)
 	{
@@ -161,7 +173,7 @@ public class UserService {
 
 	private boolean userExists(String username){
 		for(int i=0; i<getAllUsers().size(); i++){
-			if(getAllUsers().elementAt(i).getUserName().contains(username))
+			if(getAllUsers().elementAt(i).getUserName().equals(username))
 				return true;
 		}
 		return false;
@@ -500,6 +512,11 @@ public class UserService {
 		
 		return msg;
 			
+	}
+	
+	public Vector<Shop> getMyShops(){
+		
+		return u.getOwns();
 	}
 
 	/*

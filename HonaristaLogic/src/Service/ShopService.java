@@ -398,7 +398,7 @@ public class ShopService {
 
 		   return msg;
 	   }
-	   
+//NOT USED ANUMORE 	   
 	   public String addOwnerTo(Shop s, User u){
 		   s.addNewOwner(u);
 		   System.out.println("HEEEEEEEEEEEEEREEE");

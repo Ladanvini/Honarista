@@ -52,9 +52,11 @@ public class MainScreen {
 		System.out.println("\n Enter Password");
 		String password = sc.next();
 		
-		_us.login(username, password);
-		
-		runUserPage(username);
+		if(_us.login(username, password))
+				runUserPage(username);
+		else
+			System.out.println("smething went wrong");
+					
 	}
 	private void runRegister()
 	{
@@ -98,61 +100,84 @@ public class MainScreen {
 				+ "search [keyword] \n"
 				+ "sort [rating/name/date] \n"
 				+ "select [shopname] \n"
+				+ "back \n"
 				+ "more");
 		String command = sc.next();
-		
-		if(command.contains("search"))
-		{
-			String keyword = sc.next();
-			//_ss.searchShop(keyword);
+		while(!command.equals("back")){
+			if(command.contains("search"))
+			{
+				String keyword = sc.next();
+				//_ss.searchShop(keyword);
+			}
+			if(command.contains("sort"))
+			{
+				String sortVal = sc.next();
+				//_ss.sortShops(sortVal);
+			}
+			if(command.contains("select"))
+			{
+				String shopname = sc.next();
+				Shop s = _ss.getShopWithId(_ss.getShopId(shopname));
+				System.out.println(s.toString());
+			}
+			if(command.contains("more"))
+			{
+				count = count + 5;
+				for(int i=0; i<shops.size() && i<= count; i++)
+					System.out.println(shops.elementAt(i).toString());
+			}
+			System.out.println("You can perform the following tasks: \n"
+					+ "search [keyword] \n"
+					+ "sort [rating/name/date] \n"
+					+ "select [shopname] \n"
+					+ "back \n"
+					+ "more");
+			command = sc.next();
+
 		}
-		if(command.contains("sort"))
-		{
-			String sortVal = sc.next();
-			//_ss.sortShops(sortVal);
-		}
-		if(command.contains("select"))
-		{
-			String shopname = sc.next();
-			Shop s = _ss.getShopWithId(_ss.getShopId(shopname));
-			System.out.println(s.toString());
-		}
-		if(command.contains("more"))
-		{
-			count = count + 5;
-			for(int i=0; i<shops.size() && i<= count; i++)
-				System.out.println(shops.elementAt(i).toString());
-		}
-		
 	
 	}
 	private void runUserPage(String uname)
 	{
 		System.out.println("Welcome " + uname);
 		System.out.println("Pick a command: \n"
-				+ "logout"
-				+ "change password"
-				+ "add");
+				+ "logout \n"
+				+ "change password \n"
+				+ "add \n"
+				+ "browse \n"
+				+ "my shops \n");
 		String command = sc.next();
-		if(command.contains("add")) {
-			System.out.println("create new shop \n enter shop details: ");
-			System.out.println("Shop name");
-			String shopName = sc.next();
-			System.out.println("address");
-			String adr = sc.next();
-			System.out.println("phonenum");
-			String phonenum = sc.next();
-			System.out.println("description");
-			String desc = sc.next();
-			
-			Date regdate = new Date();
-			
-			_ss.createNewShop(shopName, adr, phonenum, desc, regdate);
-			/*
-			 * cannot find the shop
-			 *_us.addNewOwner(_ss.getShop(shopName));
-			*/
+		while(!command.equals("logout")) 
+		{
+			if(command.contains("add")) {
+				System.out.println("create new shop \n enter shop details: ");
+				System.out.println("Shop name");
+				String shopName = sc.next();
+				System.out.println("address");
+				String adr = sc.next();
+				System.out.println("phonenum");
+				String phonenum = sc.next();
+				System.out.println("description");
+				String desc = sc.next();
+				
+				Date regdate = new Date();
+				
+				_ss.createNewShop(shopName, adr, phonenum, desc, regdate);
+				/*
+				 * cannot find the shop
+				 */
+				_us.addNewOwner(_ss.getShop(shopName));
+			}
+			if(command.contains("my"))
+			{
+				for(int i=0; i<_us.getMyShops().size(); i++)
+				{
+					System.out.println(_us.getMyShops().elementAt(i).toString());
+				}
+			}
+	
 		}
+		_us.logout();
 	}
 }
 
