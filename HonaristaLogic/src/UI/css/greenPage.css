@@ -1,0 +1,43 @@
+html, body{
+    background-color: lightgray;
+}
+
+.map{
+    height: 400px;
+    width: 80%;
+    background-color: white;
+    margin-top: 5%;
+    margin-left: 10%;
+}
+
+.black-map-layer{
+    height: 10px;
+    width: 80%;
+    background-color: black;
+    margin-left: 10%;
+}
+
+.white-map-layer{
+    height: 80px;
+    width: 80%;
+    background-color: white;
+    margin-left: 10%;
+    margin-bottom: 5%;
+}
+
+.quote{
+    font-size: large;
+    color: black;
+    text-align: center;
+    padding-top: 1%;
+}
+
+.quote-name{
+    font-size: medium;
+    color: gray;
+    margin-left: 2%;
+}
+
+.centerlize{
+    text-align: center;
+}
