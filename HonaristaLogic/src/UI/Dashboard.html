@@ -1,16 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="dashboardContent">
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
     <link href="css/dashBoard.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
+    <script src="js/dashboardSinglePage.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 </head>
 <body>
+<script type="text/ng-template" id="/home.html">
+    <h1>Home</h1>
+    <h3>{{message}}</h3>
+</script>
+
 <div>
     <div class="col-md-10 content">
 
@@ -79,38 +87,7 @@
 
         </div>
 
-        <div class="col-md-10 verticalLine counts-bar">
-
-            <div class="row events-count">
-            <div class="events-Counter-box tree-event">
-                <p><i class="icon-leaf icon-1x icon-align"></i>کاشت درخت</p>
-            </div>
-            <div class="events-Counter-box outcome-event">
-                <p><i class="icon-money icon-1x icon-align"></i>درآمد کل</p>
-            </div>
-            <div class="events-Counter-box views-event">
-                <p><i class="icon-eye-open icon-1x icon-align"></i>بازدید کل</p>
-
-            </div>
-            <div class="events-Counter-box favorite-event">
-                <p><i class="icon-heart icon-1x icon-align"></i>مورد علاقه</p>
-            </div>
-        </div>
-
-            <hr/>
-
-            <div class="row curves">
-            <div class="curve-box col-md-5"></div>
-            <div class="col-md-4">
-                <div class="info-box space-info"></div>
-                <div class="info-box"></div>
-            </div>
-        </div>
-
-            <hr/>
-
-            <div class="info2-box"></div>
-
+        <div ng-view class="col-md-10 verticalLine counts-bar">
         </div>
 
     </div>
