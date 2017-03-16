@@ -21,6 +21,11 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUXir3kWnu9SJhV_xrKtQhUuargaUgY-I&callback=myMap"></script>
 
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+    <script src="js/greenPage.js"></script>
+
+
 </head>
 <body>
 
@@ -61,7 +66,19 @@
 
     </div >
 
-    <div id="greenMap" class="map"></div>
+    <div id="gmap_canvas"></div>
+    <div class="actions">
+        <div class="button">
+            <label for="gmap_where">پیدا کردن درخت</label>
+            <input id="gmap_where" type="text" name="gmap_where" placeholder="شناسه درخت" />
+        </div>
+
+        <div id="button2" class="button" onclick="findAddress(); return false;">بگرد</div>
+
+        <input type="hidden" id="lat" name="lat" value="32.4279" />
+        <input type="hidden" id="lng" name="lng" value="53.6880" />
+    </div>
+
 
     <div class="black-map-layer"></div>
 
@@ -156,11 +173,12 @@
 <script>
     function myMap() {
         var mapProp= {
-            center:new google.maps.LatLng(51.508742,-0.120850),
+            center:new google.maps.LatLng(32.4279,53.6880),
             zoom:5,
         };
         var map=new google.maps.Map(document.getElementById("greenMap"),mapProp);
     }
+
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5hcqpiMjmyh-sl5p6vZ79mjMjZWRjs8M&callback=myMap"></script>
