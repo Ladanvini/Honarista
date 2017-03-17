@@ -103,34 +103,110 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="tab-content" ng-controller="payment-ctrl">
+                            <div class="tab-content" >
                                 <div class="tab-pane" id="Cart">
                                     <div class="row">
-                                        <h5 class="info-text"> Please tell us more about yourself.</h5>
-                                        <div class="col-sm-4 col-sm-offset-1">
-                                            <div class="picture-container">
-                                                <div class="picture">
-                                                    <img src="assets/img/default-avatar.jpg" class="picture-src" id="wizardPicturePreview" title="" />
-                                                    <input type="file" id="wizard-picture">
-                                                </div>
-                                                <h6>Choose Picture</h6>
-                                            </div>
+
+                                        <div class="well info-box guide-box">
+                                            <p>نیاز به راهنمایی دارید؟ تماس با تیم حمایت از مشتریان از طریق 02166123456</p>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label>First Name <small>(required)</small></label>
-                                                <input name="firstname" type="text" class="form-control" placeholder="Andrew...">
+
+                                        <div class="col-sm-3 col-sm-offset-1 sale-box-space">
+                                            <table class="table-bordered table">
+                                                <tr>
+                                                    <td class="sale-info">489/000</td>
+                                                    <th class="sale-info">جمع کل خرید شما</th>
+
+                                                </tr>
+                                                <tr>
+                                                    <td class="sale-info">489/000</td>
+                                                    <th class="sale-info">جمع کل قابل پرداخت</th>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="col-sm-7 little-space">
+                                            <div class="col-md-3">
+                                                <hr/>
                                             </div>
-                                            <div class="form-group">
-                                                <label>Last Name <small>(required)</small></label>
-                                                <input name="lastname" type="text" class="form-control" placeholder="Smith...">
+                                            <div class="col-md-6">
+                                                <p> سفارش های خریداری شده از مایتی وینتج</p>
                                             </div>
+                                            <div class="col-md-3">
+                                                <hr/>
+                                            </div>
+
+                                            <table class="table table-bordered table-hover">
+                                                <thead>
+                                                <tr class="tr-table">
+                                                    <th>حذف</th>
+                                                    <th>قیمت کل</th>
+                                                    <th>تعداد</th>
+                                                    <th>قیمت واحد</th>
+                                                    <th>محصول</th>
+                                                    <th>عکس</th>
+
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr class="td-table">
+                                                    <td>X</td>
+                                                    <td>227/000 تومان</td>
+                                                    <td>1</td>
+                                                    <td>227/000 تومان</td>
+                                                    <td>باکس درب دار</td>
+                                                    <td><img class=" little-item-space" src="Shop%20page/seller.jpg" alt="" height="40" width="40"></td>
+                                                </tr>
+
+                                                <tr class="td-table">
+                                                    <td>X</td>
+                                                    <td>227/000 تومان</td>
+                                                    <td>1</td>
+                                                    <td>227/000 تومان</td>
+                                                    <td>باکس درب دار</td>
+                                                    <td><img class=" little-item-space" src="Shop%20page/seller.jpg" alt="" height="40" width="40"></td>
+                                                </tr>
+
+                                                <tr class="td-table">
+                                                    <td>X</td>
+                                                    <td>227/000 تومان</td>
+                                                    <td>1</td>
+                                                    <td>227/000 تومان</td>
+                                                    <td>باکس درب دار</td>
+                                                    <td><img class=" little-item-space" src="Shop%20page/seller.jpg" alt="" height="40" width="40"></td>
+                                                </tr>
+
+                                                <tr class="td-table">
+                                                    <td>X</td>
+                                                    <td>227/000 تومان</td>
+                                                    <td>1</td>
+                                                    <td>227/000 تومان</td>
+                                                    <td>باکس درب دار</td>
+                                                    <td><img class=" little-item-space" src="Shop%20page/seller.jpg" alt="" height="40" width="40"></td>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
+
+                                            <div>
+
+                                                <div class="col-xs-9">
+                                                    <button type="button" class="btn btn-info btn-left">تسویه حساب</button>
+                                                    <button type="button" class="btn btn-default btn-left">بروزرسانی</button>
+                                                    <button type="button" class="btn btn-default inline-btn">استفاده</button>
+                                                </div>
+
+
+                                                <div  class="col-xs-3">
+
+                                                    <input class="form-control" placeholder="کوپن تخفیف">
+                                                </div>
+
+
+                                            </div>
+
                                         </div>
                                         <div class="col-sm-10 col-sm-offset-1">
-                                            <div class="form-group">
-                                                <label>Email <small>(required)</small></label>
-                                                <input name="email" type="email" class="form-control" placeholder="andrew@creative-tim.com">
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -168,14 +244,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane" id="info" ng-controller="post-ctrl">
+                                <div class="tab-pane" id="info" ng-controller="payment-ctrl">
                                     <div class="row">
 
                                         <div class="well info-box guide-box">
                                             <p>نیاز به راهنمایی دارید؟ تماس با تیم حمایت از مشتریان از طریق 02166123456</p>
                                         </div>
 
-                                        <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="col-sm-5 col-sm-offset-1 space-suggest">
 
                                             <div class="well suggest">
                                                 <p><i class="ti-ticket"></i>کوپن تخفیف یا کارت هدیه دارید؟  <a> برای استفاده از آن کلیک کنید</a></p>
@@ -191,6 +267,44 @@
                                                 <div class="col-md-4">
                                                     <hr/>
                                                 </div>
+
+                                                <table class="table table-bordered table-hover">
+                                                    <thead>
+                                                    <tr class="tr-table">
+                                                        <th>قیمت کل</th>
+                                                        <th>محصول</th>
+                                                        <th>عکس</th>
+
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr class="td-table">
+                                                        <td>227/000 تومان</td>
+                                                        <td>باکس درب دار</td>
+                                                        <td><img class=" little-item-space" src="Shop%20page/seller.jpg" alt="" height="40" width="40"></td>
+                                                    </tr>
+
+                                                    <tr class="td-table">
+                                                        <td>227/000 تومان</td>
+                                                        <td>باکس درب دار</td>
+                                                        <td><img class=" little-item-space" src="Shop%20page/seller.jpg" alt="" height="40" width="40"></td>
+                                                    </tr>
+
+                                                    <tr class="td-table">
+                                                        <td>227/000 تومان</td>
+                                                        <td>باکس درب دار</td>
+                                                        <td><img class=" little-item-space" src="Shop%20page/seller.jpg" alt="" height="40" width="40"></td>
+                                                    </tr>
+
+                                                    <tr class="td-table">
+                                                        <td>227/000 تومان</td>
+                                                        <td>باکس درب دار</td>
+                                                        <td><img class=" little-item-space" src="Shop%20page/seller.jpg" alt="" height="40" width="40"></td>
+                                                    </tr>
+
+                                                    </tbody>
+                                                </table>
+
                                             </div>
 
                                             <div class="space">
@@ -207,9 +321,33 @@
                                                 <div class="col-md-4">
                                                     <hr/>
                                                 </div>
+
+                                                <table class="table-bordered table">
+                                                    <tr>
+                                                        <td class="sale-info">489/000</td>
+                                                        <th class="sale-info">جمع کل خرید شما</th>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="sale-info">0</td>
+                                                        <th class="sale-info">تخفیف کارت هدیه</th>
+                                                    </tr>
+
+                                                    <tr class="danger">
+                                                        <td class="sale-info">0</td>
+                                                        <th class="sale-info">هزینه حمل و نقل</th>
+
+                                                    </tr>
+                                                    <tr class="success">
+                                                        <td class="sale-info">489/000</td>
+                                                        <th class="sale-info">جمع کل قابل پرداخت</th>
+                                                    </tr>
+
+                                                </table>
+
                                             </div>
 
-                                            <div class="row" >
+                                            <div class="row sending-way" >
                                                 <h4 class="centerlize">انتخاب روش ارسال</h4>
                                                 <div class="row">
                                                     <div class="col-md-4">
@@ -290,7 +428,37 @@
 
                                                 <div class="form-group">
                                                     <label>کشور</label><br>
-                                                    <select name="country" class="form-control" ng-model="country">
+                                                    <select dir="rtl" name="country" class="form-control" ng-model="country">
+                                                        <option value="Afghanistan"> Afghanistan </option>
+                                                        <option value="Albania"> Albania </option>
+                                                        <option value="Algeria"> Algeria </option>
+                                                        <option value="American Samoa"> American Samoa </option>
+                                                        <option value="Andorra"> Andorra </option>
+                                                        <option value="Angola"> Angola </option>
+                                                        <option value="Anguilla"> Anguilla </option>
+                                                        <option value="Antarctica"> Antarctica </option>
+                                                        <option value="...">...</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>استان</label><br>
+                                                    <select dir="rtl" name="country" class="form-control" ng-model="country">
+                                                        <option value="Afghanistan"> Afghanistan </option>
+                                                        <option value="Albania"> Albania </option>
+                                                        <option value="Algeria"> Algeria </option>
+                                                        <option value="American Samoa"> American Samoa </option>
+                                                        <option value="Andorra"> Andorra </option>
+                                                        <option value="Angola"> Angola </option>
+                                                        <option value="Anguilla"> Anguilla </option>
+                                                        <option value="Antarctica"> Antarctica </option>
+                                                        <option value="...">...</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>شهرستان</label><br>
+                                                    <select dir="rtl" name="country" class="form-control" ng-model="country">
                                                         <option value="Afghanistan"> Afghanistan </option>
                                                         <option value="Albania"> Albania </option>
                                                         <option value="Algeria"> Algeria </option>
@@ -330,7 +498,7 @@
 
     <div class="footer">
         <div class="container text-center">
-            Made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">Creative Tim</a>. Free download <a href="http://www.creative-tim.com/product/paper-bootstrap-wizard">here.</a>
+            Made with <i class="fa fa-heart heart"></i> in University of Tehrran
         </div>
     </div>
 </div>

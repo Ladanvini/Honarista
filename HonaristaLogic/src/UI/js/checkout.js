@@ -22,3 +22,9 @@ app.controller('post-ctrl', ['$scope', function($scope){
 }]);
 
 
+app.controller('myCtrl', function($scope) {
+
+});
+
+
+

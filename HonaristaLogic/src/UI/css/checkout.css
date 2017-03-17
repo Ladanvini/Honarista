@@ -94,7 +94,7 @@ html, label{
     border-top: 2px solid lightgray;
     border-right: 2px solid lightgray;
     color: black;
-    width: 150px;
+    width: 140px;
     height: 100px;
     text-align: center;
     text-decoration: none;
@@ -107,4 +107,46 @@ html, label{
 
 .post-button:hover {
     box-shadow: 0 12px 16px 0 lightgrey,0 17px 50px 0 lightgrey;
+}
+
+.little-space{
+    padding-top: 5%;
+}
+
+.tr-table{
+    background-color: lightgray;
+    color: black;
+}
+
+.tr-table th{
+    text-align: center;
+}
+
+.td-table{
+    text-align: center;
+}
+
+.btn-left{
+    float: left;
+}
+
+.sale-info{
+    text-align: center;
+}
+
+.sale-box-space{
+    padding-top: 15%;
+}
+
+
+.space-suggest{
+    padding-top: 5%;
+}
+
+.sending-way{
+    padding-bottom: 10%;
+}
+
+select, option {
+    text-align:right;
 }
