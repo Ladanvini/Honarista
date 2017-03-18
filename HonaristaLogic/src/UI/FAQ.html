@@ -17,21 +17,18 @@
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
     <link href="assets/css/themify-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="css/Navigation.css">
+    <link rel="stylesheet" href="css/FAQ.css">
     <link rel="icon" href="img/Honarista%20Favicon.png">
 
-    <!-- CSS Files -->
-    <link href="material-bootstrap-wizard-v1.0.1/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="material-bootstrap-wizard-v1.0.1/assets/css/material-bootstrap-wizard.css" rel="stylesheet" />
 
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="material-bootstrap-wizard-v1.0.1/assets/css/demo.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 <body>
 
 
-<div class="picture-container">
-    <!-- nav bar -->
+
 
     <div class="navigation-bar first-fixed-nav-bar">
 
@@ -68,246 +65,59 @@
     </div >
 
 
-</div>
+    <div class="wrapper">
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-            <!--      Wizard container        -->
-            <div class="wizard-container">
-                <div class="card wizard-card" data-color="red" id="wizard">
-                    <form action="" method="">
-                        <!--        You can switch " data-color="blue" "  with one of the next bright colors: "green", "orange", "red", "purple"             -->
+        <div class="inner-cover">
 
-                        <div class="wizard-header">
-                            <h3 class="wizard-title">
-                                Book a Room
-                            </h3>
-                            <h5>This information will let us know more about you.</h5>
-                        </div>
-                        <div class="wizard-navigation">
-                            <ul>
-                                <li><a href="#details" data-toggle="tab">Account</a></li>
-                                <li><a href="#captain" data-toggle="tab">Room Type</a></li>
-                                <li><a href="#description" data-toggle="tab">Extra Details</a></li>
-                            </ul>
-                        </div>
+            <div class="col-xs-4"></div>
 
-                        <div class="tab-content">
-                            <div class="tab-pane" id="details">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <h4 class="info-text"> Let's start with the basic details.</h4>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="input-group">
-													<span class="input-group-addon">
-														<i class="material-icons">email</i>
-													</span>
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Your Email</label>
-                                                <input name="name" type="text" class="form-control">
-                                            </div>
-                                        </div>
+            <div class="col-xs-4">
+                <input class="form-control input-lg"  type="text" placeholder="...سوال خود را بنویسید">
+            </div>
 
-                                        <div class="input-group">
-													<span class="input-group-addon">
-														<i class="material-icons">lock_outline</i>
-													</span>
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Your Password</label>
-                                                <input name="name2" type="password" class="form-control">
-                                            </div>
-                                        </div>
+            <div class="col-xs-4"></div>
 
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group label-floating">
-                                            <label class="control-label">Country</label>
-                                            <select class="form-control">
-                                                <option disabled="" selected=""></option>
-                                                <option value="Afghanistan"> Afghanistan </option>
-                                                <option value="Albania"> Albania </option>
-                                                <option value="Algeria"> Algeria </option>
-                                                <option value="American Samoa"> American Samoa </option>
-                                                <option value="Andorra"> Andorra </option>
-                                                <option value="Angola"> Angola </option>
-                                                <option value="Anguilla"> Anguilla </option>
-                                                <option value="Antarctica"> Antarctica </option>
-                                                <option value="...">...</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group label-floating">
-                                            <label class="control-label">Daily Budget</label>
-                                            <select class="form-control">
-                                                <option disabled="" selected=""></option>
-                                                <option value="Afghanistan"> < $100 </option>
-                                                <option value="Albania"> $100 - $499 </option>
-                                                <option value="Algeria"> $499 - $999 </option>
-                                                <option value="American Samoa"> $999+ </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="captain">
-                                <h4 class="info-text">What type of room would you want? </h4>
-                                <div class="row">
-                                    <div class="col-sm-10 col-sm-offset-1">
-                                        <div class="col-sm-4">
-                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="This is good if you travel alone.">
-                                                <input type="radio" name="job" value="Design">
-                                                <div class="icon">
-                                                    <i class="material-icons">weekend</i>
-                                                </div>
-                                                <h6>Single</h6>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="Select this room if you're traveling with your family.">
-                                                <input type="radio" name="job" value="Code">
-                                                <div class="icon">
-                                                    <i class="material-icons">home</i>
-                                                </div>
-                                                <h6>Family</h6>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="Select this option if you are coming with your team.">
-                                                <input type="radio" name="job" value="Code">
-                                                <div class="icon">
-                                                    <i class="material-icons">business</i>
-                                                </div>
-                                                <h6>Business</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="description">
-                                <div class="row">
-                                    <h4 class="info-text"> Drop us a small description.</h4>
-                                    <div class="col-sm-6 col-sm-offset-1">
-                                        <div class="form-group">
-                                            <label>Room description</label>
-                                            <textarea class="form-control" placeholder="" rows="6"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="control-label">Example</label>
-                                            <p class="description">"The room really nice name is recognized as being a really awesome room. We use it every sunday when we go fishing and we catch a lot. It has some kind of magic shield around it."</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="wizard-footer">
-                            <div class="pull-right">
-                                <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
-                                <input type='button' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finish' />
-                            </div>
-                            <div class="pull-left">
-                                <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Previous' />
-
-                                <div class="footer-checkbox">
-                                    <div class="col-sm-12">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" name="optionsCheckboxes">
-                                            </label>
-                                            Subscribe to our newsletter
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </form>
-                </div>
-            </div> <!-- wizard container -->
         </div>
-    </div> <!-- row -->
-</div> <!--  big container -->
-
-
-<div class="footer picture-container">
-
-
-    <div class="col-md-2">
-        <h2>فروش در هنریستا</h2>
-
-        <h3><a href="#">ایجاد فروشگاه</a></h3>
-        <h3><a href="#">راهنمای فروشندگان</a></h3>
-        <h3><a href="#">راهکارهای فروش عمده</a></h3>
-        <h3><a href="#">قوانین</a></h3>
 
     </div>
 
-    <div class="col-md-2">
-        <h2>هنریستا</h2>
 
-        <h3><a href="#">فرصت های شغلی</a></h3>
-        <h3><a href="#">راهنمای مشتریان</a></h3>
-        <h3><a href="#">درباره ما</a></h3>
-        <h3><a href="#">تیم ما</a></h3>
-    </div>
+    <div class="row FAQ">
 
-    <div class="col-md-2">
-        <h2>فروش در هنریستا</h2>
+        <div class="col-sm-2"></div>
 
-        <h3><a href="#">ایجاد فروشگاه</a></h3>
-        <h3><a href="#">راهنمای فروشندگان</a></h3>
-        <h3><a href="#">راهکارهای فروش عمده</a></h3>
-        <h3><a href="#">قوانین</a></h3>
-    </div>
+        <div class="col-sm-9">
 
-    <div class="col-md-2">
-        <h2>هنریستا</h2>
+            <a href="#Q1" class="align btn btn-default btn-lg btn-block" data-toggle="collapse">چگونه می توانم رمز حساب کاربری خود را تغییر دهم؟   <i class="icon-plus icon-2x"></i></a>
+            <div id="Q1" class="collapse">
+                Q1 is loading
+            </div>
 
-        <h3><a href="#">فرصت های شغلی</a></h3>
-        <h3><a href="#">راهنمای مشتریان</a></h3>
-        <h3><a href="#">درباره ما</a></h3>
-        <h3><a href="#">تیم ما</a></h3>
-    </div>
+            <a href="#Q2" class="align btn btn-default btn-lg btn-block" data-toggle="collapse">چگونه می توانم رمز حساب کاربری خود را تغییر دهم؟   <i class="icon-plus icon-2x"></i></a>
+            <div id="Q2" class="collapse">
+                Q2 is loading
+            </div>
 
-    <div class="col-md-2">
-        <h2>فروش در هنریستا</h2>
+            <a href="#Q3" class="align btn btn-default btn-lg btn-block" data-toggle="collapse">چگونه می توانم رمز حساب کاربری خود را تغییر دهم؟   <i class="icon-plus icon-2x"></i></a>
+            <div id="Q3" class="collapse">
+                Q3 is loading
+            </div>
 
-        <h3><a href="#">ایجاد فروشگاه</a></h3>
-        <h3><a href="#">راهنمای فروشندگان</a></h3>
-        <h3><a href="#">راهکارهای فروش عمده</a></h3>
-        <h3><a href="#">قوانین</a></h3>
-    </div>
+            <a href="#Q4" class="align btn btn-default btn-lg btn-block" data-toggle="collapse">چگونه می توانم رمز حساب کاربری خود را تغییر دهم؟   <i class="icon-plus icon-2x"></i></a>
+            <div id="Q4" class="collapse">
+                Q4 is loading
+            </div>
 
-    <div class="col-md-2">
-        <h2>هنریستا</h2>
+        </div>
 
-        <h3><a href="#">فرصت های شغلی</a></h3>
-        <h3><a href="#">راهنمای مشتریان</a></h3>
-        <h3><a href="#">درباره ما</a></h3>
-        <h3><a href="#">تیم ما</a></h3>
-    </div>
+        <div class="col-sm-1">
 
-</div>
-
-<div class="grey-footer picture-container navigation-bar">
-
-    <div class="row">
-
-
-        <div id="footer-container">
-            <li><a href="#"><i class="icon-linkedin icon-2x"></i></a></li>
-            <li><a href="#"><i class="icon-instagram icon-2x"></i></a></li>
-            <li><a href="#"><i class="icon-facebook icon-2x"></i></a><li>
-            <li><a href="#"><i class="icon-pinterest icon-2x"></i></a><li>
-            <li><a href="#"><i class="icon-youtube-play icon-2x"></i></a><li>
         </div>
 
 
     </div>
 
-</div>
+
 
 
 </body>
