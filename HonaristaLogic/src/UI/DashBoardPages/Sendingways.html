@@ -2,7 +2,7 @@
 <html ng-app="dashboardContent">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard-newProduct</title>
+    <title>Dashboard-newProduct-Sendingways</title>
     <link href="css/dashBoard.css" rel="stylesheet">
     <link href="css/newProduct.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -90,126 +90,67 @@
 
         <div ng-view class="col-md-10 verticalLine counts-bar">
             <div class="myProgress">
-                <div class="myBar">0%</div>
+                <div class="myBar-sendways">70%</div>
             </div>
 
             <div class="set-Property-product">
 
-                <div class="col-md-2"></div>
+                <div class="col-md-1"></div>
 
-                <div class="col-md-9 label-property">
-                    <label>نام محصول</label>
-                    <input class="form-control input-lg"  type="text">
-                    <p class="parag-property">.انتخاب نام مناسب به کاربران در پیدا کردن محصول شما کمک خواهد کرد</p>
-
-
-                    <label>طبقه بندی</label>
-                    <div class="row space">
-                        <div class="col-md-3"></div>
-
-                        <div class="col-md-3  dropdown">
-                            <button class="btn btn-default btn-block dropdown-toggle" type="button" data-toggle="dropdown">
-                                <span class="caret"></span></button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Normal</a></li>
-                                <li><a href="#">Normal</a></li>
-                                <li><a href="#">Normal</a></li>
-                                <li><a href="#">Normal</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="col-md-3 dropdown">
-                            <button class="btn btn-default btn-block dropdown-toggle" type="button" data-toggle="dropdown">
-                                <span class="caret"></span></button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Normal</a></li>
-                                <li><a href="#">Normal</a></li>
-                                <li><a href="#">Normal</a></li>
-                                <li><a href="#">Normal</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="col-md-3 dropdown">
-                            <button class="btn btn-default btn-block dropdown-toggle" type="button" data-toggle="dropdown">
-                                <span class="caret"></span></button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Normal</a></li>
-                                <li><a href="#">Normal</a></li>
-                                <li><a href="#">Normal</a></li>
-                                <li><a href="#">Normal</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <p class="parag-property">مناسب ترین طبقه بندی را برای محصول خود پیدا کنید. ممکن است همکاران ما برای بهتر پیدا شدن محصول شما طبقه بندی آن را کمی تغییر دهند</p>
+                <div class="col-md-10 label-property parag-property-send">
 
 
                     <div class="row">
-                        <div class="col-md-4">
-
-                            <label>قیمت</label>
-                            <input class="form-control input space"  type="text">
-
-                            <label>ابعاد</label>
-                            <input class="form-control input space"  type="text">
-
-                            <label>وزن</label>
-                            <input class="form-control input space"  type="text">
-
-                            <label>جنس</label>
+                        <div class="post-send col-md-3">
+                            <label>DHL پست بین المللی</label>
                             <br/>
-                            <button class="btn btn-default btn-block dropdown-toggle label-property" type="button" data-toggle="dropdown">
-                                <span class="caret"></span></button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Normal</a></li>
-                                <li><a href="#">Normal</a></li>
-                                <li><a href="#">Normal</a></li>
-                                <li><a href="#">Normal</a></li>
-                            </ul>
-                            <br/>
-                            <label>رنگ</label>
-                            <br/>
-                            <button class="btn btn-block btn-default dropdown-toggle label-property" type="button" data-toggle="dropdown">
-                                <span class="caret"></span></button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Normal</a></li>
-                                <li><a href="#">Normal</a></li>
-                                <li><a href="#">Normal</a></li>
-                                <li><a href="#">Normal</a></li>
-                            </ul>
-
+                            <input type="checkbox" value="">
                         </div>
 
-                        <div class="col-md-8 container">
+                        <div class="col-md-1"></div>
 
-                            <form>
-                                <div class="form-group">
-                                    <label class="label-property" for="comment">درباره محصول</label>
-                                    <textarea class="form-control" rows="14" id="comment"></textarea>
-                                </div>
-                            </form>
-
+                        <div class="col-md-4 post-send">
+                            <label>سرویس درب به درب تیپاکس</label>
+                            <br/>
+                            <input type="checkbox" value="">
                         </div>
+
+                        <div class="col-md-1"></div>
+
+                        <div class="col-md-3 post-send">
+                            <label>پست پیشتاز شرکت پست</label>
+                            <br/>
+                            <input type="checkbox" value="">
+                        </div>
+
+                        <div class="col-md-1"></div>
 
                     </div>
-                    <p class="parag-property">ویژگی ها و مشخصات محصول خود را در این قسمت توصیف کنید. این قسمت نثش مهمی در تصمیم کاربر در انتخاب محصول شما دارد</p>
 
-
-                    <label>گالری تصاویر</label>
-                    <div class="row"></div>
-
-
-                    <label>برچسب ها</label>
-                    <input class="form-control input-lg"  type="text">
+                    <p class="parag-property-send">در صورتی که بیش از یک روش ارسال را فعال کرده باشید، کاربر می تواند در هنگام خرید روش ارسال مورد نظر خود را انتخاب نماید</p>
+                    <a class="parag-property-send">راهنمای جامع ارسال پستی در هنریستا</a>
 
 
                     <div class="row">
-                        <div class="col-md-5"></div>
 
                         <div class="col-md-2">
                             <br/>
-                            <button type="button" class="btn btn-info shop-create-btn" onclick="window.location.href='../DashBoardPages/Sendingways.html'">مرحله بعد</button>
+                            <button type="button" class="btn btn-default shop-create-btn" onclick="window.location.href='../DashBoardPages/Sendingways.html'">مرحله قبل</button>
                         </div>
-                        <div class="col-md-5"></div>
+
+                        <div class="col-md-6"></div>
+
+                        <div class="col-md-2">
+                            <br/>
+                            <button type="button" class="btn btn-default shop-create-btn btn-block">ذخیره</button>
+                        </div>
+
+                        <div class="col-md-2">
+                            <br/>
+                            <button type="button" class="btn btn-info btn-block shop-create-btn" onclick="window.location.href='../DashBoardPages/Finish.html'">مرحله بعد</button>
+                        </div>
+
+
                     </div>
 
                 </div>
@@ -382,18 +323,18 @@
 
 <script>
     function move() {
-        var elem = document.getElementById("myBar");
-        var width = 0;
-        var id = setInterval(frame, 0);
+        var elem = document.getElementById("myBar-sendways");
+        var width = 70;
+        var id = setInterval(frame, 70);
         function frame() {
             if (width >= 100) {
                 clearInterval(id);
             } else {
-                while(width<90){
+
                     width++;
                     elem.style.width = width + '%';
                     elem.innerHTML = width * 1  + '%';
-                }
+
             }
         }
     }
