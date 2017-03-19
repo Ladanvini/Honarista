@@ -1,0 +1,314 @@
+.first-fixed-nav-bar {
+
+    height: 50px;
+    width: 50%;
+    background-color: #262626;
+}
+
+/*.navigation-bar ul {
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
+.navigation-bar li {
+    list-style-type: none;
+    height: 24px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    display: inline;
+}
+
+.first-fixed-nav-bar li a {
+    color: white;
+    font-size: 18px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    line-height: 50px;
+    padding: 5px 15px;
+    opacity: 0.7;
+    border: 2px solid white;
+    border-radius: 15px;
+
+}*/
+
+.panel-owner{
+    background-color: white;
+    height:400px;
+}
+
+.content{
+    background-color: #D7DACF;
+    
+    border-top: 40px solid black;
+}
+
+.image-owner{
+    margin-top: 10%;
+    text-align: center;
+}
+
+.name-owner{
+    font-size: large;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.panel{
+    text-align: center;
+}
+
+.icon-align{
+    float:left;
+}
+
+.Honarista-connection{
+
+}
+
+.button {
+    color: white;
+    text-align: center;
+    font-size: medium;
+    margin-left: 10%;
+    margin-bottom: 10%;
+    width: 80%;
+    height: 30px;
+}
+
+.tel-twitt-btn{
+    background-color: deepskyblue;
+    border: 1px solid deepskyblue;
+}
+
+.insta-btn{
+    background-color: blue;
+    border: 1px solid blue;
+}
+
+.icon-connection{
+    float: right;
+}
+
+.last-event-text{
+    margin-left: 15%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.single-events{
+    background-color: white;
+    width: 100%;
+    height: 40px;
+    border-bottom: 2px solid white;
+    border-left: 2px solid white;
+    border-top: 2px solid white;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.single-events img{
+    height: 30px;
+    width: 30px;
+    float: right;
+}
+
+.single-events p{
+    font-size: xx-small;
+}
+
+.pCm{
+    margin-top: 1%;
+}
+
+.like{
+    border-right: 4px solid orange;
+}
+
+.date{
+    float: left;
+}
+
+.comment{
+    border-right: 4px solid deepskyblue;
+}
+
+.all-events-btn{
+    background-color: lightskyblue;
+    width: 100%;
+    height: 30px;
+    border-bottom: 2px solid lightskyblue;
+    border-left: 2px solid lightskyblue;
+    border-top: 2px solid lightskyblue;
+    border-right: 2px solid lightskyblue;
+    text-align: center;
+    font-size: medium;
+    color: white;
+}
+
+.news-events hr{
+    width: 100%;
+    float: left;
+}
+
+.single-news{
+    background-color: white;
+    width: 100%;
+    height: 48px;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    border-right: 4px solid black;
+    margin-bottom: 20px;
+    text-align: right;
+    padding-right: 2%;
+    padding-bottom: 3%;
+}
+
+.single-news p{
+    font-size: xx-small;
+}
+
+.news{
+    margin-top: 40px;
+}
+
+.all-posts-btn{
+    background-color: lightskyblue;
+    width: 100%;
+    height: 30px;
+    border-bottom: 2px solid lightskyblue;
+    border-left: 2px solid lightskyblue;
+    border-top: 2px solid lightskyblue;
+    border-right: 2px solid lightskyblue;
+    text-align: center;
+    font-size: medium;
+    color: white;
+    margin-bottom: 5%;
+}
+
+.events-Counter-box{
+    background-color: white;
+    width: 180px;
+    height: 120px;
+    text-align: center;
+    font-size: medium;
+    color: black;
+    margin-bottom: 1%;
+    margin-left: 1%;
+    margin-top: 5%;
+    display: inline-block;
+}
+
+.tree-event{
+    border-top: 15px solid grey;
+}
+
+.outcome-event{
+    border-top: 15px solid greenyellow;
+}
+
+.views-event{
+    border-top: 15px solid yellow;
+}
+
+.favorite-event{
+    border-top: 15px solid lightpink;
+}
+
+.events-count{
+    padding-left: 8%;
+}
+
+.events-count p{
+    font-size: large;
+    text-align: right;
+    margin-top: 10%;
+    margin-right: 10%;
+}
+
+.events-count i{
+    margin-left: 10%;
+    padding: 10px 10px;
+    border-radius: 25px;
+}
+
+.favorite-event i{
+    border: 2px solid red;
+    color: red;
+}
+
+.views-event i {
+    border: 2px solid deepskyblue;
+    color: deepskyblue;
+}
+
+.tree-event i{
+    border: 2px solid green;
+    color: green;
+}
+
+.outcome-event i{
+    border: 2px solid hotpink;
+    color: hotpink;
+}
+
+.verticalLine {
+    border-left: thin solid grey;
+}
+
+.counts-bar hr{
+    text-align: center;
+    width: 85%;
+}
+
+.curve-box{
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    margin-left: 10%;
+}
+
+.info-box{
+    width: 330px;
+    height: 130px;
+    background-color: white;
+    margin-left: 10%;
+    margin-top: 5%;
+    border-top: 10px solid white;
+}
+
+.space-info{
+    margin-bottom: 20px;
+}
+
+.info2-box{
+    width: 85%;
+    height: 200px;
+    background-color: white;
+    margin-top: 5%;
+    border-top: 10px solid white;
+    margin-left: 9%;
+    margin-bottom: 30%;
+}
+
+.sub-panel{
+    text-align: right;
+    font-size: small;
+}
+
+.sub-panel i{
+    float: right;
+    margin-right: 25%;
+}
+
+.sub-panel a{
+    margin-right: 5%;
+    text-decoration: none;
+    color: black;
+}
+
+.sub-panel a:hover {
+    color: red;
+    background-color: transparent;
+}
