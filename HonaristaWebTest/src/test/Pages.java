@@ -428,9 +428,9 @@ public class Pages {
 				"            </div>\n" + 
 				"                <div class=\"panel\">\n" + 
 				"                <div class=\"panel-heading\">\n" + 
-				"                    <h4 class=\"panel-title\">\n" + 
-				"                        <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseOne\"><i class=\"icon-question-sign icon-1x icon-align\"></i>سوالات متداول</a>\n" + 
-				"                    </h4>\n" + 
+				"                    <a href=\"Ladan?Action=300\" target=\"_self\"><h4 class=\"panel-title\">\n" + 
+				"                        <a data-parent=\"#accordion\" href=\"Ladan?Action=300\"><i class=\"icon-question-sign icon-1x icon-align\"></i>سوالات متداول</a>\n" + 
+				"                    </h4></a>\n" + 
 				"                </div>\n" + 
 				"                <div class=\"panel-collapse collapse\">\n" + 
 				"                </div>\n" + 
@@ -692,7 +692,18 @@ public class Pages {
 				"\n" + 
 				"            <h4 class=\"text-right\">توضیحات</h4>\n" + 
 				"            <input type=\"text\"  class=\"form-control \" name=\"ItemDescription\" required=\"required\">\n" + 
+				"\n"
+				+ "            <br/>\n" + 
 				"\n" + 
+				"            <h4 class=\"text-right\">به کدام فروشگاه اضافه شود؟</h4>\n" + 
+				"            <button class=\"btn btn-default btn-block dropdown-toggle label-property\" type=\"button\" data-toggle=\"dropdown\">\n" + 
+				"                <span class=\"caret\"></span></button>\n" + 
+				"            <ul class=\"dropdown-menu\" name=\"ItemShopName\">\n" + 
+				"                <li><a href=\"#\">Normal</a></li>\n" + 
+				"                <li><a href=\"#\">Normal</a></li>\n" + 
+				"                \n" + 
+				"            </ul>\n" + 
+				"" + 
 				"            <div class=\"form-group\">\n" + 
 				"                <h4 class=\"text-right\">عکس آیتم</h4>\n" + 
 				"                <div class=\"input-group\">\n" + 
@@ -729,5 +740,134 @@ public class Pages {
 	{
 		int id = _is.createNewItem(title, desc);
 		return _ss.addItemTo(_ss.getShop(shopname), _is.getItemWithId(id));
+	}
+	public String getFAQPage()
+	{
+		String temp ="<!DOCTYPE html>\n" + 
+				"<html lang=\"en\">\n" + 
+				"<head>\n" + 
+				"    <meta charset=\"UTF-8\">\n" + 
+				"    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />\n" + 
+				"    <meta name=\"viewport\" content=\"width=device-width\" />\n" + 
+				"    <title>FAQ Page</title>\n" + 
+				"\n" + 
+				"    <!-- CSS Files -->\n" + 
+				"    <link href=\"assets/css/bootstrap.min.css\" rel=\"stylesheet\" />\n" + 
+				"    <link href=\"assets/css/paper-bootstrap-wizard.css\" rel=\"stylesheet\" />\n" + 
+				"\n" + 
+				"    <!-- Fonts and Icons -->\n" + 
+				"    <link rel=\"stylesheet\" type=\"text/css\" href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons\" />\n" + 
+				"    <link href=\"css/font-awesome/css/font-awesome.min.css\" rel=\"stylesheet\">\n" + 
+				"    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\n" + 
+				"    <link href=\"http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css\" rel=\"stylesheet\">\n" + 
+				"    <link href=\"assets/css/themify-icons.css\" rel=\"stylesheet\">\n" + 
+				"    <link rel=\"stylesheet\" href=\"css/Navigation.css\">\n" + 
+				"    <link rel=\"stylesheet\" href=\"css/FAQ.css\">\n" + 
+				"    <link rel=\"icon\" href=\"img/Honarista%20Favicon.png\">\n" + 
+				"\n" + 
+				"\n" + 
+				"    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js\"></script>\n" + 
+				"    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n" + 
+				"\n" + 
+				"</head>\n" + 
+				"<body>\n" + 
+				"\n" + 
+				"\n" + 
+				"\n" + 
+				"\n" + 
+				"    <div class=\"navigation-bar first-fixed-nav-bar\">\n" + 
+				"\n" + 
+				"        <div id=\"navigation-container\">\n" + 
+				"\n" + 
+				"            <img src=\"img/Honarista%203.png\">\n" + 
+				"\n" + 
+				"            <ul class=\"menu form-inline\">\n" + 
+				"\n" + 
+				"                <li><a href=\"#\">ورود</a></li>\n" + 
+				"                <li><a href=\"#\">فروش در هنریستا</a></li>\n" + 
+				"            </ul>\n" + 
+				"        </div>\n" + 
+				"\n" + 
+				"    </div >\n" + 
+				"\n" + 
+				"\n" + 
+				"    <div class=\"navigation-bar scd-fixed-nav-bar shadow\">\n" + 
+				"\n" + 
+				"        <div id=\"navigation-container-scd\">\n" + 
+				"            <ul class=\"menu\">\n" + 
+				"                <li><a href=\"#\">تالار مشاهیر</a></li>\n" + 
+				"                <li><a href=\"#\">دکوراسیون خانه</a></li>\n" + 
+				"                <li><a href=\"#\">جواهرات</a></li>\n" + 
+				"                <li><a href=\"#\">پوشیدنی</a></li>\n" + 
+				"                <li><a href=\"#\">آنتیک</a></li>\n" + 
+				"                <li><a href=\"#\">گیاه</a></li>\n" + 
+				"                <li><a href=\"#\">چوب</a></li>\n" + 
+				"                <li><a href=\"#\">اسباب بازی</a></li>\n" + 
+				"                <li><a href=\"#\">هنر خلاق</a></li>\n" + 
+				"            </ul>\n" + 
+				"        </div>\n" + 
+				"\n" + 
+				"    </div >\n" + 
+				"\n" + 
+				"\n" + 
+				"    <div class=\"wrapper\">\n" + 
+				"\n" + 
+				"        <div class=\"inner-cover\">\n" + 
+				"\n" + 
+				"            <div class=\"col-xs-4\"></div>\n" + 
+				"\n" + 
+				"            <div class=\"col-xs-4\">\n" + 
+				"                <input class=\"form-control input-lg\"  type=\"text\" placeholder=\"...سوال خود را بنویسید\">\n" + 
+				"            </div>\n" + 
+				"\n" + 
+				"            <div class=\"col-xs-4\"></div>\n" + 
+				"\n" + 
+				"        </div>\n" + 
+				"\n" + 
+				"    </div>\n" + 
+				"\n" + 
+				"\n" + 
+				"    <div class=\"row FAQ\">\n" + 
+				"\n" + 
+				"        <div class=\"col-sm-2\"></div>\n" + 
+				"\n" + 
+				"        <div class=\"col-sm-9\">\n" + 
+				"\n" + 
+				"            <a href=\"#Q1\" class=\"align btn btn-default btn-lg btn-block\" data-toggle=\"collapse\">چگونه می توانم رمز حساب کاربری خود را تغییر دهم؟   <i class=\"icon-plus icon-2x\"></i></a>\n" + 
+				"            <div id=\"Q1\" class=\"collapse\">\n" + 
+				"                Q1 is loading\n" + 
+				"            </div>\n" + 
+				"\n" + 
+				"            <a href=\"#Q2\" class=\"align btn btn-default btn-lg btn-block\" data-toggle=\"collapse\">چگونه می توانم رمز حساب کاربری خود را تغییر دهم؟   <i class=\"icon-plus icon-2x\"></i></a>\n" + 
+				"            <div id=\"Q2\" class=\"collapse\">\n" + 
+				"                Q2 is loading\n" + 
+				"            </div>\n" + 
+				"\n" + 
+				"            <a href=\"#Q3\" class=\"align btn btn-default btn-lg btn-block\" data-toggle=\"collapse\">چگونه می توانم رمز حساب کاربری خود را تغییر دهم؟   <i class=\"icon-plus icon-2x\"></i></a>\n" + 
+				"            <div id=\"Q3\" class=\"collapse\">\n" + 
+				"                Q3 is loading\n" + 
+				"            </div>\n" + 
+				"\n" + 
+				"            <a href=\"#Q4\" class=\"align btn btn-default btn-lg btn-block\" data-toggle=\"collapse\">چگونه می توانم رمز حساب کاربری خود را تغییر دهم؟   <i class=\"icon-plus icon-2x\"></i></a>\n" + 
+				"            <div id=\"Q4\" class=\"collapse\">\n" + 
+				"                Q4 is loading\n" + 
+				"            </div>\n" + 
+				"\n" + 
+				"        </div>\n" + 
+				"\n" + 
+				"        <div class=\"col-sm-1\">\n" + 
+				"\n" + 
+				"        </div>\n" + 
+				"\n" + 
+				"\n" + 
+				"    </div>\n" + 
+				"\n" + 
+				"\n" + 
+				"\n" + 
+				"\n" + 
+				"</body>\n" + 
+				"</html>";
+		
+		return temp;
 	}
 }

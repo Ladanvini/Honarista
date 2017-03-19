@@ -93,9 +93,11 @@ public class Test01 extends HttpServlet {
 			break;
 		case 2000:
 			//item approve
+			/*TODO fix selectlist for item */
 			String itemTitle = req.getParameter("ItemTitle");
 			String itemDesc = req.getParameter("ItemDescription");
-			
+			String shopName = req.getParameter("ItemShopName");
+			s = itemTitle + "\n" + itemDesc + "\n" + shopName;
 			break;
 		case 2011:
 			//cancel
@@ -108,6 +110,10 @@ public class Test01 extends HttpServlet {
 			break;
 		case 204:
 		//sending methods;
+			break;
+		case 300:
+			//FAQ
+			s=pages.getFAQPage();
 			break;
 			
 		}
