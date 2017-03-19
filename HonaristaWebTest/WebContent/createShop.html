@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/setting.css">
+    <title>create New Shop</title>
+</head>
+<body>
+
+<script>
+    $( document.body ).on( 'click', '.dropdown-menu li', function( event ) {
+
+        var $target = $( event.currentTarget );
+
+        $target.closest( '.btn-group' )
+            .find( '[data-bind="label"]' ).text( $target.text() )
+            .end()
+            .children( '.dropdown-toggle' ).dropdown( 'toggle' );
+
+        return false;
+
+    });
+</script>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-4"></div>
+
+        <div class="col-sm-4">
+            <img src="img/new_shop.jpg" class="img-rounded" alt="newShopLogo" width="304" height="236">
+        </div>
+
+        <div class="col-sm-4"></div>
+    </div>
+
+    <hr class="style1"/>
+
+    <div class="row">
+        <div class="col-sm-4"></div>
+
+        <div class="col-sm-4">
+            <h4 class="text-right">نام فروشگاه</h4>
+            <input type="password"  class="form-control " id="ItemTitle" required="required">
+
+            <h4 class="text-right">توضیحات</h4>
+            <input type="password"  class="form-control " id="ItemDescription" required="required">
+
+            <h4 class="text-right">فروشگاه شما از چه نوعی است؟</h4>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle form-control" data-toggle="dropdown">
+                            <span data-bind="label">نوع محصول</span>&nbsp;<span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">محصولات چوبی</a></li>
+                            <li><a href="#">محصولات تزئینی</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h4 class="text-right">عکس پیشنهادی برای فروشگاه</h4>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <span class="btn btn-default btn-file">
+                            آپلود عکس <input type="file" id="imgInp">
+                        </span>
+                    </span>
+
+                    <input type="text" class="form-control" readonly>
+                </div>
+
+                <img id='item-img-upload'/>
+
+            </div>
+
+            <div class="text-center">
+                <button type="button" class="btn btn-danger">انصراف</button>
+                <button type="button" class="btn btn-success">ثبت اطلاعات</button>
+            </div>
+        </div>
+
+        <div class="col-sm-4"></div>
+    </div>
+
+</div>
+</body>
+</html>

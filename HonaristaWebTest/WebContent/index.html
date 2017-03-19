@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+	ACTION CODES
+		CATEGORIES : 10X
+		LOGIN : 10
+		REGISTRATION : 11
+		FORGOT PASSWORD : 13
+		LOGIN WITH PHONE : 14
+		  
+ -->
+<head>
+    <title>Honarista</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/setting.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form action="Ladan" type="POST">
+<div class="first-fixed-nav-bar">
+
+    <div class="btn-group inline pull-right">
+    	
+        <a href="Ladan?Action=10"><div class="btn btn-space btn-success">ورود به سایت</div></a>
+    </div>
+
+
+</div >
+
+<div class="scd-fixed-nav-bar" id="categories">
+	
+    <div class="btn-group inline pull-right">
+       <a href="Ladan?Action=101"> <div class="btn btn-space" id="creativeArt">هنر خلاق</div></a>
+       <a href="Ladan?Action=102"> <div class="btn btn-space" id="toys">اسباب بازی</div></a>
+        <a href="Ladan?Action=103"><div class="btn btn-space" id="woodwork">چوب</div></a>
+        <a href="Ladan?Action=104"><div class="btn btn-space" id="plants">گیاه</div></a>
+        <a href="Ladan?Action=105"><div class="btn btn-space" id="antiques">آنتیک</div></a>
+        <a href="Ladan?Action=106"><div class="btn btn-space" id="clothes">پوشیدنی</div></a>
+        <a href="Ladan?Action=107"><div class="btn btn-space" id="jewelery">جواهرات</div></a>
+        <a href="Ladan?Action=108"><div class="btn btn-space" id="decoofrations">دکوراسیون خانه</div></a>
+        <a href="Ladan?Action=109"><div class="btn btn-space" id="hallOfFame">تالار مشاهیر</div></a>
+    </div>
+</div>
+
+<div class="homepage-background">
+
+    <div>
+        <p>با خرید هر یک از دست سازه های هنرمندان هنریستا، یک درخت به نام شما در ایران می کاریم! :)</p>
+    </div>
+
+    <div></div>
+    <div></div>
+
+</div>
+
+<div class="orange-layer"></div>
+
+<div class="gift-search" id="giftSearch">
+
+    <div class="btn-group inline pull-left btn-group-justified" data-toggle="buttons-checkbox" id="keepSearchBool">
+        <div class="btn btn-warning btn-space" id="keepSearching">نه، فعلا دارم چرخ میزنم!</div>
+        <div class="btn btn-primary btn-space" id="uhum">اوهوم</div>
+        <div class="btn btn-space" id="keepSearchQuestion">می گردی؟</div>
+
+        <div class="btn-group btn-space" id="whoFor">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" >
+                همکلاسی دخترت <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#" id="btn1">دوست</a></li>
+                <li><a href="#" id="btn2">خانواده</a></li>
+                <li><a href="#" id="btn3">مادرت</a></li>
+            </ul>
+        </div>
+
+        <div class="btn btn-space">برای</div>
+
+        <div class="btn-group btn-space">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                10 تا 50 تومانی  <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#" id="btn1">50 تا 100 تومانی</a></li>
+                <li><a href="#" id="btn2">150 تا 200 تومانی</a></li>
+                <li><a href="#" id="btn3">200 به بالا</a></li>
+            </ul>
+        </div>
+
+        <div class="btn btn-space" >دنبال یک هدیه</div>
+
+
+    </div>
+
+</div>
+
+<div class="home-category">
+
+    <div align="center">
+        <h3>دسته بندی های منتخب</h3>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-1"></div>
+
+        <div class="col-md-2">
+            <a href="">
+                <img src="Photos/doll.jpg" class="img-rounded" alt="wearing" style="width:100%">
+                <div class="caption">
+                    <p>اسباب بازی</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-2">
+            <a href="">
+                <img src="Photos/home.jpg" class="img-rounded" alt="Home" style="width:100%">
+                <div class="caption">
+                    <p>دکوراسیون خانه</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-2">
+            <a href="">
+                <img src="Photos/wood.jpg" class="img-rounded" alt="wood" style="width:100%">
+                <div class="caption">
+                    <p>چوب</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-2">
+            <a href="">
+                <img src="Photos/art.jpg" class="img-rounded" alt="art" style="width:100%">
+                <div class="caption">
+                    <p>هنر خلاق</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-2">
+            <a href="">
+                <img src="Photos/wear.jpg" class="img-rounded" alt="art" style="width:100%">
+                <div class="caption">
+                    <p>پوشیدنی</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<div class="home-gallery">
+
+    <div align="center">
+        <h3>گالری های منتخب</h3>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-2"></div>
+        <div class="col-md-2">
+            <a href="">
+                <img src="Photos/forest.jpg" class="img-rounded" alt="forest" style="width:100%">
+                <div class="caption">
+                    <p>تراریوم مینی فارست</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-2">
+            <a href="">
+                <img src="Photos/wall.jpg" class="img-rounded" alt="wall" style="width:100%">
+                <div class="caption">
+                    <p>دیوار چوب</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-2">
+            <a href="">
+                <img src="Photos/silver.jpg" class="img-rounded" alt="silver" style="width:100%">
+                <div class="caption">
+                    <p>نقره آرت</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-2">
+            <a href="">
+                <img src="Photos/kaktoos.jpg" class="img-rounded" alt="kaktoos" style="width:100%">
+                <div class="caption">
+                    <p>خانه کاکتوس</p>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="home-icons">
+    <img src="Home%20Page/Artistic%20Icons%20Row.png" class="img-rounded" alt="Icons" style="width:100%">
+</div>
+
+<div class="home-gap">
+
+</div>
+
+<div class="home-footer">
+    <div class="row">
+
+    </div>
+</div>
+</form>
+</body>
+</html>

@@ -1,0 +1,152 @@
+html, body{
+    background-color: lightgray;
+}
+
+.first-fixed-nav-bar img{
+    float: left;
+}
+
+.centerlize{
+    text-align: center;
+}
+
+.inline-btn{
+    display: inline-block;
+}
+
+.right-btn-space{
+    padding-left: 5%;
+}
+
+.pay-box{
+    width: 300px;
+    height: 50px;
+    background-color: #7AC29A;
+    text-align: center;
+    margin-left: 35%;
+    border-top: 1px solid mediumspringgreen;
+    border-right: 1px solid mediumspringgreen;
+    border-bottom: 1px solid mediumspringgreen;
+    border-left: 1px solid mediumspringgreen;
+}
+
+.info-box{
+    text-align: right;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    padding-right: 2px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+    padding-top: 2px;
+
+}
+
+.guide-box{
+    background-color: #1ab188;
+}
+
+.guide-box p{
+    color: white;
+    text-align: right;
+}
+
+.info-box i{
+    float: right;
+    padding-left: 1%;
+    text-align: center;
+}
+
+html, label{
+    text-align: right;
+}
+
+.form-info input{
+    float: left;
+}
+
+.form-info{
+    margin-top: 5%;
+}
+
+.single-form{
+    margin-bottom: 2%;
+}
+
+.suggest p{
+    font-size: smaller;
+}
+
+.suggest i{
+    float: right;
+    padding-left: 1%;
+}
+
+.space{
+    padding-top: 10%;
+}
+
+.post-button {
+    background-color: white;
+    border-bottom: 2px solid lightgray;
+    border-left: 2px solid lightgray;
+    border-top: 2px solid lightgray;
+    border-right: 2px solid lightgray;
+    color: black;
+    width: 140px;
+    height: 100px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: large;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.post-button:hover {
+    box-shadow: 0 12px 16px 0 lightgrey,0 17px 50px 0 lightgrey;
+}
+
+.little-space{
+    padding-top: 5%;
+}
+
+.tr-table{
+    background-color: lightgray;
+    color: black;
+}
+
+.tr-table th{
+    text-align: center;
+}
+
+.td-table{
+    text-align: center;
+}
+
+.btn-left{
+    float: left;
+}
+
+.sale-info{
+    text-align: center;
+}
+
+.sale-box-space{
+    padding-top: 15%;
+}
+
+
+.space-suggest{
+    padding-top: 5%;
+}
+
+.sending-way{
+    padding-bottom: 10%;
+}
+
+select, option {
+    text-align:right;
+}
