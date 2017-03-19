@@ -1,0 +1,32 @@
+deposit  1 100000
+add 2 ali razavi
+deposit 2 10000000
+add 3 akbar ghassab
+deposit 3 300000
+add 4 joe heart
+deposit 4 1000000
+add 5 cris bale
+deposit 5 700000
+add 6 feri tori
+deposit 6 70000
+sell 1 RENA1 100 500 GTC
+sell 1 RENA1 200 400 GTC
+sell 1 SAIPA 500 600 GTC
+sell 1 SAIPA 400 700 GTC
+sell 1 IRAN  250 1000 GTC
+sell 1 RENA1 330 1400 GTC
+sell 1 SAIPA 470 1600 GTC
+sell 1 IRAN 400 700 GTC
+sell 1 OILA  375 4000 GTC
+sell 1 UT 2000 1400 GTC
+sell 1 OILA 450 1600 GTC
+sell 1 UT 400 7000 GTC
+sell 6 SAIPA 91 13 MPO
+buy 6 SAIPA 175 142 GTC
+buy 4 RENA1 45 159 MPO
+buy 5 SAIPA 7 53 IOC
+sell 3 SAIPA 59 0 GTC
+sell 5 IRAN 58 163 MPO
+buy 2 RENA1 137 111 MPO
+
+list
