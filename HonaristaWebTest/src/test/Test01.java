@@ -8,9 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class Test01 extends HttpServlet {
-	
+	Boolean loggedIn;
 	Pages pages;
 	public Test01(){
+		loggedIn = false;
 	   pages = new Pages();
 	}
 
@@ -44,9 +45,17 @@ public class Test01 extends HttpServlet {
 			//LOGIN WITH PHONE
 			break;
 		case 1345:
-			
-			s=pages.getRegistrationPage();
-			System.out.println("JHGCDFGHJUHGFDFGHJKJHGFDSDFGHJKKJHGFDFGHJKJHGFDSDFGHJK");
+			String username;
+			String password;
+			System.out.println("injayam");
+			username = req.getParameter("email");
+			password = req.getParameter("password");
+			if(pages.authenticate(username, password))
+				loggedIn = true;
+			if(loggedIn)
+				s=pages.getProfilePage();
+		case 101:
+			s=pages.viewAllShops();
 		}
 			bytes=s.getBytes("UTF-8");
 			persian = new String(bytes, "UTF-8");

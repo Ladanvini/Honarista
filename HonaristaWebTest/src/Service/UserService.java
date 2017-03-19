@@ -11,15 +11,21 @@ import entity.*;
 public class UserService {
 	private PostgreSQLJDBC _db;
 	private Connection con;
+
 	ShopService _ss;
 	private User u;
-
+	public Stack<String> events;
+	public Stack<String> news;
+	public Stack<String> newstitles;
 	public void setUser(User user) {
 		u = user;
 	}
 	public UserService(){
 		_db = new PostgreSQLJDBC();
 		con = _db.getConnection(null);
+		events = new Stack<String>();
+		news = new Stack<String>();
+		newstitles = new Stack<String>();
 	}
 	public User getUser(String username) {
 		Vector<User> users = this.getAllUsers();
@@ -29,6 +35,81 @@ public class UserService {
 				return users.elementAt(i);
 		}
 		return null;
+	}
+	public String setNewsFromDb()
+	{
+		String msg = "";
+		String query = "SELECT * FROM News";
+		Statement stmnt = null;
+		String temp = "";
+		
+		   try{
+			   stmnt = con.createStatement();
+			   ResultSet rs = stmnt.executeQuery(query);
+			   while(rs.next()){
+				   String title = rs.getString("ntitle");
+				   String description = rs.getString("ndescription");
+				   temp = title + "\n"+ description;
+				   newstitles.push(title);
+				   news.push(temp);
+			   }
+		   }catch(SQLException e){
+			   msg = msg + (e.getMessage());
+			   msg = msg + (e.getStackTrace());
+		   } finally {
+			   if(stmnt != null)
+				try {
+					stmnt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					msg = msg + e.getStackTrace();
+				}
+		   }
+
+		return msg;
+
+		
+	}
+	public String setEventsFromDb()
+	{
+		String msg = "";
+		String query = "SELECT * FROM Events WHERE recid = "
+				+ u.getId()
+				+ ";";
+		Statement stmnt = null;
+		String temp = "";
+		
+		   try{
+			   stmnt = con.createStatement();
+			   ResultSet rs = stmnt.executeQuery(query);
+			   while(rs.next()){
+				   String title = rs.getString("etitle");
+				   int senderid = rs.getInt("sendid");
+
+				   temp = this.getUserFromId(senderid).getUserName() + " "
+				   		+ title;
+				   events.push(temp);
+			   }
+		   }catch(SQLException e){
+			   msg = msg + (e.getMessage());
+			   msg = msg + (e.getStackTrace());
+		   } finally {
+			   if(stmnt != null)
+				try {
+					stmnt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					msg = msg + e.getStackTrace();
+				}
+		   }
+
+		return msg;
+	}
+	public String writeReviewShop(String shopname, String review, int rating)
+	{
+		String msg = "";
+		msg = _ss.addReview(_ss.getShop(shopname), this.u, review, rating);
+		return msg;
 	}
 	public Boolean login(String username, String password) {
 		if(!userExists(username)) {

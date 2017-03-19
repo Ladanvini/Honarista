@@ -296,6 +296,50 @@ public class ShopService {
 
 		   
 	   }
+	   public String addEvent(User sender, User receiver, String title)
+	   {
+		   String msg ="";
+		   String query = "INSERT INTO Events(etitle, sendid, recid)\n" + 
+		   		"		VALUES('"
+		   		+ title
+		   		+ "', "
+		   		+ sender.getId()
+		   		+ ", "
+		   		+ receiver.getId()
+		   		+ ");"; 
+		   Statement stmnt = null;
+		   try {
+			   stmnt = con.createStatement();
+			   stmnt.executeQuery(query);
+		   }catch(SQLException e) {
+			   msg = msg + (e.getMessage());
+			   msg = msg + (e.getStackTrace());
+		   }   
+		   
+		   return msg;
+	   }
+	   public String addReview(Shop s, User u, String review, int rating)
+	   {
+		   
+		   String msg="";
+		   String query ="INSERT INTO ShoppedAt(shopid, userid, review, rating)\n" + 
+		   		"	VALUES("
+		   		+ s.getID()+ ","+ " "+ u.getId()+ ","+ " "+ "'"+ review+ "', "+ rating + ");";
+		   
+		   Statement stmnt = null;
+		   try {
+			   stmnt = con.createStatement();
+			   stmnt.executeQuery(query);
+		   }catch(SQLException e) {
+			   msg = msg + (e.getMessage());
+			   msg = msg + (e.getStackTrace());
+		   }
+		   for(int i=0; i<s.getOwners().size(); i++)
+		   {
+			   this.addEvent(u, s.getOwners().elementAt(i), "دیدگاه خود را نوشت");
+		   }
+		   return msg;
+	   }
 	   public String setVisited(Shop s){
 			String msg = "";
 			   Statement stmnt = null;
@@ -400,13 +444,15 @@ public class ShopService {
 			msg = msg + "\n" + e.getStackTrace();
 		}
 		 			
-
+		   for(int i=0; i<s.getOwners().size(); i++)
+		   {
+			   this.addEvent(u, s.getOwners().elementAt(i), "فروشگاه شما را دوست داشت");
+		   }
 		   return msg;
 	   }
 //NOT USED ANUMORE 	   
 	   public String addOwnerTo(Shop s, User u){
 		   s.addNewOwner(u);
-		   System.out.println("HEEEEEEEEEEEEEREEE");
 		   String msg = "";
 					
 		   Statement stmnt = null;
@@ -423,6 +469,7 @@ public class ShopService {
 			msg = msg + e.getLocalizedMessage();
 			msg = msg + "\n" + e.getStackTrace();
 		}
+
 		   
 		   return msg;
 	   }
@@ -451,7 +498,10 @@ public class ShopService {
 			msg = msg + e.getLocalizedMessage();
 			msg = msg + "\n" + e.getStackTrace();
 		}
-		   
+		   for(int i=0; i<s.getOwners().size(); i++)
+		   {
+			   this.addEvent(u, s.getOwners().elementAt(i), "فروشگاه شما را گشت");
+		   }
 		   return msg;
    
 		   

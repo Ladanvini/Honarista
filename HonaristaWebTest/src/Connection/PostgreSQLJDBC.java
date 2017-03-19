@@ -17,7 +17,7 @@ public class PostgreSQLJDBC {
          Class.forName("org.postgresql.Driver");
          con = DriverManager
             .getConnection("jdbc:postgresql://localhost:5432/Honarista",
-            "postgres", "Hamra13hlid");
+            "postgres", "kharkhodeti");
       } catch (Exception e) {
          e.printStackTrace();
          System.err.println(e.getClass().getName()+": "+e.getMessage());
