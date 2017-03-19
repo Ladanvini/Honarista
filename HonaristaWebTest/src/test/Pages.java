@@ -1,6 +1,5 @@
 package test;
 
-import java.util.Stack;
 
 import Service.*;
 import entity.*;
@@ -8,10 +7,12 @@ public class Pages {
 	private UserService _us;
 	private User loggedIn;
 	private ShopService _ss;
+	private ItemService _is;
 	public Pages()
 	{
 		_us = new UserService();
 		_ss = new ShopService(_us);
+		_is = new ItemService();
 	}
 	public String getRegistrationPage()
 	{
@@ -267,6 +268,7 @@ public class Pages {
 	}
 	public String getProfilePage()
 	{
+		System.out.println("in profile page");
 		String profile=""
 				+ "<!DOCTYPE html>\n" + 
 				"<html ng-app=\"dashboardContent\">\n" + 
@@ -361,19 +363,19 @@ public class Pages {
 				"                    <div  id=\"StocksManage\" class=\"panel-collapse collapse\">\n" + 
 				"                        <div class=\"sub-panel\">\n" + 
 				"                            <i class=\"icon-plus-sign-alt icon-1x icon-align\"></i>\n" + 
-				"                            <a href=\"#newStock\">محصول جدید</a>\n" + 
+				"                            <a href=\"Ladan?Action=201\">محصول جدید</a>\n" + 
 				"\n" + 
 				"                        </div>\n" + 
 				"                        <div class=\"sub-panel\">\n" + 
-				"                            <a href=\"#vitrin\">ویترین ها</a>\n" + 
+				"                            <a href=\"Ladan?Action=202\">ویترین ها</a>\n" + 
 				"                            <i class=\"icon-reorder icon-1x icon-align\"></i>\n" + 
 				"                        </div>\n" + 
 				"                        <div class=\"sub-panel\">\n" + 
-				"                            <a href=\"#customerComment\">دیدگاه مشتریان</a>\n" + 
+				"                            <a href=\"Ladan?Action=203\">دیدگاه مشتریان</a>\n" + 
 				"                            <i class=\"icon-comment-alt icon-1x icon-align\"></i>\n" + 
 				"                        </div>\n" + 
 				"                        <div class=\"sub-panel\">\n" + 
-				"                            <a href=\"#Sending\">روش های ارسال</a>\n" + 
+				"                            <a href=\"Ladan?Action=204\">روش های ارسال</a>\n" + 
 				"                            <i class=\"icon-location-arrow icon-1x icon-align\"></i>\n" + 
 				"                        </div>\n" + 
 				"                    </div>\n" + 
@@ -471,10 +473,19 @@ public class Pages {
 				"</html>";
 		return profile + events + news + panelOwner + panel;
 	}
-	public String viewAllShops()
+	public String getBrowsePage(String category)
 	{
 		String before = "<!DOCTYPE html>\n" + 
 				"<html lang=\"en\">\n" + 
+				"<!-- \n" + 
+				"	ACTION CODES\n" + 
+				"		CATEGORIES : 10X\n" + 
+				"		LOGIN : 10\n" + 
+				"		REGISTRATION : 11\n" + 
+				"		FORGOT PASSWORD : 13\n" + 
+				"		LOGIN WITH PHONE : 14\n" + 
+				"		  \n" + 
+				" -->\n" + 
 				"<head>\n" + 
 				"    <title>Honarista</title>\n" + 
 				"    <meta charset=\"utf-8\">\n" + 
@@ -485,27 +496,29 @@ public class Pages {
 				"    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n" + 
 				"</head>\n" + 
 				"<body>\n" + 
-				"\n" + 
+				"<form action=\"Ladan\" type=\"POST\">\n" + 
 				"<div class=\"first-fixed-nav-bar\">\n" + 
 				"\n" + 
 				"    <div class=\"btn-group inline pull-right\">\n" + 
-				"        <a href=\"registerForm.html\"><div class=\"btn btn-space btn-success\">ورود به سایت</div></a>\n" + 
+				"    	\n" + 
+				"        <a href=\"Ladan?Action=10\"><div class=\"btn btn-space btn-success\">ورود به سایت</div></a>\n" + 
 				"    </div>\n" + 
 				"\n" + 
 				"\n" + 
 				"</div >\n" + 
 				"\n" + 
-				"<div class=\"scd-fixed-nav-bar\">\n" + 
+				"<div class=\"scd-fixed-nav-bar\" id=\"categories\">\n" + 
+				"	\n" + 
 				"    <div class=\"btn-group inline pull-right\">\n" + 
-				"        <div class=\"btn btn-space\">هنر خلاق</div>\n" + 
-				"        <div class=\"btn btn-space\">اسباب بازی</div>\n" + 
-				"        <div class=\"btn btn-space\">چوب</div>\n" + 
-				"        <div class=\"btn btn-space\">گیاه</div>\n" + 
-				"        <div class=\"btn btn-space\">آنتیک</div>\n" + 
-				"        <div class=\"btn btn-space\">پوشیدنی</div>\n" + 
-				"        <div class=\"btn btn-space\">جواهرات</div>\n" + 
-				"        <div class=\"btn btn-space\">دکوراسیون خانه</div>\n" + 
-				"        <div class=\"btn btn-space\">تالار مشاهیر</div>\n" + 
+				"       <a href=\"Ladan?Action=101\"> <div class=\"btn btn-space\" id=\"creativeArt\">هنر خلاق</div></a>\n" + 
+				"       <a href=\"Ladan?Action=102\"> <div class=\"btn btn-space\" id=\"toys\">اسباب بازی</div></a>\n" + 
+				"        <a href=\"Ladan?Action=103\"><div class=\"btn btn-space\" id=\"woodwork\">چوب</div></a>\n" + 
+				"        <a href=\"Ladan?Action=104\"><div class=\"btn btn-space\" id=\"plants\">گیاه</div></a>\n" + 
+				"        <a href=\"Ladan?Action=105\"><div class=\"btn btn-space\" id=\"antiques\">آنتیک</div></a>\n" + 
+				"        <a href=\"Ladan?Action=106\"><div class=\"btn btn-space\" id=\"clothes\">پوشیدنی</div></a>\n" + 
+				"        <a href=\"Ladan?Action=107\"><div class=\"btn btn-space\" id=\"jewelery\">جواهرات</div></a>\n" + 
+				"        <a href=\"Ladan?Action=108\"><div class=\"btn btn-space\" id=\"decoofrations\">دکوراسیون خانه</div></a>\n" + 
+				"        <a href=\"Ladan?Action=109\"><div class=\"btn btn-space\" id=\"hallOfFame\">تالار مشاهیر</div></a>\n" + 
 				"    </div>\n" + 
 				"</div>\n" + 
 				"\n" + 
@@ -522,15 +535,15 @@ public class Pages {
 				"\n" + 
 				"<div class=\"orange-layer\"></div>\n" + 
 				"\n" + 
-				"<div class=\"gift-search\">\n" + 
+				"<div class=\"gift-search\" id=\"giftSearch\">\n" + 
 				"\n" + 
-				"    <div class=\"btn-group inline pull-left btn-group-justified\" data-toggle=\"buttons-checkbox\">\n" + 
-				"        <div class=\"btn btn-warning btn-space\">نه، فعلا دارم چرخ میزنم!</div>\n" + 
-				"        <div class=\"btn btn-primary btn-space\">اوهوم</div>\n" + 
-				"        <div class=\"btn btn-space\">می گردی؟</div>\n" + 
+				"    <div class=\"btn-group inline pull-left btn-group-justified\" data-toggle=\"buttons-checkbox\" id=\"keepSearchBool\">\n" + 
+				"        <div class=\"btn btn-warning btn-space\" id=\"keepSearching\">نه، فعلا دارم چرخ میزنم!</div>\n" + 
+				"        <div class=\"btn btn-primary btn-space\" id=\"uhum\">اوهوم</div>\n" + 
+				"        <div class=\"btn btn-space\" id=\"keepSearchQuestion\">می گردی؟</div>\n" + 
 				"\n" + 
-				"        <div class=\"btn-group btn-space\">\n" + 
-				"            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\">\n" + 
+				"        <div class=\"btn-group btn-space\" id=\"whoFor\">\n" + 
+				"            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" >\n" + 
 				"                همکلاسی دخترت <span class=\"caret\"></span>\n" + 
 				"            </button>\n" + 
 				"            <ul class=\"dropdown-menu\" role=\"menu\">\n" + 
@@ -563,62 +576,15 @@ public class Pages {
 				"<div class=\"home-category\">\n" + 
 				"\n" + 
 				"    <div align=\"center\">\n" + 
-				"        <h3>دسته بندی های منتخب</h3>\n" + 
+				"        <h3>فروشکاهها</h3>\n" + 
 				"    </div>\n" + 
 				"\n" + 
 				"    <div class=\"row\">\n" + 
 				"\n" + 
 				"        <div class=\"col-md-1\"></div>\n" + 
-				"";
-		String after = "    </div>\n" + 
-				"\n" + 
-				"</div>\n" + 
-				""
-				+ "<div class=\"home-gallery\">\n" + 
-				"\n" + 
-				"    <div align=\"center\">\n" + 
-				"        <h3>گالری های منتخب</h3>\n" + 
-				"    </div>\n" + 
-				"\n" + 
-				"    <div class=\"row\">\n" + 
-				"\n" + 
-				"        <div class=\"col-md-2\"></div>\n" + 
-				"        <div class=\"col-md-2\">\n" + 
-				"            <a href=\"\">\n" + 
-				"                <img src=\"Photos/forest.jpg\" class=\"img-rounded\" alt=\"forest\" style=\"width:100%\">\n" + 
-				"                <div class=\"caption\">\n" + 
-				"                    <p>تراریوم مینی فارست</p>\n" + 
-				"                </div>\n" + 
-				"            </a>\n" + 
-				"        </div>\n" + 
-				"\n" + 
-				"        <div class=\"col-md-2\">\n" + 
-				"            <a href=\"\">\n" + 
-				"                <img src=\"Photos/wall.jpg\" class=\"img-rounded\" alt=\"wall\" style=\"width:100%\">\n" + 
-				"                <div class=\"caption\">\n" + 
-				"                    <p>دیوار چوب</p>\n" + 
-				"                </div>\n" + 
-				"            </a>\n" + 
-				"        </div>\n" + 
-				"\n" + 
-				"        <div class=\"col-md-2\">\n" + 
-				"            <a href=\"\">\n" + 
-				"                <img src=\"Photos/silver.jpg\" class=\"img-rounded\" alt=\"silver\" style=\"width:100%\">\n" + 
-				"                <div class=\"caption\">\n" + 
-				"                    <p>نقره آرت</p>\n" + 
-				"                </div>\n" + 
-				"            </a>\n" + 
-				"        </div>\n" + 
-				"\n" + 
-				"        <div class=\"col-md-2\">\n" + 
-				"            <a href=\"\">\n" + 
-				"                <img src=\"Photos/kaktoos.jpg\" class=\"img-rounded\" alt=\"kaktoos\" style=\"width:100%\">\n" + 
-				"                <div class=\"caption\">\n" + 
-				"                    <p>خانه کاکتوس</p>\n" + 
-				"                </div>\n" + 
-				"            </a>\n" + 
-				"        </div>\n" + 
-				"\n" + 
+				""; 
+	
+		String after =  
 				"    </div>\n" + 
 				"\n" + 
 				"</div>\n" + 
@@ -639,8 +605,19 @@ public class Pages {
 				"\n" + 
 				"</body>\n" + 
 				"</html>";
-		
-		
+
+		String middle = "    </div>\n" + 
+				"\n" + 
+				"</div>\n" + 
+				""
+				+ "<div class=\"home-gallery\">\n" + 
+				"\n" + 
+				"    <div align=\"center\">\n" + 
+				"        <h3>محصولات</h3>\n" + 
+				"    </div>\n" + 
+				"\n" + 
+				"    <div class=\"row\">\n" + 
+				"\n";
 		String shopView = "";
 		for(int i=0; i<_ss.getAllShops().size(); i++)
 		{
@@ -658,6 +635,99 @@ public class Pages {
 					"        </div> \n";
 		}
 		
-		return before + shopView + after;
+		String itemView =" ";
+		for(int i=0; i<_is.getAllItems().size(); i++)
+		{
+		itemView = itemView + "<div class=\"col-md-2\">\n" + 
+				"            <a href=\"\">\n" + 
+				"                <img src=\""
+				+ _is.getAllItems().elementAt(i).getDescription()
+				+ "\" class=\"img-rounded\" alt=\"kaktoos\" style=\"width:100%\">\n" + 
+				"                <div class=\"caption\">\n" + 
+				"                    <p>"
+				+ _is.getAllItems().elementAt(i).getTitle()
+				+ "</p>\n" + 
+				"                </div>\n" + 
+				"            </a>\n" + 
+				"        </div>"
+				+ "\n";
+		}
+		return before + shopView + middle + itemView + after;
+	}
+	public String getCreateItemPage()
+	{
+		String temp ="<!DOCTYPE html>\n" + 
+				"<html lang=\"en\">\n" + 
+				"<head>\n" + 
+				"    <meta charset=\"utf-8\">\n" + 
+				"    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n" + 
+				"    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\n" + 
+				"    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js\"></script>\n" + 
+				"    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n" + 
+				"    <link rel=\"stylesheet\" type=\"text/css\" href=\"css/setting.css\">\n" + 
+				"    <title>create New Item</title>\n" + 
+				"</head>\n" + 
+				"<body>\n" + 
+				"<div class=\"container\">\n" + 
+				"\n" + 
+				"    <div class=\"row\">\n" + 
+				"        <div class=\"col-sm-4\"></div>\n" + 
+				"\n" + 
+				"        <div class=\"col-sm-4\">\n" + 
+				"            <img src=\"img/newItem.png\" class=\"img-circle\" alt=\"newItemLogo\" width=\"304\" height=\"236\">\n" + 
+				"        </div>\n" + 
+				"\n" + 
+				"        <div class=\"col-sm-4\"></div>\n" + 
+				"    </div>\n" + 
+				"\n" + 
+				"    <hr class=\"style1\"/>\n" + 
+				"	<form action=\"Ladan?Action=2000\" method=\"post\">\n" + 
+				"		<input type=\"hidden\" id=\"Action\" value=\"2000\"/>\"\n" + 
+				"    <div class=\"row\">\n" + 
+				"        <div class=\"col-sm-4\"></div>\n" + 
+				"\n" + 
+				"        <div class=\"col-sm-4\">\n" + 
+				"            <h4 class=\"text-right\">عنوان</h4>\n" + 
+				"            <input type=\"text\"  class=\"form-control \" name=\"ItemTitle\" required=\"required\">\n" + 
+				"\n" + 
+				"            <h4 class=\"text-right\">توضیحات</h4>\n" + 
+				"            <input type=\"text\"  class=\"form-control \" name=\"ItemDescription\" required=\"required\">\n" + 
+				"\n" + 
+				"            <div class=\"form-group\">\n" + 
+				"                <h4 class=\"text-right\">عکس آیتم</h4>\n" + 
+				"                <div class=\"input-group\">\n" + 
+				"                    <span class=\"input-group-btn\">\n" + 
+				"                        <span class=\"btn btn-default btn-file\">\n" + 
+				"                            آپلود عکس <input type=\"file\" id=\"imgInp\">\n" + 
+				"                        </span>\n" + 
+				"                    </span>\n" + 
+				"\n" + 
+				"                    <input name=\"newItemPicUrl\" type=\"text\" class=\"form-control\" readonly>\n" + 
+				"                </div>\n" + 
+				"\n" + 
+				"                <img id='item-img-upload'/>\n" + 
+				"\n" + 
+				"            </div>\n" + 
+				"\n" + 
+				"            <div class=\"text-center\">\n" + 
+				"                <button type=\"reset\" class=\"btn btn-danger\">انصراف</button>\n" + 
+				"                <button type=\"submit\" class=\"btn btn-success\">ثبت اطلاعات</button>\n" + 
+				"            </div>\n" + 
+				"        </div>\n" + 
+				"\n" + 
+				"        <div class=\"col-sm-4\"></div>\n" + 
+				"    </div>\n" + 
+				"</form>\n" + 
+				"\n" + 
+				"</div>\n" + 
+				"</body>\n" + 
+				"</html>";
+		
+		return temp;
+	}
+	public String createNewItem(String title, String desc, String shopname)
+	{
+		int id = _is.createNewItem(title, desc);
+		return _ss.addItemTo(_ss.getShop(shopname), _is.getItemWithId(id));
 	}
 }

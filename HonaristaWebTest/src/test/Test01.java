@@ -1,6 +1,5 @@
 package test;
 import java.io.IOException;
-import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class Test01 extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Boolean loggedIn;
 	Pages pages;
 	public Test01(){
@@ -47,15 +50,66 @@ public class Test01 extends HttpServlet {
 		case 1345:
 			String username;
 			String password;
-			System.out.println("injayam");
 			username = req.getParameter("email");
 			password = req.getParameter("password");
+			System.out.println(username);
+			System.out.println(password);
+			
 			if(pages.authenticate(username, password))
 				loggedIn = true;
 			if(loggedIn)
 				s=pages.getProfilePage();
+			break;
 		case 101:
-			s=pages.viewAllShops();
+			s=pages.getBrowsePage("creativeArt");
+			break;
+		case 102:
+			s=pages.getBrowsePage("toys");
+			break;
+		case 103:
+			s=pages.getBrowsePage("woodwork");
+			break;
+		case 104:
+			s=pages.getBrowsePage("plants");
+			break;
+		case 105:
+			s=pages.getBrowsePage("antiques");
+			break;
+		case 106:
+			s=pages.getBrowsePage("clothes");
+			break;
+		case 107:
+			s=pages.getBrowsePage("jewelry");
+			break;
+		case 108:
+			s=pages.getBrowsePage("decorations");
+			break;
+		case 109:
+			s=pages.getBrowsePage("hallOfFame");
+			break;
+		case 201:
+			//add new item
+			s=pages.getCreateItemPage();
+			break;
+		case 2000:
+			//item approve
+			String itemTitle = req.getParameter("ItemTitle");
+			String itemDesc = req.getParameter("ItemDescription");
+			
+			break;
+		case 2011:
+			//cancel
+			break;
+		case 202:
+			//vitrin
+			break;
+		case 203:
+			//customer reviews
+			break;
+		case 204:
+		//sending methods;
+			break;
+			
 		}
 			bytes=s.getBytes("UTF-8");
 			persian = new String(bytes, "UTF-8");
