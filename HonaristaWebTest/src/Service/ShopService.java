@@ -15,6 +15,7 @@ public class ShopService {
 		_db = new PostgreSQLJDBC();
 		con = _db.getConnection(null);
 		_us = us;
+		_is = new ItemService();
 	}
 	   /*
 	    * SHOP ACTIONS 
@@ -377,6 +378,8 @@ public class ShopService {
 
 	   }
 	   public String setItems(Shop s){
+		  // System.out.println("iiiiiiiiiiiiiiinjaaaaaaaaaaaaaaaaaaaaaaaa");
+		   //System.out.println(s.getName());
 			String msg = "";
 			   Statement stmnt = null;
 			   Vector<IsSelling> res = new Vector<IsSelling>();
@@ -391,6 +394,7 @@ public class ShopService {
 					   int shopid = rs.getInt("shopid");
 					   int itemid = rs.getInt("itemid");
 					   int count = rs.getInt("count");
+					   
 					   //IsSelling(Shop shop, Item item, int count)
 					   res.add(new IsSelling(this.getShopWithId(shopid), _is.getItemWithId(itemid), count));
 				   }
@@ -508,6 +512,11 @@ public class ShopService {
 	   }
 	   
 	   public String addItemTo(Shop s, Item item){
+		   if(s == null)
+			   return "Shop not found";
+		   if(item == null)
+			   return "item not found";
+		   
 		   String msg = "";
 		   Vector<IsSelling> selling = s.getItems();
 		   int count = 1;

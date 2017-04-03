@@ -1,51 +1,80 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<!-- 
-	ACTION CODES
-		CATEGORIES : 10X
-		LOGIN : 10
-		REGISTRATION : 11
-		FORGOT PASSWORD : 13
-		LOGIN WITH PHONE : 14
-		  
- -->
 <head>
     <title>Honarista</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/setting.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/Navigation.css">
+    <link rel="icon" href="img/Honarista%20Favicon.png">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<form action="Ladan" type="POST">
+
+<!-- nav bar -->
+
+<div class="navigation-bar first-fixed-nav-bar">
+
+    <div id="navigation-container">
+
+        <img src="img/Honarista%203.png">
+
+        <ul class="menu form-inline">
+
+            <li><a href="Ladan?Action=10">ورود</a></li>
+            <li><a href="Ladan?Action=15">فروش در هنریستا</a></li>
+        </ul>
+    </div>
+
+</div >
+
+
+<div class="navigation-bar scd-fixed-nav-bar shadow">
+
+    <div id="navigation-container-scd">
+        <ul class="menu">
+            <li><a href="Ladan?Action=109">تالار مشاهیر</a></li>
+            <li><a href="Ladan?Action=108">دکوراسیون خانه</a></li>
+            <li><a href="Ladan?Action=107">جواهرات</a></li>
+            <li><a href="Ladan?Action=106">پوشیدنی</a></li>
+            <li><a href="Ladan?Action=105">آنتیک</a></li>
+            <li><a href="Ladan?Action=104">گیاه</a></li>
+            <li><a href="Ladan?Action=103">چوب</a></li>
+            <li><a href="Ladan?Action=102">اسباب بازی</a></li>
+            <li><a href="Ladan?Action=101">هنر خلاق</a></li>
+        </ul>
+    </div>
+
+</div >
+
+<!--
 <div class="first-fixed-nav-bar">
 
     <div class="btn-group inline pull-right">
-    	
-        <a href="Ladan?Action=10"><div class="btn btn-space btn-success">ورود به سایت</div></a>
+        <a href="registerForm.html"><div class="btn btn-space btn-success">ورود به سایت</div></a>
     </div>
 
 
 </div >
 
-<div class="scd-fixed-nav-bar" id="categories">
-	
+<div class="scd-fixed-nav-bar">
     <div class="btn-group inline pull-right">
-       <a href="Ladan?Action=101"> <div class="btn btn-space" id="creativeArt">هنر خلاق</div></a>
-       <a href="Ladan?Action=102"> <div class="btn btn-space" id="toys">اسباب بازی</div></a>
-        <a href="Ladan?Action=103"><div class="btn btn-space" id="woodwork">چوب</div></a>
-        <a href="Ladan?Action=104"><div class="btn btn-space" id="plants">گیاه</div></a>
-        <a href="Ladan?Action=105"><div class="btn btn-space" id="antiques">آنتیک</div></a>
-        <a href="Ladan?Action=106"><div class="btn btn-space" id="clothes">پوشیدنی</div></a>
-        <a href="Ladan?Action=107"><div class="btn btn-space" id="jewelery">جواهرات</div></a>
-        <a href="Ladan?Action=108"><div class="btn btn-space" id="decoofrations">دکوراسیون خانه</div></a>
-        <a href="Ladan?Action=109"><div class="btn btn-space" id="hallOfFame">تالار مشاهیر</div></a>
+        <div class="btn btn-space">هنر خلاق</div>
+        <div class="btn btn-space">اسباب بازی</div>
+        <div class="btn btn-space">چوب</div>
+        <div class="btn btn-space">گیاه</div>
+        <div class="btn btn-space">آنتیک</div>
+        <div class="btn btn-space">پوشیدنی</div>
+        <div class="btn btn-space">جواهرات</div>
+        <div class="btn btn-space">دکوراسیون خانه</div>
+        <div class="btn btn-space">تالار مشاهیر</div>
     </div>
 </div>
-
+-->
 <div class="homepage-background">
 
     <div>
@@ -59,15 +88,15 @@
 
 <div class="orange-layer"></div>
 
-<div class="gift-search" id="giftSearch">
+<div class="gift-search">
 
-    <div class="btn-group inline pull-left btn-group-justified" data-toggle="buttons-checkbox" id="keepSearchBool">
-        <div class="btn btn-warning btn-space" id="keepSearching">نه، فعلا دارم چرخ میزنم!</div>
-        <div class="btn btn-primary btn-space" id="uhum">اوهوم</div>
-        <div class="btn btn-space" id="keepSearchQuestion">می گردی؟</div>
+    <div class="btn-group inline pull-left btn-group-justified" data-toggle="buttons-checkbox">
+        <div class="btn btn-warning btn-space">نه، فعلا دارم چرخ میزنم!</div>
+        <div class="btn btn-primary btn-space">اوهوم</div>
+        <div class="btn btn-space">می گردی؟</div>
 
-        <div class="btn-group btn-space" id="whoFor">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" >
+        <div class="btn-group btn-space">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                 همکلاسی دخترت <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
@@ -217,6 +246,6 @@
 
     </div>
 </div>
-</form>
+
 </body>
 </html>

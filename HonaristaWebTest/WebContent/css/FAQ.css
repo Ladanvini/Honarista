@@ -1,0 +1,33 @@
+.wrapper {
+    background: url('../Photos/FAQ.jpg') no-repeat fixed;
+    height: 255px;
+    width: 100%;
+}
+
+.inner-cover{
+    padding-top: 6%;
+}
+
+input {
+    text-align: right;
+}
+
+.FAQ{
+    width: 100%;
+    text-align: right;
+    height: auto;
+    padding-bottom: 10%;
+    padding-top: 5%;
+}
+
+.align{
+    text-align: right;
+}
+
+.btn-Q {
+    color: black;
+    background-color: white;
+}
+
+
+

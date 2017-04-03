@@ -16,7 +16,8 @@ public class Pages {
 	}
 	public String getRegistrationPage()
 	{
-		String temp="<!DOCTYPE html>\n" + 
+		String temp=""
+				+ "<!DOCTYPE html>\n" + 
 				"<html lang=\"en\">\n" + 
 				"<head>\n" + 
 				"    <meta charset=\"UTF-8\">\n" + 
@@ -34,15 +35,45 @@ public class Pages {
 				"\n" + 
 				"<div class=\"form\">\n" + 
 				"\n" + 
-				"    <a href=\"index.html\"><div class=\"btn btn-space btn-danger\">X</div></a>\n" + 
+				"    <a href=\"main.html\"><div class=\"btn btn-space btn-danger\">X</div></a>\n" + 
 				"\n" + 
 				"    <ul class=\"tab-group\">\n" + 
 				"\n" + 
-				"        <li class=\"tab active\"><a href=\"Ladan?Action=11\">ثبت نام</a></li>\n" + 
-				"        <li class=\"tab\"><a href=\"Ladan?Action=10\">ورود</a></li>\n" + 
+				"        <li class=\"tab\"><a href=\"#signup\">ثبت نام</a></li>\n" + 
+				"        <li class=\"tab active\"><a href=\"#login\">ورود</a></li>\n" + 
 				"    </ul>\n" + 
 				"\n" + 
 				"    <div class=\"tab-content\">\n" + 
+				"\n" + 
+				"        <div id=\"login\">\n" + 
+				"\n" + 
+				"            <form action=\"/\" method=\"post\">\n" + 
+				"\n" + 
+				"                <div class=\"field-wrap\">\n" + 
+				"                    <label>\n" + 
+				"                        Email Address<span class=\"req\">*</span>\n" + 
+				"                    </label>\n" + 
+				"                    <input type=\"email\"required autocomplete=\"off\"/>\n" + 
+				"                </div>\n" + 
+				"\n" + 
+				"                <div class=\"field-wrap\" >\n" + 
+				"                    <label>\n" + 
+				"                        گذرواژه<span class=\"req\">*</span>\n" + 
+				"                    </label>\n" + 
+				"                    <input type=\"password\"required autocomplete=\"off\"/>\n" + 
+				"                </div>\n" + 
+				"\n" + 
+				"                <button class=\"button button-block\"/>ورود</button>\n" + 
+				"\n" + 
+				"                <p class=\"forgot\">رمز عبور خود را فراموش کرده اید؟ <a href=\"#\">کلیک کنید</a></p>\n" + 
+				"                <p class=\"forgot\"><a href=\"#\">ورود</a> با شماره همراه</p>\n" + 
+				"\n" + 
+				"            </form>\n" + 
+				"\n" + 
+				"            <img src=\"img/Login%20Footer%20Waves.png\" class=\"img-rounded\" alt=\"Icons\" style=\"width:100%\">\n" + 
+				"\n" + 
+				"        </div>\n" + 
+				"\n" + 
 				"\n" + 
 				"        <div id=\"signup\">\n" + 
 				"\n" + 
@@ -54,14 +85,14 @@ public class Pages {
 				"                        <label>\n" + 
 				"                            نام خانوادگی<span class=\"req\">*</span>\n" + 
 				"                        </label>\n" + 
-				"                        <input id=\"lastName\"type=\"text\"required autocomplete=\"off\"/>\n" + 
+				"                        <input type=\"text\"required autocomplete=\"off\"/>\n" + 
 				"                    </div>\n" + 
 				"\n" + 
 				"                    <div class=\"field-wrap\">\n" + 
 				"                        <label>\n" + 
 				"                            نام<span class=\"req\">*</span>\n" + 
 				"                        </label>\n" + 
-				"                        <input id=\"firstName\" type=\"text\" required autocomplete=\"off\" />\n" + 
+				"                        <input type=\"text\" required autocomplete=\"off\" />\n" + 
 				"                    </div>\n" + 
 				"\n" + 
 				"                </div>\n" + 
@@ -70,56 +101,27 @@ public class Pages {
 				"                    <label>\n" + 
 				"                        ایمیل<span class=\"req\">*</span>\n" + 
 				"                    </label>\n" + 
-				"                    <input id=\"regEmail\" type=\"email\"required autocomplete=\"off\"/>\n" + 
+				"                    <input type=\"email\"required autocomplete=\"off\"/>\n" + 
 				"                </div>\n" + 
-				"\n" + 
-				"        <div id=\"login\">\n" + 
-				"\n" + 
-				"            <form action=\"/\" method=\"post\">\n" + 
-				"\n" + 
-				"                <div class=\"field-wrap\">\n" + 
-				"                    <label>\n" + 
-				"                        Email Address<span class=\"req\">*</span>\n" + 
-				"                    </label>\n" + 
-				"                    <input id=\"email\" type=\"email\"required autocomplete=\"off\"/>\n" + 
-				"                </div>\n" + 
-				"\n" + 
-				"                <div class=\"field-wrap\" >\n" + 
-				"                    <label>\n" + 
-				"                        گذرواژه<span class=\"req\">*</span>\n" + 
-				"                    </label>\n" + 
-				"                    <input id=\"password\" type=\"password\"required autocomplete=\"off\"/>\n" + 
-				"                </div>\n" + 
-				"\n" + 
-				"                <button id=\"loginbtn\" class=\"button button-block\"/>ورود</button>\n" + 
-				"\n" + 
-				"                <p class=\"forgot\">رمز عبور خود را فراموش کرده اید؟ <a id=\"forgotPass\"href=\"#\">کلیک کنید</a></p>\n" + 
-				"                <p class=\"forgot\"><a id=\"loginViaPhone\"href=\"#\">ورود</a> با شماره همراه</p>\n" + 
-				"\n" + 
-				"            </form>\n" + 
-				"\n" + 
-				"        </div>\n" + 
-				"\n" + 
-				"\n" + 
 				"\n" + 
 				"                <div class=\"field-wrap\">\n" + 
 				"                    <label>\n" + 
 				"                        گذرواژه<span class=\"req\">*</span>\n" + 
 				"                    </label>\n" + 
-				"                    <input id=\"regPass\" type=\"password\"required autocomplete=\"off\"/>\n" + 
+				"                    <input type=\"password\"required autocomplete=\"off\"/>\n" + 
 				"                </div>\n" + 
 				"\n" + 
 				"                <div class=\"field-wrap\">\n" + 
 				"                    <label>\n" + 
 				"                        تکرار گذرواژه<span class=\"req\">*</span>\n" + 
 				"                    </label>\n" + 
-				"                    <input id=\"regPassRep\" type=\"password\"required autocomplete=\"off\"/>\n" + 
+				"                    <input type=\"password\"required autocomplete=\"off\"/>\n" + 
 				"                </div>\n" + 
-				"                <button id=\"regbtn\"type=\"submit\" class=\"button button-block\"/>ثبت</button>\n" + 
+				"                <button type=\"submit\" class=\"button button-block\"/>ثبت</button>\n" + 
 				"\n" + 
 				"            </form>\n" + 
 				"\n" + 
-				"            <img src=\"Home%20Page/Artistic%20Icons%20Row.png\" class=\"img-rounded\" alt=\"Icons\" style=\"width:100%\">\n" + 
+				"            <img src=\"img/Login%20Footer%20Waves.png\" class=\"img-rounded\" alt=\"Icons\" style=\"width:100%\">\n" + 
 				"\n" + 
 				"        </div>\n" + 
 				"\n" + 
@@ -131,7 +133,9 @@ public class Pages {
 				"<script src=\"js/index.js\"></script>\n" + 
 				"\n" + 
 				"</body>\n" + 
-				"</html>";
+				"</html>\n" + 
+				"";
+		
 		return temp;
 	}
 	public String getLoginPage() {
@@ -159,8 +163,8 @@ public class Pages {
 				"\n" + 
 				"    <ul class=\"tab-group\">\n" + 
 				"\n" + 
-				"        <li class=\"tab\"><a href=\"Ladan?Action=11\">ثبت نام</a></li></a>\n" + 
-				"        <li class=\"tab active\"><a href=\"Ladan?Action=10\">ورود</a></li></a>\n" + 
+				"        <li class=\"tab\"><a href=\"#signup\">ثبت نام</a></li>\n" + 
+				"        <li class=\"tab active\"><a href=\"#login\">ورود</a></li>\n" + 
 				"    </ul>\n" + 
 				"\n" + 
 				"    <div class=\"tab-content\">\n" + 
@@ -168,7 +172,7 @@ public class Pages {
 				"        <div id=\"login\">\n" + 
 				"\n" + 
 				"            <form action=\"Ladan?Action=1345\" method=\"post\">\n" + 
-				"				<input type=\"hidden\" id=\"Action\" value=\"1345\"/>" +
+				"<input type=\"hidden\" id=\"Action\" value=\"1345\"/> "+
 				"\n" + 
 				"                <div class=\"field-wrap\">\n" + 
 				"                    <label>\n" + 
@@ -184,19 +188,21 @@ public class Pages {
 				"                    <input name=\"password\" type=\"password\"required autocomplete=\"off\"/>\n" + 
 				"                </div>\n" + 
 				"\n" + 
-				"                <button type=\"submit\" id=\"loginbtn\" class=\"button button-block\">ورود</button>\n" + 
+				"                <button type=\"submit\" class=\"button button-block\"/>ورود</button>\n" + 
 				"\n" + 
-				"                <p class=\"forgot\">رمز عبور خود را فراموش کرده اید؟ <a id=\"forgotPass\"href=\"Ladan?Action=13\">کلیک کنید</a></p>\n" + 
-				"                <p class=\"forgot\"><a id=\"loginViaPhone\"href=\"Ladan?Action=14\">ورود</a> با شماره همراه</p>\n" + 
+				"                <p class=\"forgot\">رمز عبور خود را فراموش کرده اید؟ <a href=\"#\">کلیک کنید</a></p>\n" + 
+				"                <p class=\"forgot\"><a href=\"#\">ورود</a> با شماره همراه</p>\n" + 
 				"\n" + 
 				"            </form>\n" + 
+				"\n" + 
+				"            <img src=\"img/Login%20Footer%20Waves.png\" class=\"img-rounded\" alt=\"Icons\" style=\"width:100%\">\n" + 
 				"\n" + 
 				"        </div>\n" + 
 				"\n" + 
 				"\n" + 
 				"        <div id=\"signup\">\n" + 
 				"\n" + 
-				"            <form action=\"/\" method=\"post\">\n" + 
+				"            <form action=\"Ladan?Action=1350\" method=\"post\">\n" + 
 				"\n" + 
 				"                <div class=\"top-row\">\n" + 
 				"\n" + 
@@ -204,14 +210,14 @@ public class Pages {
 				"                        <label>\n" + 
 				"                            نام خانوادگی<span class=\"req\">*</span>\n" + 
 				"                        </label>\n" + 
-				"                        <input id=\"lastName\"type=\"text\"required autocomplete=\"off\"/>\n" + 
+				"                        <input name=\"lastname\" type=\"text\"required autocomplete=\"off\"/>\n" + 
 				"                    </div>\n" + 
 				"\n" + 
 				"                    <div class=\"field-wrap\">\n" + 
 				"                        <label>\n" + 
 				"                            نام<span class=\"req\">*</span>\n" + 
 				"                        </label>\n" + 
-				"                        <input id=\"firstName\" type=\"text\" required autocomplete=\"off\" />\n" + 
+				"                        <input name=\"firstname\" type=\"text\" required autocomplete=\"off\" />\n" + 
 				"                    </div>\n" + 
 				"\n" + 
 				"                </div>\n" + 
@@ -220,27 +226,27 @@ public class Pages {
 				"                    <label>\n" + 
 				"                        ایمیل<span class=\"req\">*</span>\n" + 
 				"                    </label>\n" + 
-				"                    <input id=\"regEmail\" type=\"email\"required autocomplete=\"off\"/>\n" + 
+				"                    <input name=\"regemail\"type=\"email\"required autocomplete=\"off\"/>\n" + 
 				"                </div>\n" + 
 				"\n" + 
 				"                <div class=\"field-wrap\">\n" + 
 				"                    <label>\n" + 
 				"                        گذرواژه<span class=\"req\">*</span>\n" + 
 				"                    </label>\n" + 
-				"                    <input id=\"regPass\" type=\"password\"required autocomplete=\"off\"/>\n" + 
+				"                    <input name=\"regpass\" type=\"password\"required autocomplete=\"off\"/>\n" + 
 				"                </div>\n" + 
 				"\n" + 
 				"                <div class=\"field-wrap\">\n" + 
 				"                    <label>\n" + 
 				"                        تکرار گذرواژه<span class=\"req\">*</span>\n" + 
 				"                    </label>\n" + 
-				"                    <input id=\"regPassRep\" type=\"password\"required autocomplete=\"off\"/>\n" + 
+				"                    <input type=\"password\"required autocomplete=\"off\"/>\n" + 
 				"                </div>\n" + 
-				"                <button id=\"regbtn\"type=\"submit\" class=\"button button-block\"/>ثبت</button>\n" + 
+				"                <button type=\"submit\" class=\"button button-block\"/>ثبت</button>\n" + 
 				"\n" + 
 				"            </form>\n" + 
 				"\n" + 
-				"            <img src=\"Home%20Page/Artistic%20Icons%20Row.png\" class=\"img-rounded\" alt=\"Icons\" style=\"width:100%\">\n" + 
+				"            <img src=\"img/Login%20Footer%20Waves.png\" class=\"img-rounded\" alt=\"Icons\" style=\"width:100%\">\n" + 
 				"\n" + 
 				"        </div>\n" + 
 				"\n" + 
@@ -252,9 +258,14 @@ public class Pages {
 				"<script src=\"js/index.js\"></script>\n" + 
 				"\n" + 
 				"</body>\n" + 
-				"</html>";
-		
+				"</html>\n" + 
+				"";
 		return temp;
+	}
+	public String registerUser(String firstName, String lastName, String email, String pass)
+	{
+		return _us.createNewUser(email, pass, firstName+" "+lastName, "", "", 2);
+		
 	}
 	public Boolean authenticate(String username, String password)
 	{
@@ -266,7 +277,14 @@ public class Pages {
 		}
 		return false;
 	}
-	public String getProfilePage()
+	public Boolean logout()
+	{
+		_us.setUser(null);
+		loggedIn = null;
+		return false;
+	}
+
+	public String getDashboardPage()
 	{
 		System.out.println("in profile page");
 		String profile=""
@@ -447,7 +465,7 @@ public class Pages {
 				"                <div class=\"panel\">\n" + 
 				"                    <div class=\"panel-heading\">\n" + 
 				"                        <h4 class=\"panel-title\">\n" + 
-				"                            <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseOne\"><i class=\"icon-power-off icon-1x icon-align\"></i>خروج</a>\n" + 
+				"                            <a data-parent=\"#accordion\" href=\"Ladan?Action=16\"><i class=\"icon-power-off icon-1x icon-align\"></i>خروج</a>\n" + 
 				"                        </h4>\n" + 
 				"                    </div>\n" + 
 				"                    <div class=\"panel-collapse collapse\">\n" + 
@@ -475,53 +493,32 @@ public class Pages {
 	}
 	public String getBrowsePage(String category)
 	{
-		String before = "<!DOCTYPE html>\n" + 
-				"<html lang=\"en\">\n" + 
-				"<!-- \n" + 
-				"	ACTION CODES\n" + 
-				"		CATEGORIES : 10X\n" + 
-				"		LOGIN : 10\n" + 
-				"		REGISTRATION : 11\n" + 
-				"		FORGOT PASSWORD : 13\n" + 
-				"		LOGIN WITH PHONE : 14\n" + 
-				"		  \n" + 
-				" -->\n" + 
-				"<head>\n" + 
-				"    <title>Honarista</title>\n" + 
-				"    <meta charset=\"utf-8\">\n" + 
-				"    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n" + 
-				"    <link rel=\"stylesheet\" href=\"css/setting.css\">\n" + 
-				"    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\n" + 
-				"    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js\"></script>\n" + 
-				"    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n" + 
-				"</head>\n" + 
-				"<body>\n" + 
-				"<form action=\"Ladan\" type=\"POST\">\n" + 
+		String before = getHeader() + 
+				"\n" + 
+				"<!--\n" + 
 				"<div class=\"first-fixed-nav-bar\">\n" + 
 				"\n" + 
 				"    <div class=\"btn-group inline pull-right\">\n" + 
-				"    	\n" + 
-				"        <a href=\"Ladan?Action=10\"><div class=\"btn btn-space btn-success\">ورود به سایت</div></a>\n" + 
+				"        <a href=\"registerForm.html\"><div class=\"btn btn-space btn-success\">ورود به سایت</div></a>\n" + 
 				"    </div>\n" + 
 				"\n" + 
 				"\n" + 
 				"</div >\n" + 
 				"\n" + 
-				"<div class=\"scd-fixed-nav-bar\" id=\"categories\">\n" + 
-				"	\n" + 
+				"<div class=\"scd-fixed-nav-bar\">\n" + 
 				"    <div class=\"btn-group inline pull-right\">\n" + 
-				"       <a href=\"Ladan?Action=101\"> <div class=\"btn btn-space\" id=\"creativeArt\">هنر خلاق</div></a>\n" + 
-				"       <a href=\"Ladan?Action=102\"> <div class=\"btn btn-space\" id=\"toys\">اسباب بازی</div></a>\n" + 
-				"        <a href=\"Ladan?Action=103\"><div class=\"btn btn-space\" id=\"woodwork\">چوب</div></a>\n" + 
-				"        <a href=\"Ladan?Action=104\"><div class=\"btn btn-space\" id=\"plants\">گیاه</div></a>\n" + 
-				"        <a href=\"Ladan?Action=105\"><div class=\"btn btn-space\" id=\"antiques\">آنتیک</div></a>\n" + 
-				"        <a href=\"Ladan?Action=106\"><div class=\"btn btn-space\" id=\"clothes\">پوشیدنی</div></a>\n" + 
-				"        <a href=\"Ladan?Action=107\"><div class=\"btn btn-space\" id=\"jewelery\">جواهرات</div></a>\n" + 
-				"        <a href=\"Ladan?Action=108\"><div class=\"btn btn-space\" id=\"decoofrations\">دکوراسیون خانه</div></a>\n" + 
-				"        <a href=\"Ladan?Action=109\"><div class=\"btn btn-space\" id=\"hallOfFame\">تالار مشاهیر</div></a>\n" + 
+				"        <div class=\"btn btn-space\">هنر خلاق</div>\n" + 
+				"        <div class=\"btn btn-space\">اسباب بازی</div>\n" + 
+				"        <div class=\"btn btn-space\">چوب</div>\n" + 
+				"        <div class=\"btn btn-space\">گیاه</div>\n" + 
+				"        <div class=\"btn btn-space\">آنتیک</div>\n" + 
+				"        <div class=\"btn btn-space\">پوشیدنی</div>\n" + 
+				"        <div class=\"btn btn-space\">جواهرات</div>\n" + 
+				"        <div class=\"btn btn-space\">دکوراسیون خانه</div>\n" + 
+				"        <div class=\"btn btn-space\">تالار مشاهیر</div>\n" + 
 				"    </div>\n" + 
 				"</div>\n" + 
-				"\n" + 
+				"-->\n" + 
 				"<div class=\"homepage-background\">\n" + 
 				"\n" + 
 				"    <div>\n" + 
@@ -535,15 +532,15 @@ public class Pages {
 				"\n" + 
 				"<div class=\"orange-layer\"></div>\n" + 
 				"\n" + 
-				"<div class=\"gift-search\" id=\"giftSearch\">\n" + 
+				"<div class=\"gift-search\">\n" + 
 				"\n" + 
-				"    <div class=\"btn-group inline pull-left btn-group-justified\" data-toggle=\"buttons-checkbox\" id=\"keepSearchBool\">\n" + 
-				"        <div class=\"btn btn-warning btn-space\" id=\"keepSearching\">نه، فعلا دارم چرخ میزنم!</div>\n" + 
-				"        <div class=\"btn btn-primary btn-space\" id=\"uhum\">اوهوم</div>\n" + 
-				"        <div class=\"btn btn-space\" id=\"keepSearchQuestion\">می گردی؟</div>\n" + 
+				"    <div class=\"btn-group inline pull-left btn-group-justified\" data-toggle=\"buttons-checkbox\">\n" + 
+				"        <div class=\"btn btn-warning btn-space\">نه، فعلا دارم چرخ میزنم!</div>\n" + 
+				"        <div class=\"btn btn-primary btn-space\">اوهوم</div>\n" + 
+				"        <div class=\"btn btn-space\">می گردی؟</div>\n" + 
 				"\n" + 
-				"        <div class=\"btn-group btn-space\" id=\"whoFor\">\n" + 
-				"            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\" >\n" + 
+				"        <div class=\"btn-group btn-space\">\n" + 
+				"            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\">\n" + 
 				"                همکلاسی دخترت <span class=\"caret\"></span>\n" + 
 				"            </button>\n" + 
 				"            <ul class=\"dropdown-menu\" role=\"menu\">\n" + 
@@ -576,16 +573,15 @@ public class Pages {
 				"<div class=\"home-category\">\n" + 
 				"\n" + 
 				"    <div align=\"center\">\n" + 
-				"        <h3>فروشکاهها</h3>\n" + 
+				"        <h3>فروشگاه ها</h3>\n" + 
 				"    </div>\n" + 
 				"\n" + 
 				"    <div class=\"row\">\n" + 
 				"\n" + 
-				"        <div class=\"col-md-1\"></div>\n" + 
-				""; 
-	
-		String after =  
-				"    </div>\n" + 
+				"        <div class=\"col-md-1\"></div>"; 
+
+		String after =  ""
+				+ "    </div>\n" + 
 				"\n" + 
 				"</div>\n" + 
 				"\n" + 
@@ -694,16 +690,27 @@ public class Pages {
 				"            <input type=\"text\"  class=\"form-control \" name=\"ItemDescription\" required=\"required\">\n" + 
 				"\n"
 				+ "            <br/>\n" + 
-				"\n" + 
+				"\n" +
+				"	<form action=\"Ladan?Action=2001\" method=\"post\">\n" +
 				"            <h4 class=\"text-right\">به کدام فروشگاه اضافه شود؟</h4>\n" + 
-				"            <button class=\"btn btn-default btn-block dropdown-toggle label-property\" type=\"button\" data-toggle=\"dropdown\">\n" + 
-				"                <span class=\"caret\"></span></button>\n" + 
-				"            <ul class=\"dropdown-menu\" name=\"ItemShopName\">\n" + 
-				"                <li><a href=\"#\">Normal</a></li>\n" + 
-				"                <li><a href=\"#\">Normal</a></li>\n" + 
-				"                \n" + 
-				"            </ul>\n" + 
-				"" + 
+				"            <button class=\"btn btn-default btn-block dropdown-toggle label-property\" type=\"submit\" data-toggle=\"dropdown\">\n" + 
+				"                <span class=\"caret\"></span></button>\n" 
+				;
+		
+				String shopDropDown = "            <h4 class=\"text-right\">به کدام فروشگاه اضافه شود؟</h4>\n" + 
+						"            <input type=\"text\"  class=\"form-control \" name=\"ItemShopName\" required=\"required\">\n" + 
+						"\n";               
+				/*String shopnumber = "shop";
+				_us.setOwns();
+				for(int i =0; i< _us.getMyShops().size(); i++)
+				{
+					shopDropDown = shopDropDown + "<option>"
+							+ _us.getMyShops().elementAt(i).getName()
+							+ "</option>\n";
+				}*/
+				String after = "                \n" + 
+				"            </select>\n" + 
+				"</form>\n" + 
 				"            <div class=\"form-group\">\n" + 
 				"                <h4 class=\"text-right\">عکس آیتم</h4>\n" + 
 				"                <div class=\"input-group\">\n" + 
@@ -734,7 +741,7 @@ public class Pages {
 				"</body>\n" + 
 				"</html>";
 		
-		return temp;
+		return temp + shopDropDown + after;
 	}
 	public String createNewItem(String title, String desc, String shopname)
 	{
@@ -769,45 +776,7 @@ public class Pages {
 				"    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js\"></script>\n" + 
 				"    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n" + 
 				"\n" + 
-				"</head>\n" + 
-				"<body>\n" + 
-				"\n" + 
-				"\n" + 
-				"\n" + 
-				"\n" + 
-				"    <div class=\"navigation-bar first-fixed-nav-bar\">\n" + 
-				"\n" + 
-				"        <div id=\"navigation-container\">\n" + 
-				"\n" + 
-				"            <img src=\"img/Honarista%203.png\">\n" + 
-				"\n" + 
-				"            <ul class=\"menu form-inline\">\n" + 
-				"\n" + 
-				"                <li><a href=\"#\">ورود</a></li>\n" + 
-				"                <li><a href=\"#\">فروش در هنریستا</a></li>\n" + 
-				"            </ul>\n" + 
-				"        </div>\n" + 
-				"\n" + 
-				"    </div >\n" + 
-				"\n" + 
-				"\n" + 
-				"    <div class=\"navigation-bar scd-fixed-nav-bar shadow\">\n" + 
-				"\n" + 
-				"        <div id=\"navigation-container-scd\">\n" + 
-				"            <ul class=\"menu\">\n" + 
-				"                <li><a href=\"#\">تالار مشاهیر</a></li>\n" + 
-				"                <li><a href=\"#\">دکوراسیون خانه</a></li>\n" + 
-				"                <li><a href=\"#\">جواهرات</a></li>\n" + 
-				"                <li><a href=\"#\">پوشیدنی</a></li>\n" + 
-				"                <li><a href=\"#\">آنتیک</a></li>\n" + 
-				"                <li><a href=\"#\">گیاه</a></li>\n" + 
-				"                <li><a href=\"#\">چوب</a></li>\n" + 
-				"                <li><a href=\"#\">اسباب بازی</a></li>\n" + 
-				"                <li><a href=\"#\">هنر خلاق</a></li>\n" + 
-				"            </ul>\n" + 
-				"        </div>\n" + 
-				"\n" + 
-				"    </div >\n" + 
+				"</head>\n" + getHeader() +
 				"\n" + 
 				"\n" + 
 				"    <div class=\"wrapper\">\n" + 
@@ -869,5 +838,345 @@ public class Pages {
 				"</html>";
 		
 		return temp;
+	}
+	public String getLoggedInIndex()
+	{
+		String temp=""
+				+ "\n" + 
+				"<!DOCTYPE html>\n" + 
+				"<html lang=\"en\">\n" + 
+				"<head>\n" + 
+				"    <title>Honarista</title>\n" + 
+				"    <meta charset=\"utf-8\">\n" + 
+				"    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n" + 
+				"    <link rel=\"stylesheet\" href=\"css/setting.css\">\n" + 
+				"    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\n" + 
+				"    <link rel=\"stylesheet\" href=\"css/Navigation.css\">\n" + 
+				"    <link rel=\"icon\" href=\"img/Honarista%20Favicon.png\">\n" + 
+				"    <link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/3/w3.css\">\n" + 
+				"    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js\"></script>\n" + 
+				"    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n" + 
+				"</head>\n" + 
+				getHeader() +	
+				"\n" + 
+				"<!--\n" + 
+				"<div class=\"first-fixed-nav-bar\">\n" + 
+				"\n" + 
+				"    <div class=\"btn-group inline pull-right\">\n" + 
+				"        <a href=\"registerForm.html\"><div class=\"btn btn-space btn-success\">ورود به سایت</div></a>\n" + 
+				"    </div>\n" + 
+				"\n" + 
+				"\n" + 
+				"</div >\n" + 
+				"\n" + 
+				"<div class=\"scd-fixed-nav-bar\">\n" + 
+				"    <div class=\"btn-group inline pull-right\">\n" + 
+				"        <div class=\"btn btn-space\">هنر خلاق</div>\n" + 
+				"        <div class=\"btn btn-space\">اسباب بازی</div>\n" + 
+				"        <div class=\"btn btn-space\">چوب</div>\n" + 
+				"        <div class=\"btn btn-space\">گیاه</div>\n" + 
+				"        <div class=\"btn btn-space\">آنتیک</div>\n" + 
+				"        <div class=\"btn btn-space\">پوشیدنی</div>\n" + 
+				"        <div class=\"btn btn-space\">جواهرات</div>\n" + 
+				"        <div class=\"btn btn-space\">دکوراسیون خانه</div>\n" + 
+				"        <div class=\"btn btn-space\">تالار مشاهیر</div>\n" + 
+				"    </div>\n" + 
+				"</div>\n" + 
+				"-->\n" + 
+				"<div class=\"homepage-background\">\n" + 
+				"\n" + 
+				"    <div>\n" + 
+				"        <p>با خرید هر یک از دست سازه های هنرمندان هنریستا، یک درخت به نام شما در ایران می کاریم! :)</p>\n" + 
+				"    </div>\n" + 
+				"\n" + 
+				"    <div></div>\n" + 
+				"    <div></div>\n" + 
+				"\n" + 
+				"</div>\n" + 
+				"\n" + 
+				"<div class=\"orange-layer\"></div>\n" + 
+				"\n" + 
+				"<div class=\"gift-search\">\n" + 
+				"\n" + 
+				"    <div class=\"btn-group inline pull-left btn-group-justified\" data-toggle=\"buttons-checkbox\">\n" + 
+				"        <div class=\"btn btn-warning btn-space\">نه، فعلا دارم چرخ میزنم!</div>\n" + 
+				"        <div class=\"btn btn-primary btn-space\">اوهوم</div>\n" + 
+				"        <div class=\"btn btn-space\">می گردی؟</div>\n" + 
+				"\n" + 
+				"        <div class=\"btn-group btn-space\">\n" + 
+				"            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\">\n" + 
+				"                همکلاسی دخترت <span class=\"caret\"></span>\n" + 
+				"            </button>\n" + 
+				"            <ul class=\"dropdown-menu\" role=\"menu\">\n" + 
+				"                <li><a href=\"#\" id=\"btn1\">دوست</a></li>\n" + 
+				"                <li><a href=\"#\" id=\"btn2\">خانواده</a></li>\n" + 
+				"                <li><a href=\"#\" id=\"btn3\">مادرت</a></li>\n" + 
+				"            </ul>\n" + 
+				"        </div>\n" + 
+				"\n" + 
+				"        <div class=\"btn btn-space\">برای</div>\n" + 
+				"\n" + 
+				"        <div class=\"btn-group btn-space\">\n" + 
+				"            <button type=\"button\" class=\"btn btn-primary dropdown-toggle\" data-toggle=\"dropdown\">\n" + 
+				"                10 تا 50 تومانی  <span class=\"caret\"></span>\n" + 
+				"            </button>\n" + 
+				"            <ul class=\"dropdown-menu\" role=\"menu\">\n" + 
+				"                <li><a href=\"#\" id=\"btn1\">50 تا 100 تومانی</a></li>\n" + 
+				"                <li><a href=\"#\" id=\"btn2\">150 تا 200 تومانی</a></li>\n" + 
+				"                <li><a href=\"#\" id=\"btn3\">200 به بالا</a></li>\n" + 
+				"            </ul>\n" + 
+				"        </div>\n" + 
+				"\n" + 
+				"        <div class=\"btn btn-space\" >دنبال یک هدیه</div>\n" + 
+				"\n" + 
+				"\n" + 
+				"    </div>\n" + 
+				"\n" + 
+				"</div>\n" + 
+				"\n" + 
+				"<div class=\"home-category\">\n" + 
+				"\n" + 
+				"    <div align=\"center\">\n" + 
+				"        <h3>دسته بندی های منتخب</h3>\n" + 
+				"    </div>\n" + 
+				"\n" + 
+				"    <div class=\"row\">\n" + 
+				"\n" + 
+				"        <div class=\"col-md-1\"></div>\n" + 
+				"\n" + 
+				"        <div class=\"col-md-2\">\n" + 
+				"            <a href=\"\">\n" + 
+				"                <img src=\"Photos/doll.jpg\" class=\"img-rounded\" alt=\"wearing\" style=\"width:100%\">\n" + 
+				"                <div class=\"caption\">\n" + 
+				"                    <p>اسباب بازی</p>\n" + 
+				"                </div>\n" + 
+				"            </a>\n" + 
+				"        </div>\n" + 
+				"\n" + 
+				"        <div class=\"col-md-2\">\n" + 
+				"            <a href=\"\">\n" + 
+				"                <img src=\"Photos/home.jpg\" class=\"img-rounded\" alt=\"Home\" style=\"width:100%\">\n" + 
+				"                <div class=\"caption\">\n" + 
+				"                    <p>دکوراسیون خانه</p>\n" + 
+				"                </div>\n" + 
+				"            </a>\n" + 
+				"        </div>\n" + 
+				"\n" + 
+				"        <div class=\"col-md-2\">\n" + 
+				"            <a href=\"\">\n" + 
+				"                <img src=\"Photos/wood.jpg\" class=\"img-rounded\" alt=\"wood\" style=\"width:100%\">\n" + 
+				"                <div class=\"caption\">\n" + 
+				"                    <p>چوب</p>\n" + 
+				"                </div>\n" + 
+				"            </a>\n" + 
+				"        </div>\n" + 
+				"\n" + 
+				"        <div class=\"col-md-2\">\n" + 
+				"            <a href=\"\">\n" + 
+				"                <img src=\"Photos/art.jpg\" class=\"img-rounded\" alt=\"art\" style=\"width:100%\">\n" + 
+				"                <div class=\"caption\">\n" + 
+				"                    <p>هنر خلاق</p>\n" + 
+				"                </div>\n" + 
+				"            </a>\n" + 
+				"        </div>\n" + 
+				"\n" + 
+				"        <div class=\"col-md-2\">\n" + 
+				"            <a href=\"\">\n" + 
+				"                <img src=\"Photos/wear.jpg\" class=\"img-rounded\" alt=\"art\" style=\"width:100%\">\n" + 
+				"                <div class=\"caption\">\n" + 
+				"                    <p>پوشیدنی</p>\n" + 
+				"                </div>\n" + 
+				"            </a>\n" + 
+				"        </div>\n" + 
+				"    </div>\n" + 
+				"\n" + 
+				"</div>\n" + 
+				"\n" + 
+				"<div class=\"home-gallery\">\n" + 
+				"\n" + 
+				"    <div align=\"center\">\n" + 
+				"        <h3>گالری های منتخب</h3>\n" + 
+				"    </div>\n" + 
+				"\n" + 
+				"    <div class=\"row\">\n" + 
+				"\n" + 
+				"        <div class=\"col-md-2\"></div>\n" + 
+				"        <div class=\"col-md-2\">\n" + 
+				"            <a href=\"\">\n" + 
+				"                <img src=\"Photos/forest.jpg\" class=\"img-rounded\" alt=\"forest\" style=\"width:100%\">\n" + 
+				"                <div class=\"caption\">\n" + 
+				"                    <p>تراریوم مینی فارست</p>\n" + 
+				"                </div>\n" + 
+				"            </a>\n" + 
+				"        </div>\n" + 
+				"\n" + 
+				"        <div class=\"col-md-2\">\n" + 
+				"            <a href=\"\">\n" + 
+				"                <img src=\"Photos/wall.jpg\" class=\"img-rounded\" alt=\"wall\" style=\"width:100%\">\n" + 
+				"                <div class=\"caption\">\n" + 
+				"                    <p>دیوار چوب</p>\n" + 
+				"                </div>\n" + 
+				"            </a>\n" + 
+				"        </div>\n" + 
+				"\n" + 
+				"        <div class=\"col-md-2\">\n" + 
+				"            <a href=\"\">\n" + 
+				"                <img src=\"Photos/silver.jpg\" class=\"img-rounded\" alt=\"silver\" style=\"width:100%\">\n" + 
+				"                <div class=\"caption\">\n" + 
+				"                    <p>نقره آرت</p>\n" + 
+				"                </div>\n" + 
+				"            </a>\n" + 
+				"        </div>\n" + 
+				"\n" + 
+				"        <div class=\"col-md-2\">\n" + 
+				"            <a href=\"\">\n" + 
+				"                <img src=\"Photos/kaktoos.jpg\" class=\"img-rounded\" alt=\"kaktoos\" style=\"width:100%\">\n" + 
+				"                <div class=\"caption\">\n" + 
+				"                    <p>خانه کاکتوس</p>\n" + 
+				"                </div>\n" + 
+				"            </a>\n" + 
+				"        </div>\n" + 
+				"\n" + 
+				"    </div>\n" + 
+				"\n" + 
+				"</div>\n" + 
+				"\n" + 
+				"<div class=\"home-icons\">\n" + 
+				"    <img src=\"Home%20Page/Artistic%20Icons%20Row.png\" class=\"img-rounded\" alt=\"Icons\" style=\"width:100%\">\n" + 
+				"</div>\n" + 
+				"\n" + 
+				"<div class=\"home-gap\">\n" + 
+				"\n" + 
+				"</div>\n" + 
+				"\n" + 
+				"<div class=\"home-footer\">\n" + 
+				"    <div class=\"row\">\n" + 
+				"\n" + 
+				"    </div>\n" + 
+				"</div>\n" + 
+				"\n" + 
+				"</body>\n" + 
+				"</html>";
+		
+		return temp;
+	}
+	public String getHeader()
+	{
+		String before = "";
+		if(loggedIn == null)
+		{
+			before = ""
+					+ "\n" + 
+					"<!DOCTYPE html>\n" + 
+					"<html lang=\"en\">\n" + 
+					"<head>\n" + 
+					"    <title>Honarista</title>\n" + 
+					"    <meta charset=\"utf-8\">\n" + 
+					"    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n" + 
+					"    <link rel=\"stylesheet\" href=\"css/setting.css\">\n" + 
+					"    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\n" + 
+					"    <link rel=\"stylesheet\" href=\"css/Navigation.css\">\n" + 
+					"    <link rel=\"icon\" href=\"img/Honarista%20Favicon.png\">\n" + 
+					"    <link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/3/w3.css\">\n" + 
+					"    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js\"></script>\n" + 
+					"    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n" + 
+					"</head>\n" + 
+					"<body>\n" + 
+					"\n" + 
+					"<!-- nav bar -->\n" + 
+					"\n" + 
+					"<div class=\"navigation-bar first-fixed-nav-bar\">\n" + 
+					"\n" + 
+					"    <div id=\"navigation-container\">\n" + 
+					"\n" + 
+					"        <img src=\"img/Honarista%203.png\">\n" + 
+					"\n" + 
+					"        <ul class=\"menu form-inline\">\n" + 
+					"\n" + 
+					"            <li><a href=\"Ladan?Action=10\">ورود</a></li>\n" + 
+					"            <li><a href=\"Ladan?Action=15\">فروش در هنریستا</a></li>\n" + 
+					"        </ul>\n" + 
+					"    </div>\n" + 
+					"\n" + 
+					"</div >\n" + 
+					"\n" + 
+					"\n" + 
+					"<div class=\"navigation-bar scd-fixed-nav-bar shadow\">\n" + 
+					"\n" + 
+					"    <div id=\"navigation-container-scd\">\n" + 
+					"        <ul class=\"menu\">\n" + 
+					"            <li><a href=\"Ladan?Action=109\">تالار مشاهیر</a></li>\n" + 
+					"            <li><a href=\"Ladan?Action=108\">دکوراسیون خانه</a></li>\n" + 
+					"            <li><a href=\"Ladan?Action=107\">جواهرات</a></li>\n" + 
+					"            <li><a href=\"Ladan?Action=106\">پوشیدنی</a></li>\n" + 
+					"            <li><a href=\"Ladan?Action=105\">آنتیک</a></li>\n" + 
+					"            <li><a href=\"Ladan?Action=104\">گیاه</a></li>\n" + 
+					"            <li><a href=\"Ladan?Action=103\">چوب</a></li>\n" + 
+					"            <li><a href=\"Ladan?Action=102\">اسباب بازی</a></li>\n" + 
+					"            <li><a href=\"Ladan?Action=101\">هنر خلاق</a></li>\n" + 
+					"        </ul>\n" + 
+					"    </div>\n" + 
+					"\n" + 
+					"</div >\n"; 
+		}
+		else
+		{
+			before = ""
+					+ "\n" + 
+					"<!DOCTYPE html>\n" + 
+					"<html lang=\"en\">\n" + 
+					"<head>\n" + 
+					"    <title>Honarista</title>\n" + 
+					"    <meta charset=\"utf-8\">\n" + 
+					"    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n" + 
+					"    <link rel=\"stylesheet\" href=\"css/setting.css\">\n" + 
+					"    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\n" + 
+					"    <link rel=\"stylesheet\" href=\"css/Navigation.css\">\n" + 
+					"    <link rel=\"icon\" href=\"img/Honarista%20Favicon.png\">\n" + 
+					"    <link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/3/w3.css\">\n" + 
+					"    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js\"></script>\n" + 
+					"    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n" + 
+					"</head>\n" + 
+					"<body>\n" + 
+					"\n" + 
+					"<!-- nav bar -->\n" + 
+					"\n" + 
+					"<div class=\"navigation-bar first-fixed-nav-bar\">\n" + 
+					"\n" + 
+					"    <div id=\"navigation-container\">\n" + 
+					"\n" + 
+					"        <img src=\"img/Honarista%203.png\">\n" + 
+					"\n" + 
+					"        <ul class=\"menu form-inline\">\n" + 
+					"\n" + 
+					"            <li>"
+					+ loggedIn.getFullName()
+					+ "</li>\n" + 
+					"            <li><a href=\"Ladan?Action=15\">فروش در هنریستا</a></li>\n" + 
+					"        </ul>\n" + 
+					"    </div>\n" + 
+					"\n" + 
+					"</div >\n" + 
+					"\n" + 
+					"\n" + 
+					"<div class=\"navigation-bar scd-fixed-nav-bar shadow\">\n" + 
+					"\n" + 
+					"    <div id=\"navigation-container-scd\">\n" + 
+					"        <ul class=\"menu\">\n" + 
+					"            <li><a href=\"Ladan?Action=109\">تالار مشاهیر</a></li>\n" + 
+					"            <li><a href=\"Ladan?Action=108\">دکوراسیون خانه</a></li>\n" + 
+					"            <li><a href=\"Ladan?Action=107\">جواهرات</a></li>\n" + 
+					"            <li><a href=\"Ladan?Action=106\">پوشیدنی</a></li>\n" + 
+					"            <li><a href=\"Ladan?Action=105\">آنتیک</a></li>\n" + 
+					"            <li><a href=\"Ladan?Action=104\">گیاه</a></li>\n" + 
+					"            <li><a href=\"Ladan?Action=103\">چوب</a></li>\n" + 
+					"            <li><a href=\"Ladan?Action=102\">اسباب بازی</a></li>\n" + 
+					"            <li><a href=\"Ladan?Action=101\">هنر خلاق</a></li>\n" + 
+					"        </ul>\n" + 
+					"    </div>\n" + 
+					"\n" + 
+					"</div >\n";
+		}
+		return before;
 	}
 }

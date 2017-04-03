@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html ng-app="dashboardContent">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard-newProduct-Finish</title>
+    <link href="css/dashBoard.css" rel="stylesheet">
+    <link href="css/newProduct.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <script src="js/dashboardSinglePage.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body>
+<script type="text/ng-template" id="/home.html">
+    <h1>Home</h1>
+    <h3>{{message}}</h3>
+</script>
+
+<div>
+    <div class="col-md-10 content">
+
+        <div class="col-md-2 news-events">
+
+            <div class="last-event-text">
+                <p>رویداد های اخیر</p>
+            </div>
+
+            <div class="events">
+                <div class="single-events comment">
+                    <img class="img-responsive little-item-space" src="Shop%20page/pens.jpg">
+                    <p class="inline-text pCm">!علی دیدگاه خود را نوشت</p>
+                    <p class="date">اسفند 95</p>
+                </div>
+
+                <div class="single-events like">
+                    <img class="img-responsive little-item-space" src="Shop%20page/pens.jpg">
+                    <p class="inline-text pCm">!علی کار شما را دوست داشت</p>
+                    <p class="date">اسفند 95</p>
+                </div>
+
+                <div class="single-events comment">
+                    <img class="img-responsive little-item-space" src="Shop%20page/pens.jpg">
+                    <p class="inline-text pCm">!هانیه دیدگاه خود را نوشت</p>
+                    <p class="date">اسفند 95</p>
+                </div>
+
+                <div class="single-events like">
+                    <img class="img-responsive little-item-space" src="Shop%20page/pens.jpg">
+                    <p class="inline-text pCm">!هانیه کار شما را دوست داشت</p>
+                    <p class="date">اسفند 95</p>
+                </div>
+
+                <button class="all-events-btn">نمایش همه رویداد ها</button>
+
+            </div>
+
+            <hr/>
+
+            <div class="news">
+
+                <div class="single-news">
+                    <p class="inline-text">شرکت در نمایشگاه فصلی هنریستا در دانشگاه تهران</p>
+                    <p class="date">اسفند 95</p>
+                </div>
+
+                <div class="single-news">
+                    <p class="inline-text">!راهنمای عکاسی حرفه ای از دست سازه های هنری در خانه با امکانات محدود</p>
+                    <p class="date">اسفند 95</p>
+                </div>
+
+                <div class="single-news">
+                    <p class="inline-text">شرکت در نمایشگاه فصلی هنریستا در دانشگاه تهران</p>
+                    <p class="date">اسفند 95</p>
+                </div>
+
+                <div class="single-news">
+                    <p class="inline-text">!راهنمای عکاسی حرفه ای از دست سازه های هنری در خانه با امکانات محدود</p>
+                    <p class="date">اسفند 95</p>
+                </div>
+
+                <button class="all-posts-btn">نمایش همه پست ها</button>
+
+            </div>
+
+        </div>
+
+        <div ng-view class="col-md-10 verticalLine counts-bar">
+            <div class="myProgress">
+                <div class="myBar-finish">100%</div>
+            </div>
+
+            <div class="set-Property-product">
+
+                <div class="col-md-1"></div>
+
+                <div class="col-md-10 label-property parag-property-send">
+
+
+                    <div class="row finish-box">
+
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <img class="img-circle" src="Shop%20page/confirmation-message-icon.png" width="200" height="200">
+                        </div>
+                        <div class="col-md-4"></div>
+
+                    </div>
+
+                    <p class="parag-property-finish">محصول شما با موفقیت در سایت قرار گرفت</p>
+
+                    <div class="row">
+                        <div class="col-md-5"></div>
+
+                        <div class="col-md-2">
+                            <br/>
+                            <button type="button" class="btn btn-info shop-create-btn">نمایش محصول</button>
+                        </div>
+                        <div class="col-md-5"></div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div id="">
+
+        </div>
+
+    </div>
+
+    <div class="col-md-2 panel-owner">
+        <div class="image-owner">
+            <img class="img-circle" src="Shop%20page/seller.jpg" alt="" height="100" width="100">
+        </div>
+
+        <div class="name-owner">
+            <p>مایتی وینتج</p>
+        </div>
+
+        <div>
+            <div class="panel-group" id="accordion">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="icon-dashboard icon-1x icon-align"></i>میز کار</a>
+                        </h4>
+                    </div>
+
+                    <div class="panel-collapse collapse in">
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#StocksManage"><i class=" icon-1x icon-align"></i>مدیریت محصولات</a>
+                        </h4>
+                    </div>
+                    <div  id="StocksManage" class="panel-collapse collapse">
+                        <div class="sub-panel">
+                            <i class="icon-plus-sign-alt icon-1x icon-align"></i>
+                            <a href="../UI/DashBoardPages">محصول جدید</a>
+
+                        </div>
+                        <div class="sub-panel">
+                            <a href="../UI/DashBoardPages">ویترین ها</a>
+                            <i class="icon-reorder icon-1x icon-align"></i>
+                        </div>
+                        <div class="sub-panel">
+                            <a href="../UI/DashBoardPages">دیدگاه مشتریان</a>
+                            <i class="icon-comment-alt icon-1x icon-align"></i>
+                        </div>
+                        <div class="sub-panel">
+                            <a href="../UI/DashBoardPages">روش های ارسال</a>
+                            <i class="icon-location-arrow icon-1x icon-align"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="icon-envelope icon-1x icon-align"></i>پیام ها</a>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse">
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="icon-truck icon-1x icon-align"></i>سفارش ها</a>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse">
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="icon-percent icon-1x icon-align"></i>تخفیف ها</a>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse">
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="icon-bar-chart icon-1x icon-align"></i>آمار</a>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse">
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="icon-credit-card icon-1x icon-align"></i>امور مالی</a>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse">
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="icon-rocket icon-1x icon-align"></i>تبلیغات</a>
+                    </div>
+                    <div class="panel-collapse collapse">
+
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">راهنمای فروش</a>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse">
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="icon-question-sign icon-1x icon-align"></i>سوالات متداول</a>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse">
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="icon-microphone icon-1x icon-align"></i>گزارش خرابی</a>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse">
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="icon-power-off icon-1x icon-align"></i>خروج</a>
+                        </h4>
+                    </div>
+                    <div class="panel-collapse collapse">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="Honarista-connection">
+            <button class="button tel-twitt-btn"><i class="icon-location-arrow icon-1x icon-connection"></i>کانال تلگرام هنریستا</button>
+            <button class="button insta-btn"><i class="icon-instagram icon-1x icon-connection"></i>اینستاگرام هنریستا</button>
+            <button class="button tel-twitt-btn"><i class="icon-twitter icon-1x icon-connection"></i>توییتر هنریستا</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+</body>
+
+<script>
+    function move() {
+        var elem = document.getElementById("myBar-sendways");
+        var width = 100;
+        var id = setInterval(frame, 100);
+        function frame() {
+            if (width >= 100) {
+                clearInterval(id);
+            } else {
+
+                width++;
+                elem.style.width = width + '%';
+                elem.innerHTML = width * 1  + '%';
+
+            }
+        }
+    }
+</script>
+
+
+
+</html>

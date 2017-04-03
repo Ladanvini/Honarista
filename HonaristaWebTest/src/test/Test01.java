@@ -35,7 +35,10 @@ public class Test01 extends HttpServlet {
 		switch(i) {
 		case 10:
 			//LOGIN
-			s=pages.getLoginPage();	
+			if(!loggedIn)
+				s=pages.getLoginPage();
+			else
+				s=pages.getLoggedInIndex();
 		break;
 		case 11:
 			//REGISTRATION
@@ -46,6 +49,24 @@ public class Test01 extends HttpServlet {
 			break;
 		case 14:
 			//LOGIN WITH PHONE
+			break;
+		case 15:
+			if(!loggedIn)
+			{
+				System.out.println("NOT LOGGED IN");
+				s=pages.getLoginPage();
+			}
+			else
+			{
+				System.out.println("IN HEEEEEEEEEEEEE");
+				s=pages.getDashboardPage();
+			}
+			break;
+		case 16:
+			//LOGOUT
+			loggedIn = 
+			pages.logout();
+			s=pages.getLoggedInIndex();
 			break;
 		case 1345:
 			String username;
@@ -58,7 +79,7 @@ public class Test01 extends HttpServlet {
 			if(pages.authenticate(username, password))
 				loggedIn = true;
 			if(loggedIn)
-				s=pages.getProfilePage();
+				s=pages.getLoggedInIndex();
 			break;
 		case 101:
 			s=pages.getBrowsePage("creativeArt");
@@ -91,13 +112,25 @@ public class Test01 extends HttpServlet {
 			//add new item
 			s=pages.getCreateItemPage();
 			break;
+		case 1350:
+			//register
+			String userFirstName = req.getParameter("firstname");
+			String userLastName = req.getParameter("lastname");
+			String userPassword = req.getParameter("regpass");
+			String userEmail = req.getParameter("regemail");
+			s=pages.registerUser(userFirstName, userLastName, userEmail, userPassword);
+			break;
 		case 2000:
 			//item approve
 			/*TODO fix selectlist for item */
 			String itemTitle = req.getParameter("ItemTitle");
 			String itemDesc = req.getParameter("ItemDescription");
 			String shopName = req.getParameter("ItemShopName");
-			s = itemTitle + "\n" + itemDesc + "\n" + shopName;
+			System.out.println(shopName);
+			s = pages.createNewItem(itemTitle, itemDesc, shopName);
+			break;
+		case 2001:
+			shopName = req.getParameter("ItemShopName");
 			break;
 		case 2011:
 			//cancel
