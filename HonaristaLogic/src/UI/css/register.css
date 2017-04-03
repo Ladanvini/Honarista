@@ -192,3 +192,9 @@ textarea {
     background:#ccc;
     color:#fff;
 }
+
+.radio-class {
+    position: relative;
+    margin-bottom: 40px;
+}
+
