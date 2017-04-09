@@ -1,0 +1,112 @@
+@font-face {
+    font-family: "Medium";
+    src: url('../Fonts/IRANSans_Medium.ttf');
+}
+
+.contents{
+    width: 100%;
+    background-color: #D7DACF;
+    margin-top: 5%;
+}
+
+.advertise{
+
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-bottom: 5%;
+    margin-top: 40px;
+    background-color: white;
+    color: black;
+    height: 100px;
+}
+
+.info-block{
+    font-family: Medium;
+    font-size: smaller;
+    height: 40px;
+    text-align: center;
+    background-color: white;
+    margin-top: 4%;
+    padding-bottom: 5%;
+    border-top: 1px ridge grey;
+    border-bottom: 1px ridge grey;
+    border-right: 1px ridge grey;
+    border-left: 1px ridge grey;
+}
+
+.suppurt-icon i{
+    color: green;
+    margin-left: 2%;
+}
+
+.sending-icon i{
+    color: red;
+    margin-left: 2%;
+}
+
+.tree-icon i{
+    color: greenyellow;
+    margin-left: 2%;
+}
+
+.comment-icon i{
+    color: #00b0ff;
+    margin-left: 2%;
+}
+
+.card-icon i{
+    color: cornflowerblue;
+    margin-left: 2%;
+}
+
+.truck-icon i{
+    color: brown;
+    margin-left: 2%;
+}
+
+.info-row{
+    margin-right: 2%;
+    margin-left: 2%;
+}
+
+.stocks{
+    margin-top: 4%;
+    height: 1300px;
+}
+
+.image-container {
+    display: inline-block;
+    position: relative;
+}
+
+.heart-button {
+    position: absolute;
+    right: 20%;
+    top: 10px;
+}
+
+.case-button {
+    position: absolute;
+    right: 10%;
+    top: 10px;
+}
+
+.active-heart{
+    color:red;
+}
+
+.active-case{
+    color:green;
+}
+
+.selection-box{
+    font-family: Medium;
+    font-size: smaller;
+    background-color: white;
+    text-align: center;
+    height: 400px;
+}
+
+.right{
+    text-align: right;
+}

@@ -1,3 +1,18 @@
+@font-face {
+    font-family: "UltraLight";
+    src: url('../Fonts/IRANSans_UltraLight.ttf');
+}
+
+@font-face {
+    font-family: "Bold";
+    src: url('../Fonts/IRANSans_Bold.ttf');
+}
+
+@font-face {
+    font-family: "Medium";
+    src: url('../Fonts/IRANSans_Medium.ttf');
+}
+
 .first-fixed-nav-bar {
     position: fixed;
     top: 0;

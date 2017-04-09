@@ -1,3 +1,18 @@
+@font-face {
+    font-family: "UltraLight";
+    src: url('../Fonts/IRANSans_UltraLight.ttf');
+}
+
+@font-face {
+    font-family: "Bold";
+    src: url('../Fonts/IRANSans_Bold.ttf');
+}
+
+@font-face {
+    font-family: "Medium";
+    src: url('../Fonts/IRANSans_Medium.ttf');
+}
+
 .first-fixed-nav-bar {
     /*position: fixed;*/
     top: 0;
@@ -67,7 +82,7 @@ body {
 .first-fixed-nav-bar li a {
     color: white;
     font-size: 18px;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-family: UltraLight;
     text-decoration: none;
     line-height: 50px;
     padding: 5px 15px;
@@ -80,7 +95,7 @@ body {
 .scd-fixed-nav-bar li a {
     color: black;
     font-size: 18px;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-family: Bold;
     text-decoration: none;
     line-height: 30px;
     padding: 5px 10px;
@@ -117,8 +132,9 @@ body {
 }
 
 .footer {
+    font-family: Medium;
     color: white;
-    height: 300px;
+    height: 200px;
     bottom: 40px;
     background-color: black;
     text-align: center;
@@ -158,4 +174,14 @@ h2 {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     line-height: 50px;
     opacity: 0.7;
+}
+
+.MadeBy{
+    font-family: Medium;
+    font-size: small;
+    text-align: center;
+}
+
+.heart-icon{
+    color: red;
 }
