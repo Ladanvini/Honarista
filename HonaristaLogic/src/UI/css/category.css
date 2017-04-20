@@ -110,3 +110,8 @@
 .right{
     text-align: right;
 }
+
+.btn_connection{
+    margin-top: 10px;
+    font-family: Medium;
+}

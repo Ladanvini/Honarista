@@ -1,3 +1,18 @@
+@font-face {
+    font-family: "UltraLight";
+    src: url('../Fonts/IRANSans_UltraLight.ttf');
+}
+
+@font-face {
+    font-family: "Bold";
+    src: url('../Fonts/IRANSans_Bold.ttf');
+}
+
+@font-face {
+    font-family: "Medium";
+    src: url('../Fonts/IRANSans_Medium.ttf');
+}
+
 *, *:before, *:after {
     box-sizing: border-box;
 }
@@ -32,6 +47,7 @@ a:hover {
 }
 
 .tab-group {
+    font-family: Medium;
     list-style: none;
     padding: 0;
     margin: 0 0 40px 0;
@@ -131,6 +147,7 @@ textarea {
 }
 
 .field-wrap {
+    font-family: Medium;
     position: relative;
     margin-bottom: 40px;
 }
@@ -155,6 +172,7 @@ textarea {
     border-radius: 0;
     padding: 15px 0;
     font-size: 2rem;
+    font-family: Bold;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .1em;
@@ -175,6 +193,7 @@ textarea {
 
 .forgot {
     margin-top: 10px;
+    font-family: Medium;
     text-align: right;
 }
 
@@ -193,8 +212,25 @@ textarea {
     color:#fff;
 }
 
-.radio-class {
+.role_box select {
     position: relative;
     margin-bottom: 40px;
+    height: 29px;
+    width: 100%;
+    background-color: #ebebdb;
+    font-family: Medium;
+    direction: rtl;
+}
+
+.role_box option{
+    direction: rtl;
+    font-family: Medium;
+}
+
+.wrong {
+    margin-top: 10px;
+    font-family: Medium;
+    text-align: right;
+    color: red;
 }
 
